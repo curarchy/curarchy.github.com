@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML >
+<html>
+	<head>
+		<title>TicTacTon</title>
+		<script type="text/javascript" src="Webresources/javascript/framework/jquery-1.9.1.js"></script>
+		<style type="text/css">
+			#gameArea{width:680px;margin: 0 auto;height: 680px;}
+			.smallDiv{border:2px solid #B8FFB7;float: left;width:60px;height:60px;}
+			.bigDiv{border:2px solid #0DB300;float:left;width:192px;height: 192px;}
+			.off{cursor:pointer;}
+			.on{cursor:default;}
+			.on.smallDiv.circle{background: url(webresources/img/circle.png) no-repeat center center;}
+			.on.smallDiv.cross{background: url(webresources/img/cross.png) no-repeat center center;}
+			.shadow{background-color: #ccc;}
+			.shadow .off{cursor: default;}
+			.bigDiv.circle,.bigDiv.circle .smallDiv{border-color:#FFAAAA;}
+			.bigDiv.circle .smallDiv.line{background-color: #FEE0E0;}
+			.bigDiv.cross,.bigDiv.cross .smallDiv{border-color:#7DC9FF;}		
+			.bigDiv.cross .smallDiv.line{background-color: #C2E6FF;}
+			#msg{padding:25px;width: 200px;position: absolute;left: 50%;margin-left:320px;border:1px solid #ccc;top: 25px;}
+			#turn{margin-top: 5px;}
+			.red{color: red;}
+			.blue{color: blue;}
+		</style>
+	</head>
+	<body>		
+		<div id="gameArea"></div>
+		<div id="msg">
+			<div>
+				<label>success:</label></br>
+				<label><input type="radio" checked="checked" id="one" name="success"/>
+					one
+				</label></br>
+				<label><input type="radio"  id="two" name="success"/>
+					two
+				</label></br>
+				<label><input type="radio"  id="three" name="success"/>
+					three
+				</label></br>
+				<label><input type="radio"  id="threeLine" name="success"/>
+					three in line
+				</label>
+			</div>
+			<label class="red" id="turn">red turn</label>
+			</br>
+			<a href="http://weibo.com/curarchy" target="_blank">有bug请联系我@weibo</a>
+		</div>
+	</body>
+	<script type="text/javascript" src="Webresources/javascript/game/tictacton.js"></script>
+</html>
