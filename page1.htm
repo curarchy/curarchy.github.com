@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap 101 Template</title>
+    <title>水心云影の个人站点</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="webresources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"
@@ -13,7 +13,7 @@
         /* Set the fixed height of the footer here */
         #push, #footer { height: 60px; }
         #push-head { height: 45px; }
-        #footer { background-color: #f5f5f5; }
+        #footer { background-color: #EBEBEB; }
         #footer .credit { margin-top: 15px; }
         /* Lastly, apply responsive CSS fixes as necessary */
         @media (max-width: 767px) {
@@ -35,7 +35,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a href="#" class="brand">Project name</a>
+                    <a href="#" class="brand">水心云影の个人站点</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active">
@@ -48,11 +48,15 @@
         </div>
         <div id="push-head"></div>
         <div class="container">
-            <h1>Bootstrap starter template</h1>
-            <p>
-                Use this document as a way to quick start any new project.
-                <br>All you get is this message and a barebones HTML document.</p>
+            <div class="alert alert-info" style="margin-top:100px;">
+                网站建设中，女神镇楼。 @堀北真希
+                <br/>
+                This web site is under construction and the goddess will prevent it from attack. @Horikita Maki
+            </div>
+            <div class="text-center" style="margin-top:100px;">
+                <img src="webresources/img/maki-2013070101.png" id="maki" class="img-rounded" data-placement="bottom" data-toggle="tooltip" title="村姑萌你一脸！"></div>
         </div>
+
         <div id="push"></div>
     </div>
     <div id="footer">
@@ -88,6 +92,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
            $("#footer .contact-area").popover();
+           $("#maki").tooltip();
         });
     </script>
 </body>
