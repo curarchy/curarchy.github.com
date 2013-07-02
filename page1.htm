@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="webresources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+        media="screen" />
+    <style>
+        html, body { height: 100%; /* The html and body elements cannot have any padding or margin. */ }
+        /* Wrapper for page content to push down footer */
+        #wrap { min-height: 100%; height: auto !important; height: 100%; /* Negative indent footer by it's height */ margin: 0 auto -60px; }
+        /* Set the fixed height of the footer here */
+        #push, #footer { height: 60px; }
+        #push-head { height: 45px; }
+        #footer { background-color: #f5f5f5; }
+        #footer .credit { margin-top: 15px; }
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+            #footer { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
+        }
+        
+        .icon-weibo { background: url(webresources/img/weibo_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+        .icon-qq { background: url(webresources/img/qq_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+        .icon-xiami { background: url(webresources/img/xiami_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+        .icon-facebook { background: url(webresources/img/facebook_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+        .icon-twitter { background: url(webresources/img/twitter_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+        .icon-mail { background: url(webresources/img/mail_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+        .contact-area { margin-left: 2px; text-decoration: none; cursor: pointer; }
+        .contact-area:hover{text-decoration: none;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="#" class="brand">Project name</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="#">Home</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="push-head"></div>
+        <div class="container">
+            <h1>Bootstrap starter template</h1>
+            <p>
+                Use this document as a way to quick start any new project.
+                <br>All you get is this message and a barebones HTML document.</p>
+        </div>
+        <div id="push"></div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">
+                <span style="margin-right:10px;vertical-align:bottom;">contact me by:</span>
+                <a class="contact-area muted" href="http://weibo.com/curarchy" target="_blank" data-content="http://weibo.com/curarchy"
+                    data-placement="top" data-trigger="hover" title="微博"> <i class="icon-weibo"></i>
+                </a>
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=393308751&site=qq&menu=yes" class="contact-area muted" data-content="393308751" data-placement="top" data-trigger="hover" title="QQ"> <i class="icon-qq"></i>
+                </a>
+                <a class="contact-area muted"
+                            href="http://www.xiami.com/u/2857090" target="_blank" title="虾米" data-content="http://www.xiami.com/u/2857090" data-placement="top" data-trigger="hover">
+                    <i class="icon-xiami"></i>
+                </a>
+                <a class="contact-area muted" data-content="curarpiktchen@hotmail.com" data-placement="top" data-trigger="hover"
+                            href="mailto:curarpiktchen@hotmail.com" target="_blank" title="邮件">
+                    <i class="icon-mail"></i>
+                </a>
+                <a class="contact-area muted"
+                            href="http://facebook.com/curarchy" target="_blank" title="Facebook" data-content="http://facebook.com/curarchy" data-placement="top" data-trigger="hover">
+                    <i class="icon-facebook"></i>
+                </a>
+                <a class="contact-area muted" href="http://twitter.com/curarchy" target="_blank"
+                                title="Twitter" data-content="http://twitter.com/curarchy" data-placement="top" data-trigger="hover">
+                    <i class="icon-twitter"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="webresources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+           $("#footer .contact-area").popover();
+        });
+    </script>
+</body>
+</html>

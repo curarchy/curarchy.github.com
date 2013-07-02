@@ -1,0 +1,5 @@
+E:\GitHub\curarchy.github.com\bin\curarchy.dll
+E:\GitHub\curarchy.github.com\bin\curarchy.pdb
+E:\GitHub\curarchy.github.com\obj\Debug\ResolveAssemblyReference.cache
+E:\GitHub\curarchy.github.com\obj\Debug\curarchy.dll
+E:\GitHub\curarchy.github.com\obj\Debug\curarchy.pdb
