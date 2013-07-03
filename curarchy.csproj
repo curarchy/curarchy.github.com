@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="index_back.htm" />
     <Content Include="index.htm" />
     <Content Include="Web.config" />
@@ -68,11 +69,14 @@
     <Content Include="webresources\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="webresources\bootstrap\js\bootstrap.js" />
     <Content Include="webresources\bootstrap\js\bootstrap.min.js" />
+    <Content Include="webresources\css\common.css" />
+    <Content Include="webresources\img\aboutMe\meWeixin.jpg" />
+    <Content Include="webresources\img\weixin_24.gif" />
     <Content Include="webresources\img\facebook_24.gif" />
     <Content Include="webresources\img\github_24.gif" />
     <Content Include="webresources\img\mail_24.gif" />
     <Content Include="webresources\img\maki-2013070101.png" />
-    <Content Include="webresources\img\me.png" />
+    <Content Include="webresources\img\aboutMe\me.png" />
     <Content Include="webresources\img\qq_24.gif" />
     <Content Include="webresources\img\rss_24.gif" />
     <Content Include="webresources\img\twitter_24.gif" />
