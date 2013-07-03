@@ -72,6 +72,7 @@
     <Content Include="webresources\img\github_24.gif" />
     <Content Include="webresources\img\mail_24.gif" />
     <Content Include="webresources\img\maki-2013070101.png" />
+    <Content Include="webresources\img\me.png" />
     <Content Include="webresources\img\qq_24.gif" />
     <Content Include="webresources\img\rss_24.gif" />
     <Content Include="webresources\img\twitter_24.gif" />

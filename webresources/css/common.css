@@ -1,0 +1,25 @@
+﻿html, body { height: 100%; /* The html and body elements cannot have any padding or margin. */ }
+/* Wrapper for page content to push down footer */
+#wrap { min-height: 100%; height: auto !important; height: 100%; /* Negative indent footer by it's height */ margin: 0 auto -60px; }
+/* Set the fixed height of the footer here */
+#push, #footer { height: 60px; }
+#push-head { height: 45px; }
+#footer { background-color: #EBEBEB; }
+#footer .credit { margin-top: 15px; }
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
+}
+
+.icon-weibo { background: url(../img/weibo_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-qq { background: url(../img/qq_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-xiami { background: url(../img/xiami_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-facebook { background: url(../img/facebook_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-twitter { background: url(../img/twitter_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-mail { background: url(../img/mail_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-github { background: url(../img/github_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-rss { background: url(../img/rss_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-favorite { background: url(../img/favorite_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.icon-weixin { background: url(../img/weixin_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
+.contact-area { margin-left: 2px; text-decoration: none; cursor: pointer; }
+.contact-area:hover{text-decoration: none;}
