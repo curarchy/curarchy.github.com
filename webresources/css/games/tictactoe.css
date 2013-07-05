@@ -1,4 +1,4 @@
-﻿#gameArea { width: 680px; margin: 0 auto; height: 680px; }
+﻿#gameArea { width: 620px; margin: 0 auto; height: 620px; }
 .smallDiv { border: 2px solid #B8FFB7; float: left; width: 60px; height: 60px; }
 .bigDiv { border: 2px solid #0DB300; float: left; width: 192px; height: 192px; }
 .off { cursor: pointer; }
@@ -11,7 +11,7 @@
 .bigDiv.circle .smallDiv.line { background-color: #FEE0E0; }
 .bigDiv.cross, .bigDiv.cross .smallDiv { border-color: #7DC9FF; }
 .bigDiv.cross .smallDiv.line { background-color: #C2E6FF; }
-#msg { padding: 25px; width: 200px; position: absolute; left: 50%; margin-left: 320px; border: 1px solid #ccc; top: 25px; }
+#msg { padding: 25px; width: 200px;  border: 1px solid #ccc; }
 #turn { margin-top: 5px; }
 .red { color: red; }
 .blue { color: blue; }

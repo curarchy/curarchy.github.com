@@ -53,7 +53,7 @@
   <ItemGroup>
     <Content Include="favicon32.ico" />
     <Content Include="favicon.ico" />
-    <Content Include="games\tictacton.htm" />
+    <Content Include="games\tictactoe.htm" />
     <Content Include="index.htm" />
     <Content Include="index_test.htm" />
     <Content Include="usercontrols\footer.htm" />
@@ -78,7 +78,7 @@
     <Content Include="webresources\bootstrap\js\bootstrap.js" />
     <Content Include="webresources\bootstrap\js\bootstrap.min.js" />
     <Content Include="webresources\css\common.css" />
-    <Content Include="webresources\css\games\tictacton.css" />
+    <Content Include="webresources\css\games\tictactoe.css" />
     <Content Include="webresources\img\aboutMe\meWeixin.jpg" />
     <Content Include="webresources\img\aboutMe\me_128.jpg" />
     <Content Include="webresources\img\aboutMe\me_256.jpg" />
@@ -86,6 +86,7 @@
     <Content Include="webresources\img\aboutMe\me_64.jpg" />
     <Content Include="webresources\img\games\circle.png" />
     <Content Include="webresources\img\games\cross.png" />
+    <Content Include="webresources\img\loading.gif" />
     <Content Include="webresources\img\weixin_24.gif" />
     <Content Include="webresources\img\facebook_24.gif" />
     <Content Include="webresources\img\github_24.gif" />
@@ -98,7 +99,7 @@
     <Content Include="webresources\img\xiami_24.gif" />
     <Content Include="webresources\javascript\common.js" />
     <Content Include="webresources\javascript\resource.js" />
-    <Content Include="webresources\javascript\tictacton.js" />
+    <Content Include="webresources\javascript\tictactoe.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

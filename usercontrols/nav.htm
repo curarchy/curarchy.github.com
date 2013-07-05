@@ -1,12 +1,15 @@
 ﻿<div class="text-center" >
-	<img src="webresources/img/maki-2013070101.png" id="maki" class="img-rounded" data-placement="right"
+	<img src="/webresources/img/maki-2013070101.png" id="maki" class="img-rounded" data-placement="right"
                             data-toggle="tooltip" title="村姑萌你一脸！"></div>
 <ul class="nav nav-tabs nav-stacked" style="margin-top: 20px;">
 	<li class="active">
-		<a href="#">home</a>
+		<a href="/index.htm">Home</a>
 	</li>
-	<li>
-		<a href="#">pageA</a>
+	<li data-placement="right" data-toggle="tooltip" title="new game" id="tictactoeNav">
+		<a href="/games/tictactoe.htm">
+			Tictactoe
+			<span class="label label-important">New!</span>
+		</a>
 	</li>
 	<li>
 		<a href="#">pageB</a>
@@ -26,6 +29,6 @@
 </ul>
 <script type="text/javascript">
 	(function(){
-		$("#maki").tooltip();
+		$("#maki,#tictactoeNav").tooltip();
 	})();
 </script>

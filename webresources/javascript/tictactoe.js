@@ -16,15 +16,15 @@
         area.append(bigDiv);
     }
     var success = [
-		[1, 2, 3],
-		[4, 5, 6],
-		[7, 8, 9],
-		[1, 4, 7],
-		[2, 5, 8],
-		[3, 6, 9],
-		[1, 5, 9],
-		[3, 5, 7]
-	];
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [1, 5, 9],
+        [3, 5, 7]
+    ];
     var judgeMatrix = function (matrix) {
         for (var i = 0; i < success.length; i++) {
             var num = success[i][0];
@@ -70,7 +70,9 @@
     var win = function (flag) {
         alert(flag > 0 ? "red win" : "blue win");
         $(".smallDiv").off("click.game");
-        $("#turn").html(flag > 0 ? "red win" : "blue win");
+        $("#turn").html(flag > 0 ? "red win" : "blue win")
+            .removeClass("alert-info alert-error")
+            .addClass(flag > 0 ? "alert-error" : "alert-info");
     };
     $(".smallDiv").on("click.game", function () {
         var div = $(this);
@@ -81,7 +83,9 @@
             matrix[bKey - 1][sKey - 1] = flag;
             div.addClass(flag > 0 ? "circle" : "cross").addClass("on").removeClass("off");
             flag *= -1;
-            $("#turn").removeClass("red blue").addClass(flag === 1 ? "red" : "blue").html(flag === 1 ? "red turn" : "blue turn");
+            $("#turn").removeClass("alert-info alert-error")
+                .addClass(flag === 1 ? "alert-error" : "alert-info")
+                .html(flag === 1 ? "red turn" : "blue turn");
             setShadow(sKey);
             if (bigDiv.is(".on")) {
                 return;
