@@ -9,11 +9,12 @@
 	<link href="/webresources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"
         media="screen" />
 	<link href="/webresources/css/common.css" rel="stylesheet" type="text/css" />
-	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="/webresources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="/webresources/javascript/resource.js" type="text/javascript"></script>
 	<script src="/webresources/javascript/common.js" type="text/javascript"></script>
 	<link href="/webresources/css/games/tictactoe.css" rel="stylesheet" type="text/css" />
+<!--     <link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" /> -->
 </head>
 <body>
 	<div id="wrap">
@@ -29,19 +30,19 @@
 			<div class="row">
 				<div class="span8" style="margin-top: 20px;" id="mainarea">
 					<div id="gameArea" style="margin:0 auto;"></div>
-<script type="text/javascript">
-(function(){
-var url = "http://widget.weibo.com/distribution/comments.php?width=588&url=auto&border=1&brandline=y&appkey=2161119953&dpc=1";
-url = url.replace("url=auto", "url=" + document.URL); 
-document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:588px"></iframe>');
-})();
-</script>
-<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-window.WBComment.init({
-    "id": "WBCommentFrame"
-});
-</script>
+						<script type="text/javascript">
+						(function(){
+							var url = "http://widget.weibo.com/distribution/comments.php?width=588&url=auto&border=1&brandline=y&appkey=2161119953&dpc=1";
+							url = url.replace("url=auto", "url=" + document.URL); 
+							document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:588px"></iframe>');
+						})();
+						</script>
+						<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+						<script type="text/javascript">
+							window.WBComment.init({
+							    "id": "WBCommentFrame"
+							});
+						</script>
 				</div>
 				<div class="span4" style="margin-top: 20px;" id="msg">
 					<div>
