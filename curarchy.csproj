@@ -105,6 +105,7 @@
     <Content Include="webresources\img\xiami_24.gif" />
     <Content Include="webresources\javascript\common.js" />
     <Content Include="webresources\javascript\infosky.js" />
+    <Content Include="webresources\javascript\programminglist.js" />
     <Content Include="webresources\javascript\programmingres.js" />
     <Content Include="webresources\javascript\resource.js" />
     <Content Include="webresources\javascript\tictactoe.js" />
