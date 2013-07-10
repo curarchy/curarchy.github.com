@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.htm" />
+    <Content Include="articles\programming\201307091.htm" />
     <Content Include="entertainment.htm" />
     <Content Include="favicon32.ico" />
     <Content Include="favicon.ico" />
@@ -59,6 +60,7 @@
     <Content Include="index.htm" />
     <Content Include="index_test.htm" />
     <Content Include="programming.htm" />
+    <Content Include="programmingarticle.htm" />
     <Content Include="usercontrols\footer.htm" />
     <Content Include="usercontrols\header.htm" />
     <Content Include="usercontrols\mainarea\2013070401.htm" />

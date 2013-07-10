@@ -9,8 +9,10 @@
 		weiboshow: "/usercontrols/weiboshow.htm",
 		"2013070401": "/usercontrols/mainarea/2013070401.htm",
 		xiami: "/usercontrols/xiami.htm",
-		programmingnav:"/usercontrols/programming/nav.htm",
-		programminglist:"/usercontrols/programming/list.htm"
+		programmingnav: "/usercontrols/programming/nav.htm",
+		programminglist: "/usercontrols/programming/list.htm",
+		programming: "/articles/programming/",
+		entertainment: "/articles/entertainment/"
 	};
 
 	window._$ = window._$ || {};
@@ -35,6 +37,15 @@
 					default:
 						area.load(url);
 				}
+			}
+		},
+		loadArticle: function(key, area, type) {
+			var url = this.get(type);
+			if (url) {
+				url = url + key + ".htm";
+				area.load(url,function(){
+					$.getScript("/webresources/javascript/initarticle.js");
+				});
 			}
 		}
 	};
