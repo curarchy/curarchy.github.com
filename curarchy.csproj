@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="about.htm" />
     <Content Include="articles\programming\201307091.htm" />
+    <Content Include="articles\programming\201307101.htm" />
     <Content Include="entertainment.htm" />
     <Content Include="favicon32.ico" />
     <Content Include="favicon.ico" />
@@ -107,6 +108,7 @@
     <Content Include="webresources\img\xiami_24.gif" />
     <Content Include="webresources\javascript\common.js" />
     <Content Include="webresources\javascript\infosky.js" />
+    <Content Include="webresources\javascript\initarticle.js" />
     <Content Include="webresources\javascript\programminglist.js" />
     <Content Include="webresources\javascript\programmingres.js" />
     <Content Include="webresources\javascript\resource.js" />
