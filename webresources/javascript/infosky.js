@@ -1013,7 +1013,7 @@
                 pageIndex: 1, //当前页数
                 pageCount: 0, //总页数
                 totalCount: 0, //总匹配数
-                paginationSize: 6 //显示分页个数,请选择奇数
+                paginationSize: 5 //显示分页个数,请选择奇数
             },
             sort: 4,
             sortGroup: [{

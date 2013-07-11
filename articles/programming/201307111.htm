@@ -1,0 +1,106 @@
+﻿<section id="articleTitle"></section>
+<section id="articleBody">
+	<link href="/webresources/css/infosky.css" rel="stylesheet" type="text/css" />
+	<link href="/webresources/bootstrap/css/docs.css" rel="stylesheet" type="text/css" />
+	<script src="/webresources/javascript/data/airport.js" type="text/javascript"></script>
+	<script src="/webresources/bootstrap/js/prettify.js" type="text/javascript"></script>
+	<link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
+	<h4>案例</h4>
+	<p>用于快速选择航站，可以匹配三字码、拼音、英文、汉字筛选</p>
+	<!--[if lt IE 7]>
+	<script type="text/javascript">_$.auto.setup({"sortEnable":false});</script>
+	<style>body { behavior: url("Webresources/javascript/framework/csshover3.htc"); }</style>
+	<![endif]-->
+	<div class="bs-docs-example">
+		<input id="filterInput" type="text" style="width: 100px;" />
+		<script type="text/javascript">
+			_$.auto.init($("#filterInput"), airport, {
+	            sort: 2
+	        });
+	    </script>
+	</div>
+	<pre class="prettyprint linenums">&lt;input id="filterInput" type="text" style="width: 100px;" /&gt;</pre>
+	<h6>初始化脚本</h6>
+	<pre class="prettyprint linenums">_$.auto.init($("#filterInput"), airport);</pre>
+
+	<h6>option参数</h6>
+	<table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">名称</th>
+               <th style="width: 50px;">类型</th>
+               <th style="width: 200px;">默认值</th>
+               <th>描述</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>popID</td>
+               <td>string</td>
+               <td><code>"autoDiv"</code></td>
+               <td>弹出层默认ID</td>
+             </tr>
+             <tr>
+               <td>optChar</td>
+               <td>array</td>
+               <td><code>['@', '|', '^']</code></td>
+               <td>数据源的分隔符、匹配符、非匹配符（尽量不要改）</td>
+             </tr>
+             <tr>
+               <td>pagination</td>
+               <td>object</td>
+               <td><pre class="prettyprint linenums">{
+pageSize: 10,
+paginationSize: 5
+}</pre></td>
+               <td>pageSize:每页个数，paginationSize：显示分页个数,请选择奇数</td>
+             </tr>
+             <tr>
+               <td>sort</td>
+               <td>int</td>
+               <td>4</td>
+               <td>排序方式，0：原始排序，1：按中文，2：按英文，3：按拼音，4：按三字码
+              </td>
+             </tr>
+				<tr>
+               <td>sortEnable</td>
+               <td>bool</td>
+               <td>true</td>
+               <td>是否允许排序。ie6、ie7建议关闭。插入以下代码即可。
+               	<pre class="prettyprint linenums">
+&lt;!--[if lt IE 7]&gt;
+&lt;script type="text/javascript"&gt;_$.auto.setup({"sortEnable":false});&lt;/script&gt;
+&lt;![endif]--&gt;</pre>
+              </td>
+             </tr>
+			<tr>
+               <td>callback</td>
+               <td>funcion</td>
+               <td>null</td>
+               <td>回调函数
+              </td>
+             </tr>
+            </tbody>
+          </table>
+
+          <h6>ie6下修复hoverbug</h6>
+			<pre class="prettyprint linenums">
+&lt;!--[if lt IE 7]&gt;
+&lt;style&gt;body { behavior: url("Webresources/javascript/framework/csshover3.htc"); }&lt;/style&gt;
+&lt;![endif]--&gt;</pre>
+
+<h6>数据源格式</h6>
+<pre class="prettyprint linenums">
+var airport = "@-|中文名|英文名|拼音|三字码@-|中文名|英文名|拼音|三字码";
+//匹配符用|,非匹配符用^
+</pre>
+
+<h6>效率</h6>
+<p>输入 /* 检索全部，目前数据量为9216，全部筛选部分浏览器速度较慢。</p>
+</section>
+
+<script type="text/javascript">
+	(function(){
+		prettyPrint();
+	})();
+</script>

@@ -1,0 +1,98 @@
+﻿/*base*/
+body { font-size: 12px; }
+input,textarea { border: 1px solid #aaa;padding-left: 2px; }
+ul{list-style: none inside none; margin: 0; padding: 0;}
+
+/*tag*/
+.tag-container { width: 250px; height: auto; border: 1px solid #ccc; cursor: text; }
+.tag-container input { width: 100px; border: none; line-height: 18px; height: 18px; margin: 5px; }
+.tag-container input:focus { outline: none; }
+.tag-container .tag-span { display: inline-block; margin: 5px; padding: 0 25px 0 10px; background-color: #D0E5F5; border-bottom: 1px solid #B3CEE1; border-right: 1px solid #B3CEE1; color: #3E6D8E; position: relative; height: 18px; line-height: 18px; cursor: pointer; }
+.tag-container .tag-delete { background-color: #CCCCCC; border: 1px solid #AAAAAA; border-radius: 10px 10px 10px 10px; color: #FFFFFF; cursor: pointer; height: 12px; line-height: 11px; position: absolute; right: 2px; text-indent: 4px; top: 3px; vertical-align: middle; width: 12px; }
+.tag-container .tag-delete:hover { background-color: #d04242; }
+
+/*template*/
+.tptDiv { border: 1px solid #aaa;background-color: #fff;}
+.tptDiv ul{ padding: 0.5em; }
+.tptDiv li{margin-top:2px;margin-bottom: 2px;}
+.tptDiv ul li span{display: inline-block;+display:inline;_zoom:1;}
+.tptDiv li { padding: 0.3em  0.5em; border:1px solid #fff;}
+.tptDiv ul li:hover{ background-color: #D0E5F5;cursor: pointer;border:1px solid #7BBBEE;transition: background-color 0.2s ease 0s;}
+body .tptDiv ul .keyFocus{border-top:1px solid #ff0000;border-bottom:1px solid #ff0000; }
+.tptDiv .liSelected{ background:url(../img/checked.gif) #E0FFE0 right bottom no-repeat;cursor: pointer;border:1px solid #0db300;transition: background-color 0.2s ease 0s;}
+.spanRight { float: right;margin-left:25px;text-align: right;}
+.tptDiv .spli{background: #e0ffe0;border: 1px solid #68FF66;margin-top: 2px;}
+body .tptDiv ul .spliHold{background: #F37C06;border: 1px solid #D74700;cursor: default;color:#fff;}
+.tptDiv ul li input{vertical-align: middle;}
+.tptDiv .selectItem{padding-left: 1.5em;}
+
+/*auto*/
+.autoDiv { min-width: 300px;+width:350px;}
+.autoDiv .autoDirect,.autoDiv .cursort{background: #e0ffe0;border: 1px solid #68FF66;}
+
+.autoDiv .autoData li b{color:red;}
+.autoDiv .autoTitle{padding: 0.5em;border: 1px solid #aaa;margin-bottom: 0.5em;background-color: #efefef;cursor: default;}
+.autoDiv .autoValue{color: red;}
+.autoDiv .autoType{margin-left: 5px;}
+.autoDiv .autoSummary{margin-left: 5px;float: right;}
+.autoDiv .autoSummary b{color:red;margin-left: 2px;margin-right: 2px;}
+.autoSort{width: 2em;right:-26px;position: absolute;top: -1px;border: 1px solid #aaa;padding: 2px 0;cursor: pointer;}
+.autoSort .sortContent{display: inline-block;width: 1.5em;padding-left: 0.5em;background-color: #fff;}
+.autoSort .sortContent ul{display: none;position: absolute;padding: 0.5em;width: 100px;right: -1px;text-align: right;background: #fff;border:1px solid #aaa;}
+.autoSort .sortContent:hover ul{display: block;}
+.autoDiv li{padding: 5px;border: 1px solid #fff;line-height: 16px;}
+.autoDiv .autoPagination ul{margin: 0px auto; width: auto; text-align: center;}
+.autoDiv .autoPagination ul li{display: inline-block;+display:inline;_zoom:1;border: 1px solid #C9D8D9;margin: 5px 2px;padding: 1px 5px;cursor: pointer;}
+.autoDiv .autoPagination ul .autoPagDis{cursor:default;}
+.autoDiv .autoPagination ul .num{border-color:#fff;background-color: #fff;color:#3E6D8E;font-weight: bold;}
+.autoDiv .autoPagination ul li:hover{background-color: #D0E5F5;cursor: pointer;border:1px solid #7BBBEE;}
+.autoDiv .autoPagination ul .autoPagDis:hover{border-color: #C9D8D9;background-color: #fff;cursor:default;}
+.autoDiv .autoPagination ul .num:hover{background-color: #fff;border-color:#fff;}
+
+.selectDiv { min-width: 200px;+width:200px;height: 209px;overflow-y:scroll;}
+.selectDiv .keyFocus{color:red;}
+.selectDiv input{border:none;margin-top: -2px;}
+.selectDiv ul .editLi .editTxt{border: 1px solid #ccc;width: 90px; vertical-align: text-top;}
+.selectDiv ul .editLi .editAdd{cursor: pointer;vertical-align: text-bottom;}
+.selectDiv ul .editLi span{float: right;+float: none;}
+.selectDiv ul .editLi:hover{background: #fff;cursor: default;}
+.selectDiv ul .editLi.selectItem.keyFocus{border:1px solid #FFFFFF;color: #000;}
+.selectDiv ul .editLi.selectItem.keyFocus input{border-color: red;}
+.selectSort .sortContent ul{width:65px;_margin-top:1em;+width:78px;display: none;padding: 0.5em;right: -1px;text-align: right;background: #fff;border:1px solid #aaa;}
+/*tree*/
+.nodeIcon {display: inline-block;_display:inline;_zoom:1;height:18px;width: 18px;vertical-align: middle; background: url(../img/d.gif) no-repeat -90px 0;cursor: default;}
+
+.folderOpen{background-position: -36px -72px;cursor: pointer;}
+.folderClose{background-position: -72px 0;cursor: pointer;}
+.line{background-position: -90px 0;}
+.last.leaf{background-position: -36px 0;}
+.leaf{background-position: -56px -56px;}
+.leafItem{background-position: -72px -36px;}
+.folderItemClose {background-position: -54px -36px;}
+.folderItemOpen {background-position: -54px -18px;}
+.nodeTitle{padding-left: 4px;}
+.first.folderClose{background-position: -72px -56px;cursor: pointer;}
+.last.folderClose{background-position: 0 -72px;}
+.checkNone{background-position: 0 -18px;cursor: pointer;}
+.checkNone:hover{background-position: 0 -36px;}
+.checkOne{background-position: -36px -18px;cursor: pointer;}
+.checkOne:hover{background-position: -36px -36px;}
+.checkHalf{background-position: -18px -18px;cursor: pointer;}
+.checkHalf:hover{background-position: -18px -36px;}
+.nobg{background: none;}
+
+.nodeTitle{cursor: pointer;}
+.first.folderOpen{background-position: -18px -72px;cursor: pointer;}
+.last.folderOpen{background-position: -54px 0;cursor: pointer;}
+.rootTree .keyFocus{background-color: #FFDC8C;cursor: pointer;transition: background-color 0.2s ease 0s; }
+
+.subTree{padding-left: 18px;background: url(../img/d.gif) repeat-y -90px 0;}
+.lastNode{background: none;}
+.treeNode{_zoom:1;}
+
+/*placeholder*/
+.placeholder{color:#a9a9a9;}
+
+/*tooltip*/
+.tip{padding:4px 8px;border-width:2px;position: absolute;max-width: 300px;-webkit-box-shadow: 0 0 5px #aaa;	box-shadow: 0 0 5px #aaa;background: #fff;}
+.tip p{margin:0px;}

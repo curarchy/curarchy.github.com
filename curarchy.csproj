@@ -51,10 +51,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="136f0f03e2.txt" />
     <Content Include="about.htm" />
     <Content Include="articles\programming\201307091.htm" />
     <Content Include="articles\programming\201307101.htm" />
+    <Content Include="articles\programming\201307111.htm" />
     <Content Include="entertainment.htm" />
     <Content Include="favicon32.ico" />
     <Content Include="favicon.ico" />
@@ -63,6 +63,7 @@
     <Content Include="index_test.htm" />
     <Content Include="programming.htm" />
     <Content Include="programmingarticle.htm" />
+    <Content Include="usercontrols\comment.htm" />
     <Content Include="usercontrols\footer.htm" />
     <Content Include="usercontrols\header.htm" />
     <Content Include="usercontrols\mainarea\2013070401.htm" />
@@ -82,12 +83,14 @@
     <Content Include="webresources\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="webresources\bootstrap\css\bootstrap.css" />
     <Content Include="webresources\bootstrap\css\bootstrap.min.css" />
+    <Content Include="webresources\bootstrap\css\docs.css" />
     <Content Include="webresources\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="webresources\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="webresources\bootstrap\js\bootstrap.js" />
     <Content Include="webresources\bootstrap\js\bootstrap.min.js" />
     <Content Include="webresources\css\common.css" />
     <Content Include="webresources\css\games\tictactoe.css" />
+    <Content Include="webresources\css\infosky.css" />
     <Content Include="webresources\css\prettify.css" />
     <Content Include="webresources\img\aboutMe\meWeixin.jpg" />
     <Content Include="webresources\img\aboutMe\me_128.jpg" />
@@ -97,6 +100,7 @@
     <Content Include="webresources\img\games\circle.png" />
     <Content Include="webresources\img\games\cross.png" />
     <Content Include="webresources\img\loading.gif" />
+    <Content Include="webresources\img\r5.gif" />
     <Content Include="webresources\img\weixin_24.gif" />
     <Content Include="webresources\img\facebook_24.gif" />
     <Content Include="webresources\img\github_24.gif" />
