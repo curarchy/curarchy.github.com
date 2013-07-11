@@ -6,7 +6,8 @@
 	<script src="/webresources/bootstrap/js/prettify.js" type="text/javascript"></script>
 	<link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
 	<h4>案例</h4>
-	<p>用于快速选择航站，可以匹配三字码、拼音、英文、汉字筛选</p>
+	<p>用于快速选择航站，可以匹配三字码、拼音、英文、汉字筛选</p><span class="label label-success">ie6兼容</span>
+	<span class="label label-success tipInfo" data-placement="bottom" data-toggle="tooltip" title="现代浏览器9000+数据排序正常，ie6浏览器9000+数据不排序正常">大数据量兼容</span>
 	<!--[if lt IE 7]>
 	<script type="text/javascript">_$.auto.setup({"sortEnable":false});</script>
 	<style>body { behavior: url("Webresources/javascript/framework/csshover3.htc"); }</style>
@@ -97,10 +98,17 @@ var airport = "@-|中文名|英文名|拼音|三字码@-|中文名|英文名|拼
 
 <h6>效率</h6>
 <p>输入 /* 检索全部，目前数据量为9216，全部筛选部分浏览器速度较慢。</p>
+
+
+
 </section>
+
 
 <script type="text/javascript">
 	(function(){
 		prettyPrint();
+	})();
+	(function(){
+		$(".tipInfo").tooltip();
 	})();
 </script>
