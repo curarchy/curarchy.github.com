@@ -23,3 +23,18 @@
 .icon-weixin { background: url(../img/weixin_24.gif) no-repeat 0 0; width: 24px; height: 24px; }
 .contact-area { margin-left: 2px; text-decoration: none; cursor: pointer; }
 .contact-area:hover{text-decoration: none;}
+
+#comment{left: 0px; top: 115px; position: fixed; height: inherit;overflow: hidden; width: 24px;}
+#comment img{float:right;margin-top:58px;cursor: pointer;}
+.weibocomment{width: 0px;position: absolute; z-index: 9999; width: 0px; top: 0px; left: 0px;}
+
+#comment:hover{width: 424px;
+-webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;}
+#comment:hover .weibocomment{width: 400px;display: block;
+-webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;}

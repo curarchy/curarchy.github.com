@@ -47,12 +47,20 @@
 	<div id="footer">
 		<script type="text/javascript">_$.resource.loadHtml("footer", $("#footer"));</script>
 	</div>
-	<!-- Baidu Button BEGIN -->
+    <!-- Baidu Button BEGIN -->
     <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=5&amp;pos=right&amp;uid=6754602" ></script>
     <script type="text/javascript" id="bdshell_js"></script>
     <script type="text/javascript">
-        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000);
+        var bds_config={"bdTop":115};
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
     </script>
     <!-- Baidu Button END -->
+    <div id="comment">
+        <script type="text/javascript">
+            (function () {
+                _$.resource.loadHtml("comment", $("#comment"));
+            })();
+        </script>
+    </div>
 </body>
 </html>

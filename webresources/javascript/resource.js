@@ -12,7 +12,8 @@
 		programmingnav: "/usercontrols/programming/nav.htm",
 		programminglist: "/usercontrols/programming/list.htm",
 		programming: "/articles/programming/",
-		entertainment: "/articles/entertainment/"
+		entertainment: "/articles/entertainment/",
+		comment:"/usercontrols/comment.htm"
 	};
 
 	window._$ = window._$ || {};

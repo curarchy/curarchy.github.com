@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="136f0f03e2.txt" />
     <Content Include="about.htm" />
     <Content Include="articles\programming\201307091.htm" />
     <Content Include="articles\programming\201307101.htm" />

@@ -52,7 +52,7 @@
                         </script>
                     </div>
                     <div id="xiami">
-                        <script type="text/javascript" src="http://www.xiami.com/widget/player-multi?uid=2857090&sid=3350948,1770155570,3564404,1769196206,&width=220&height=250&mainColor=999999&backColor=c0c0c0&autoplay=0&mode=js"></script>
+                        <script type="text/javascript" src="http://www.xiami.com/widget/player-multi?uid=2857090&sid=1771896409,1771896411,3350948,1770155570,3564404,1769196206,&width=220&height=250&mainColor=999999&backColor=c0c0c0&autoplay=0&mode=js"></script>
                     </div>
                 </div>
             </div>
@@ -66,8 +66,16 @@
     <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=5&amp;pos=right&amp;uid=6754602" ></script>
     <script type="text/javascript" id="bdshell_js"></script>
     <script type="text/javascript">
-        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000);
+        var bds_config={"bdTop":115};
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
     </script>
     <!-- Baidu Button END -->
+    <div id="comment">
+        <script type="text/javascript">
+            (function () {
+                _$.resource.loadHtml("comment", $("#comment"));
+            })();
+        </script>
+    </div>
 </body>
 </html>
