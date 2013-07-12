@@ -60,13 +60,6 @@
         document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
     </script>
     <!-- Baidu Button END -->
-    <div id="comment">
-        <script type="text/javascript">
-            (function () {
-                _$.resource.loadHtml("comment", $("#comment"));
-            })();
-        </script>
-    </div>
     <!-- 将此代码放在适当的位置，建议在body结束前 -->
     <script id="bdaddtocite_shell"></script>
     <script>
@@ -77,5 +70,12 @@
     };
     document.getElementById("bdaddtocite_shell").src="http://bdimg.share.baidu.com/static/js/addtocite_shell.js?t=" + Math.ceil(new Date()/3600000);
     </script>
+    <div id="comment">
+        <script type="text/javascript">
+            (function () {
+                _$.resource.loadHtml("comment", $("#comment"));
+            })();
+        </script>
+    </div>
 </body>
 </html>

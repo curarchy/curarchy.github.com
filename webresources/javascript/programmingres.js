@@ -1,5 +1,11 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "标签插件",
+		summary: "标签插件，用于输入多个标签",
+		time: "2013-07-12",
+		key: "201307121",
+		tag: ["jquery","插件"]
+	},{
 		title: "自动完成插件",
 		summary: "航站选择的自动完成插件",
 		time: "2013-07-11",

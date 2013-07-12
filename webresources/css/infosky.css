@@ -7,7 +7,7 @@ ul{list-style: none inside none; margin: 0; padding: 0;}
 .tag-container { width: 250px; height: auto; border: 1px solid #ccc; cursor: text; }
 .tag-container input { width: 100px; border: none; line-height: 18px; height: 18px; margin: 5px; }
 .tag-container input:focus { outline: none; }
-.tag-container .tag-span { display: inline-block; margin: 5px; padding: 0 25px 0 10px; background-color: #D0E5F5; border-bottom: 1px solid #B3CEE1; border-right: 1px solid #B3CEE1; color: #3E6D8E; position: relative; height: 18px; line-height: 18px; cursor: pointer; }
+.tag-container .tag-span { float:none;display: inline-block; margin: 10px 0 0 10px; padding: 0 25px 0 10px; background-color: #D0E5F5; border-bottom: 1px solid #B3CEE1; border-right: 1px solid #B3CEE1; color: #3E6D8E; position: relative; height: 18px; line-height: 18px; cursor: pointer; }
 .tag-container .tag-delete { background-color: #CCCCCC; border: 1px solid #AAAAAA; border-radius: 10px 10px 10px 10px; color: #FFFFFF; cursor: pointer; height: 12px; line-height: 11px; position: absolute; right: 2px; text-indent: 4px; top: 3px; vertical-align: middle; width: 12px; }
 .tag-container .tag-delete:hover { background-color: #d04242; }
 
