@@ -55,6 +55,8 @@
     <Content Include="articles\programming\201307091.htm" />
     <Content Include="articles\programming\201307101.htm" />
     <Content Include="articles\programming\201307111.htm" />
+    <Content Include="articles\programming\201307121.htm" />
+    <Content Include="baidu_verify_Krqeg3gAim.html" />
     <Content Include="entertainment.htm" />
     <Content Include="favicon32.ico" />
     <Content Include="favicon.ico" />
@@ -98,6 +100,7 @@
     <Content Include="webresources\img\aboutMe\me_256.jpg" />
     <Content Include="webresources\img\aboutMe\me_32.jpg" />
     <Content Include="webresources\img\aboutMe\me_64.jpg" />
+    <Content Include="webresources\img\favorite_24.gif" />
     <Content Include="webresources\img\games\circle.png" />
     <Content Include="webresources\img\games\cross.png" />
     <Content Include="webresources\img\loading.gif" />
@@ -116,6 +119,7 @@
     <Content Include="webresources\javascript\data\airport.js" />
     <Content Include="webresources\javascript\infosky.js" />
     <Content Include="webresources\javascript\initarticle.js" />
+    <Content Include="webresources\javascript\jquery.color.js" />
     <Content Include="webresources\javascript\programminglist.js" />
     <Content Include="webresources\javascript\programmingres.js" />
     <Content Include="webresources\javascript\resource.js" />
@@ -124,7 +128,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

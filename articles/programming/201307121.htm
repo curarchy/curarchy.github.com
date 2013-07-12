@@ -42,11 +42,11 @@
     </tbody>
   </table>
 
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped testFun">
     <thead>
       <tr>
         <th style="width: 100px;">外部调用接口</th>
-        <th style="width: 300px;">代码</th>
+        <th style="width: 500px;">代码</th>
         <th>描述</th>
       </tr>
     </thead>
@@ -62,6 +62,10 @@
         <td>init</td>
         <td>
           <pre class="prettyprint linenums">_$.tag.init(obj, option);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.tag.init($("#pureTag"));</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.tag.init($('#pureTag'));">初始化</button>
         </td>
         <td>初始化</td>
       </tr>
@@ -69,6 +73,10 @@
         <td>destory</td>
         <td>
           <pre class="prettyprint linenums">_$.tag.destory(obj);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.tag.destory($("#pureTag"));</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.tag.destory($('#pureTag'));">销毁</button>
         </td>
         <td>销毁</td>
       </tr>
@@ -76,6 +84,10 @@
         <td>getValue</td>
         <td>
           <pre class="prettyprint linenums">_$.tag.getValue(obj,format);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.tag.getValue($("#pureTag"),"|");</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="alert(_$.tag.getValue($('#pureTag'),'|'))">取值</button>
         </td>
         <td>取值</td>
       </tr>
@@ -83,6 +95,10 @@
         <td>setValue</td>
         <td>
           <pre class="prettyprint linenums">_$.tag.setValue(obj, values, sp);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.tag.setValue($("#pureTag"),"123,345,432",",");</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.tag.setValue($('#pureTag'),'123,345,432',',');">设值</button>
         </td>
         <td>设值</td>
       </tr>
@@ -90,6 +106,10 @@
         <td>add</td>
         <td>
           <pre class="prettyprint linenums">_$.tag.add(obj, text);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.tag.add($("#pureTag"),"Maki!");</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.tag.setValue($('#pureTag'),'Maki!');">添加值</button>
         </td>
         <td>添加值</td>
       </tr>
@@ -97,6 +117,10 @@
         <td>remove</td>
         <td>
           <pre class="prettyprint linenums">_$.tag.remove(obj, text);</pre>
+                    <pre class="prettyprint linenums">
+//例
+_$.tag.remove($("#pureTag"),"Maki!");</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.tag.remove($('#pureTag'),'Maki!');">删除值</button>
         </td>
         <td>删除值</td>
       </tr>
@@ -110,5 +134,10 @@
   })();
   (function(){
     $(".tipInfo").tooltip();
+  })();
+  (function(){
+    $(".testFun button").on("click",function(){
+      _$.ui.scrollto($('h4').parent());
+    });
   })();
 </script>
