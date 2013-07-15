@@ -1469,7 +1469,8 @@
             optChar: ",",
             keyFocus: 0,
             clearAll: true,
-            selectAll: true
+            selectAll: true,
+            exheight:5
         };
 
     var _init = function (option) {
@@ -1785,7 +1786,7 @@
             $("body").append(option.popDiv);
         }
         var position = option.position ? $(option.position).offset() : $(option.input).offset();
-        var top = position.top + (option.position ? $(option.position).height() : $(option.input).height()) + 5;
+        var top = position.top + (option.position ? $(option.position).height() : $(option.input).height()) + 5+option.exheight;
         var left = position.left;
 
         $(".tptDiv.selectDiv,.autoSort.tptDiv.selectSort").not(option.popDiv).not(option.menu).hide();

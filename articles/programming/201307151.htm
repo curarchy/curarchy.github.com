@@ -1,0 +1,216 @@
+﻿<section id="articleTitle"></section>
+<section id="articleBody">
+  <link href="/webresources/css/infosky.css" rel="stylesheet" type="text/css" />
+  <link href="/webresources/bootstrap/css/docs.css" rel="stylesheet" type="text/css" />
+  <script src="/webresources/bootstrap/js/prettify.js" type="text/javascript"></script>
+  <link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
+  <script src="/webresources/javascript/jquery.color.js" type="text/javascript"></script>
+  <h4>案例</h4>
+  <p>用于单选、多选。可以添加自定义值。</p>
+  <span class="label label-success">ie6兼容</span>
+  <span class="label label-success">全键盘操作</span>
+  <div class="bs-docs-example">
+    <input id="select1" type="text" style="width: 100px;" />
+    <select id="forselect1" style="display: none;">
+      <optgroup label="国内">
+        <option value="SHA">上海虹桥</option>
+        <option value="PEK">北京</option>
+        <option value="CTU">成都</option>
+        <option value="PVG">上海浦东</option>
+        <option value="CAN">广州</option>
+        <option value="DAT">大同</option>
+        <option value="CGO">郑州</option>
+        <option value="NAY">北京南苑</option>
+        <option value="URC">乌鲁木齐</option>
+      </optgroup>
+      <optgroup label="国外">
+        <option value="LAX">洛杉矶</option>
+        <option value="SXF">柏林</option>
+        <option value="FUK">福冈</option>
+        <option value="HND">羽田</option>
+        <option value="HIJ">广岛</option>
+        <option value="RMQ">台中清泉岗机场</option>
+        <option value="ICN">首尔</option>
+        <option value="OKA">冲绳</option>
+        <option value="DCA">华盛顿</option>
+        <option value="CPS">圣路易斯</option>
+        <option value="SEA">西雅图</option>
+        <option value="ATL">亚特兰大</option>
+      </optgroup>
+    </select>
+    <style>#select1{cursor:pointer;background-color: #fff;}</style>
+
+    <script type="text/javascript">                
+        _$.select.init($("#select1"), $("#forselect1"), {
+            "muti": true
+        });
+    </script>
+  </div>
+  <pre class="prettyprint linenums">&lt;input id="select1" type="text" style="width: 100px;" /&gt;
+    &lt;select id="forselect1" style="display: none;"&gt;
+      &lt;optgroup label="国内"&gt;
+        &lt;option value="SHA"&gt;上海虹桥&lt;/option&gt;
+        &lt;option value="PEK"&gt;北京&lt;/option&gt;
+        &lt;option value="CTU"&gt;成都&lt;/option&gt;
+        &lt;option value="PVG"&gt;上海浦东&lt;/option&gt;
+        &lt;option value="CAN"&gt;广州&lt;/option&gt;
+        &lt;option value="DAT"&gt;大同&lt;/option&gt;
+        &lt;option value="CGO"&gt;郑州&lt;/option&gt;
+        &lt;option value="NAY"&gt;北京南苑&lt;/option&gt;
+        &lt;option value="URC"&gt;乌鲁木齐&lt;/option&gt;
+      &lt;/optgroup&gt;
+      &lt;optgroup label="国外"&gt;
+        &lt;option value="LAX"&gt;洛杉矶&lt;/option&gt;
+        &lt;option value="SXF"&gt;柏林&lt;/option&gt;
+        &lt;option value="FUK"&gt;福冈&lt;/option&gt;
+        &lt;option value="HND"&gt;羽田&lt;/option&gt;
+        &lt;option value="HIJ"&gt;广岛&lt;/option&gt;
+        &lt;option value="RMQ"&gt;台中清泉岗机场&lt;/option&gt;
+        &lt;option value="ICN"&gt;首尔&lt;/option&gt;
+        &lt;option value="OKA"&gt;冲绳&lt;/option&gt;
+        &lt;option value="DCA"&gt;华盛顿&lt;/option&gt;
+        &lt;option value="CPS"&gt;圣路易斯&lt;/option&gt;
+        &lt;option value="SEA"&gt;西雅图&lt;/option&gt;
+        &lt;option value="ATL"&gt;亚特兰大&lt;/option&gt;
+      &lt;/optgroup&gt;
+    &lt;/select&gt;</pre>
+  <h6>初始化脚本</h6>
+  <pre class="prettyprint linenums">_$.select.init($("#select1"), $("#forselect1"), {
+  "muti": true
+});</pre>
+
+  <h6>option参数</h6>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th style="width: 100px;">名称</th>
+        <th style="width: 50px;">类型</th>
+        <th style="width: 200px;">默认值</th>
+        <th>描述</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>editAble</td>
+        <td>bool</td>
+        <td>
+          <code>"true"</code>
+        </td>
+        <td>是否允许键入自定义值</td>
+      </tr>
+      <tr>
+        <td>muti</td>
+        <td>bool</td>
+        <td>
+          <code>"true"</code>
+        </td>
+        <td>是否允许选择多个</td>
+      </tr>
+      <tr>
+        <td>onchange</td>
+        <td>function</td>
+        <td>
+          <code>$.noop</code>
+        </td>
+        <td>回调函数</td>
+      </tr>
+      <tr>
+        <td>optChar</td>
+        <td>string</td>
+        <td>
+          <code>","</code>
+        </td>
+        <td>分隔符</td>
+      </tr>
+      <tr>
+        <td>clearAll</td>
+        <td>bool</td>
+        <td>
+          <code>"true"</code>
+        </td>
+        <td>是否显示取消全选</td>
+      </tr>
+      <tr>
+        <td>selectAll</td>
+        <td>bool</td>
+        <td>
+          <code>"ture"</code>
+        </td>
+        <td>是否显示全选</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered table-striped testFun">
+    <thead>
+      <tr>
+        <th style="width: 100px;">外部调用接口</th>
+        <th style="width: 500px;">代码</th>
+        <th>描述</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>init</td>
+        <td>
+          <pre class="prettyprint linenums">_$.select.init(input, select, option);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.select.init($("#select1"), $("#forselect1"), {
+  "muti": true
+});</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.select.init($('#select1'), $('#forselect1'), {
+  'muti': true
+});">初始化</button>
+        </td>
+        <td>初始化</td>
+      </tr>
+      <tr>
+        <td>destory</td>
+        <td>
+          <pre class="prettyprint linenums">_$.select.destory(input);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.select.destory($("#select1"));</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.select.destory($('#select1'));">销毁</button>
+        </td>
+        <td>销毁</td>
+      </tr>
+      <tr>
+        <td>setValue</td>
+        <td>
+          <pre class="prettyprint linenums">_$.select.setValue(obj, values);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.select.setValue($("#select1"),"SHA,PEK,Maki!");</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="_$.select.setValue($('#select1'),'SHA,PEK,Maki!');">设值</button>
+        </td>
+        <td>设值</td>
+      </tr>
+      <tr>
+        <td>add</td>
+        <td>
+          <pre class="prettyprint linenums">_$.select.show(obj);</pre>
+          <pre class="prettyprint linenums">
+//例
+_$.select.show($('#select1'));
+//例   PS:鼠标触发的话，需要放入队列：如下
+setTimeout(function(){_$.select.show($('#select1'));});</pre>
+          <button class="btn btn-small btn-primary" type="button" onclick="setTimeout(function(){_$.select.show($('#select1'));});">显示</button>
+        </td>
+        <td>显示</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<script type="text/javascript">
+    (function () {
+        prettyPrint();
+    })();
+    (function () {
+        $(".testFun button").on("click", function () {
+            _$.ui.scrollto($('h4').parent());
+        });
+    })();
+</script>

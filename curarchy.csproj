@@ -56,6 +56,7 @@
     <Content Include="articles\programming\201307101.htm" />
     <Content Include="articles\programming\201307111.htm" />
     <Content Include="articles\programming\201307121.htm" />
+    <Content Include="articles\programming\201307151.htm" />
     <Content Include="baidu_verify_Krqeg3gAim.html" />
     <Content Include="entertainment.htm" />
     <Content Include="favicon32.ico" />
@@ -81,11 +82,15 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="webresources\bootstrap\css\bootmetro.css" />
     <Content Include="webresources\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="webresources\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="webresources\bootstrap\css\bootstrap.css" />
     <Content Include="webresources\bootstrap\css\bootstrap.min.css" />
     <Content Include="webresources\bootstrap\css\docs.css" />
+    <Content Include="webresources\bootstrap\css\extrastyle.css" />
+    <Content Include="webresources\bootstrap\css\metro-ui-dark.css" />
+    <Content Include="webresources\bootstrap\css\metro-ui-light.css" />
     <Content Include="webresources\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="webresources\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="webresources\bootstrap\js\bootstrap.js" />
@@ -138,7 +143,7 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>8712</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>

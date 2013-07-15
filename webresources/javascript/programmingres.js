@@ -1,5 +1,11 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "MutiSelect插件",
+		summary: "下拉框多选插件",
+		time: "2013-07-15",
+		key: "201307151",
+		tag: ["jquery","插件"]
+	},{
 		title: "标签插件",
 		summary: "标签插件，用于输入多个标签",
 		time: "2013-07-12",
