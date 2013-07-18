@@ -112,6 +112,9 @@
     <Content Include="webresources\img\games\cross.png" />
     <Content Include="webresources\img\loading.gif" />
     <Content Include="webresources\img\r5.gif" />
+    <Content Include="webresources\img\scroll\a.gif" />
+    <Content Include="webresources\img\scroll\b.gif" />
+    <Content Include="webresources\img\scroll\c.gif" />
     <Content Include="webresources\img\weixin_24.gif" />
     <Content Include="webresources\img\facebook_24.gif" />
     <Content Include="webresources\img\github_24.gif" />
@@ -128,6 +131,7 @@
     <Content Include="webresources\javascript\infosky.js" />
     <Content Include="webresources\javascript\initarticle.js" />
     <Content Include="webresources\javascript\jquery.color.js" />
+    <Content Include="webresources\javascript\jquery.inview.js" />
     <Content Include="webresources\javascript\programminglist.js" />
     <Content Include="webresources\javascript\programmingres.js" />
     <Content Include="webresources\javascript\resource.js" />

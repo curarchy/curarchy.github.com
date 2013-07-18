@@ -1,6 +1,6 @@
 ﻿(function() {
-	var baseUrl = "http://curarchy.github.io";
-	//var baseUrl = "http://localhost:8712";
+	//var baseUrl = "http://curarchy.github.io";
+	var baseUrl = "http://localhost:8712";
 
 	var urls = {
 		header: "/usercontrols/header.htm",
