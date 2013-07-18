@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.htm" />
+    <Content Include="articles\entertainmentColumn\20130716.htm" />
     <Content Include="articles\programming\201307091.htm" />
     <Content Include="articles\programming\201307101.htm" />
     <Content Include="articles\programming\201307111.htm" />
@@ -105,6 +106,7 @@
     <Content Include="webresources\img\aboutMe\me_256.jpg" />
     <Content Include="webresources\img\aboutMe\me_32.jpg" />
     <Content Include="webresources\img\aboutMe\me_64.jpg" />
+    <Content Include="webresources\img\checked.gif" />
     <Content Include="webresources\img\favorite_24.gif" />
     <Content Include="webresources\img\games\circle.png" />
     <Content Include="webresources\img\games\cross.png" />
@@ -122,6 +124,7 @@
     <Content Include="webresources\img\xiami_24.gif" />
     <Content Include="webresources\javascript\common.js" />
     <Content Include="webresources\javascript\data\airport.js" />
+    <Content Include="webresources\javascript\data\carrier.js" />
     <Content Include="webresources\javascript\infosky.js" />
     <Content Include="webresources\javascript\initarticle.js" />
     <Content Include="webresources\javascript\jquery.color.js" />
@@ -135,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="articles\entertainment\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

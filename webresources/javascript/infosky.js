@@ -1016,6 +1016,7 @@
                 paginationSize: 5 //显示分页个数,请选择奇数
             },
             sort: 4,
+            key : "三字码",
             sortGroup: [{
                 title: "默认排序", //不排序(ie6,7推荐关闭排序功能)
                 index: 0
@@ -1029,19 +1030,19 @@
                 title: "按拼音排序",
                 index: 3
             }, {
-                title: "按三字码排序",
+                title: "按{0}排序",
                 index: 4
             }
             ],
             sortEnable: true,
             showFormat: [1, 2, 4],
             directThreeWord: 4,
-            hint: "全拼、三字码、英文、中文",
+            hint: "全拼、key、英文、中文",
             keyFocus: -1
         };
-
     var _init = function (option) {
         var obj = option.element;
+        option.sortGroup[4].title=_$.stringFormat(option.sortGroup[4].title,option.key);
         $(document).off("click.auto").on("click.auto", function (e) {
             $("#" + option.popID).hide();
         });
@@ -1254,7 +1255,7 @@
 
     var _buildDirectVal = function (option) {
         option.directVal = null;
-        if (option.directThreeWord && option.value.length === 3) {
+        if (option.directThreeWord /*&& option.value.length === 3*/) {
             var reg = _getReg(option);
             for (var i = 0, j = option.filteredData.length; i < j; i++) {
                 var array = option.filteredData[i].split(reg);
@@ -1388,7 +1389,7 @@
                 _replaceEM(option.showFormat[0] >= 0 ? array[option.showFormat[0]] : "", option),
                 _replaceEM(option.showFormat[1] >= 0 ? array[option.showFormat[1]] : "", option),
                 _replaceEM(option.showFormat[2] >= 0 ? array[option.showFormat[2]] : "", option),
-                "spli autoDataLi", "三字码匹配"));
+                "spli autoDataLi", option.key+"匹配"));
             liItem.data("autoData", array);
             data.append(liItem);
         }
@@ -1420,7 +1421,7 @@
             $.extend(_option, params);
         },
         init: function (obj, data, option) {
-            option = $.extend({}, _option, option);
+            option = $.extend(true,{}, _option, option);
             if (data instanceof Array) {
                 option.oriData = data;
             } else if (typeof data === "string") {
@@ -1431,7 +1432,7 @@
             if (obj instanceof jQuery) {
                 return obj.filter("input,textarea").each(function (index, item) {
                     option.element = item;
-                    _init($.extend({}, option));
+                    _init($.extend(true,{}, option));
                 }).length;
             }
         },

@@ -40,7 +40,7 @@ body .tptDiv ul .spliHold{background: #F37C06;border: 1px solid #D74700;cursor: 
 .autoSort .sortContent{display: inline-block;width: 1.5em;padding-left: 0.5em;background-color: #fff;}
 .autoSort .sortContent ul{display: none;position: absolute;padding: 0.5em;width: 100px;right: -1px;text-align: right;background: #fff;border:1px solid #aaa;}
 .autoSort .sortContent:hover ul{display: block;}
-.autoDiv li{padding: 5px;border: 1px solid #fff;line-height: 16px;}
+.autoDiv li{padding: 5px;border: 1px solid #fff;line-height: 16px;border-bottom: 1px dotted #ddd;}
 .autoDiv .autoPagination ul{margin: 0px auto; width: auto; text-align: center;}
 .autoDiv .autoPagination ul li{display: inline-block;+display:inline;_zoom:1;border: 1px solid #C9D8D9;margin: 5px 2px;padding: 1px 5px;cursor: pointer;}
 .autoDiv .autoPagination ul .autoPagDis{cursor:default;}

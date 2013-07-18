@@ -5,6 +5,7 @@
 	<script src="/webresources/javascript/data/airport.js" type="text/javascript"></script>
 	<script src="/webresources/bootstrap/js/prettify.js" type="text/javascript"></script>
 	<link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
+    <script src="/webresources/javascript/data/carrier.js" type="text/javascript"></script>
 	<h4>案例</h4>
 	<p>用于快速选择航站，可以匹配三字码、拼音、英文、汉字筛选</p><span class="label label-success">ie6兼容</span>
 	<span class="label label-success tipInfo" data-placement="bottom" data-toggle="tooltip" title="现代浏览器9000+数据排序正常，ie6浏览器9000+数据不排序正常">大数据量兼容</span>
@@ -19,10 +20,33 @@
 	            sort: 2
 	        });
 	    </script>
+        <input id="carrier" type="text" style="width: 100px;" />
+        		<script type="text/javascript">
+        		    _$.auto.init($("#carrier"), carrier, {
+        		        sort: 2,key:"二字码"
+        		    });
+	    </script>
+          <input id="filterInput2" type="text" style="width: 100px;" />
+    <script type="text/javascript">
+      _$.auto.init($("#filterInput2"), airport, {
+              sort: 2
+          });
+      </script>
 	</div>
-	<pre class="prettyprint linenums">&lt;input id="filterInput" type="text" style="width: 100px;" /&gt;</pre>
+	<pre class="prettyprint linenums">&lt;input id="filterInput" type="text" style="width: 100px;" /&gt;
+&lt;input id="carrier" type="text" style="width: 100px;" /&gt;
+&lt;input id="filterInput2" type="text" style="width: 100px;" /&gt;</pre>
 	<h6>初始化脚本</h6>
-	<pre class="prettyprint linenums">_$.auto.init($("#filterInput"), airport);</pre>
+	<pre class="prettyprint linenums">_$.auto.init($("#filterInput"), airport{
+  sort: 2
+});
+_$.auto.init($("#carrier"), carrier, {
+  sort: 2,key:"二字码"
+});
+_$.auto.init($("#filterInput2"), airport{
+  sort: 2
+});
+</pre>
 
 	<h6>option参数</h6>
 	<table class="table table-bordered table-striped">
@@ -79,6 +103,13 @@ paginationSize: 5
                <td>funcion</td>
                <td>null</td>
                <td>回调函数
+              </td>
+             </tr>
+             <tr>
+               <td>key</td>
+               <td>string</td>
+               <td>"三字码"</td>
+               <td>直接匹配名
               </td>
              </tr>
             </tbody>
