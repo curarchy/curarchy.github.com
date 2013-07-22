@@ -115,15 +115,13 @@ Subject.prototype.Notify = function(context) {
 	for (var i = 0; i &lt; observerCount; i++) {
 		this.observers.Get(i).Update(context);
 	}
-};
-		</pre>
+};</pre>
 
 	<h6>html</h6>
 	<pre class="prettyprint linenums">
 &lt;a id="addNewObserver" class="btn"&gt;添加一个观察者&lt;/a&gt;
 &lt;label class="checkbox lab"&gt;&lt;input id="mainCheckbox" type="checkbox"/&gt;被观察对象&lt;/label>
-&lt;div id="observersContainer"&gt;观察者&lt;/div&gt;
-</pre>
+&lt;div id="observersContainer"&gt;观察者&lt;/div&gt;</pre>
 	<h6>script</h6>
 	<pre class="prettyprint linenums">
 var sub = $("#mainCheckbox").get(0);	//被观察对象
@@ -142,9 +140,7 @@ $("#addNewObserver").on("click",function(){
 
 	sub.AddObserver(ele);
 	$("#observersContainer").append(ele);
-});
-
-	</pre>
+});</pre>
 
 </section>
 <script type="text/javascript">
