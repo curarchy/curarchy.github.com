@@ -13,6 +13,13 @@ ul{list-style: none inside none; margin: 0; padding: 0;}
 
 /*template*/
 .tptDiv { border: 1px solid #aaa;background-color: #fff;}
+
+.tptDiv {
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 60px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+
 .tptDiv ul{ padding: 0.5em; }
 .tptDiv li{margin-top:2px;margin-bottom: 2px;}
 .tptDiv ul li span{display: inline-block;+display:inline;_zoom:1;}

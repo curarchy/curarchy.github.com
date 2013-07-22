@@ -1,65 +1,136 @@
-﻿在地图上显示
- <!DOCTYPE html>
- <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-     <title></title>
-         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-     <script type="text/javascript">
-         $(document).ready(function () {
-             var init = function () {
-                 navigator.geolocation.getCurrentPosition(function (position) {
-                     var c = position.coords;
-                     //设定地图参数，将当前位置的纬度，经度设为地图中心点
-                     //                    var latlng = new google.maps.LatLng(c.latitude, c.longitude);
-                     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript">
 
-                     var opt = {
-                         zoom: 14,
-                         center: latlng,
-                         mapTypeId: google.maps.MapTypeId.ROADMAP
-                     };
-                     //创建地图并显示在div
-                     var map = new google.maps.Map($('#map')[0], opt);
-                     //在地图上创建标记
-                     var marker = new google.maps.Marker({
-                         position: latlng,
-                         map: map
-                     });
+function ObserverList(){
+    this.observerList = [];
+}
 
-                     //设定标注窗口，指定文字
-                     var marker = new google.maps.Marker({
-                         position: latlng,
-                         map: map,
-                         title: "You are here! (at least within a " + position.coords.accuracy + " meter radius)"
-                     });
-                     var s = '';
-                 }, function (error) {
-                     var type = {
-                         1: '位置服务被拒绝',
-                         2: '获取不到信息',
-                         3: '超时'
-                     }
-                     alert('获取数据失败：' + type[error.code]);
-                 });
-             }
+ObserverList.prototype.Add= function(obj){
+    return this.observerList.push(obj);
+};
 
-             window.init = init;
-             //            init();
-         });
-     </script>
- </head>
- <body>
-     <button onclick="init();">
-         显示</button>
-     <div id="map" style="height:500px;">
-     </div>
-     <script>
-         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
- </script>
+ObserverList.prototype.Empty = function(){
+    this.observerList = [];
+};
+
+ObserverList.prototype.Count = function(){
+    return this.observerList.length;
+};
+
+ObserverList.prototype.RemoverAt = function(index){
+    if(index===0){
+        this.observerList.shift();
+    }
+    else if(index===this.observerList.length-1){
+        this.ObserverList.pop();
+    }
+};
+
+ObserverList.prototype.Get = function( index ){
+  if( index > -1 && index < this.observerList.length ){
+    return this.observerList[ index ];
+  }
+};
+
+ObserverList.prototype.Insert = function( obj, index ){
+  var pointer = -1;
  
- <script type="text/javascript" src="http://www.google-analytics.com/ga.js">
- </script>
- </body>
- </html>
+  if( index === 0 ){
+    this.observerList.unshift( obj );
+    pointer = index;
+  }else if( index === this.observerList.length ){
+    this.observerList.push( obj );
+    pointer = index;
+  }
+ 
+  return pointer;
+};
+ 
+ObserverList.prototype.IndexOf = function( obj, startIndex ){
+  var i = startIndex, pointer = -1;
+ 
+  while( i < this.observerList.length ){
+    if( this.observerList[i] === obj ){
+      pointer = i;
+    }
+    i++;
+  }
+ 
+  return pointer;
+};
+
+function extend(extension,obj){
+    for(var key in extension){
+        obj[key]=extension[key];
+    }
+}
+
+function Subject(){
+    this.observers = new ObserverList();
+}
+
+Subject.prototype.AddObserver = function(observer){
+    this.observers.Add(observer);
+};
+
+Subject.prototype.RemoveObserver = function(observer){
+    this.observers.RemoverAt(this.observers.IndexOf(observer,0));
+};
+
+Subject.prototype.Notify = function(context){
+    var observerCount = this.observers.Count();
+    for(var i=0;i<observerCount;i++){
+        this.observers.Get(i).Update(context);
+    }
+};
+
+function Observer(){
+    this.Update = function(){
+        console.info(+ new Data());
+    }
+}
+
+
+     </script>
+</head>
+<body>
+  <button id="addNewObserver">Add New Observer checkbox</button>
+  <input id="mainCheckbox" type="checkbox"/>
+  <div id="observersContainer"></div>
+
+<script type="text/javascript">
+    var controlCheckbox = document.getElementById( "mainCheckbox" ),
+    addBtn = document.getElementById( "addNewObserver" ),
+    container = document.getElementById( "observersContainer" );
+
+    extend(new Subject(),controlCheckbox);
+    controlCheckbox["onclick"] = new Function(
+        "console.info('1');controlCheckbox.Notify(controlCheckbox.checked)");
+
+    addBtn["onclick"]= AddNewObserver;
+
+    function AddNewObserver(){
+        var check = document.createElement("input");
+        check.type = "checkbox";
+
+        extend( new Observer(),check);
+
+        check.Update = function(value){
+            this.checked = value;
+        };
+
+        controlCheckbox.AddObserver(check);
+
+        container.appendChild(check);
+    }
+
+
+
+</script>
+
+</body>
+</html>

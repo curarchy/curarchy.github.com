@@ -1000,7 +1000,7 @@
 
     var _item = "<li class='{3}'><span class='spanRight'>{4}</br>{2}</span><span>{0}</br>{1}</span></li>",
         _title = "<div class='autoTitle'><span class='autoSummary'>共匹配到<b>{2}</b>项</span><span class='autoValue'><b>{0}</b></span><span class='autoType'>{1}</span></div>",
-        _sortArea = "<div class='autoSort'><a class='sortContent'><span>排序</span><ul></ul></a></div>",
+        _sortArea = "<div class='autoSort'><a class='sortContent'><span>排序</span><ul class='tptDiv'></ul></a></div>",
         _sortItem = "<li class='{1}'>{0}</li>",
         _paginationArea = "<div class='autoPagination'><ul></ul></div>",
         _paginationItem = "<li class='{1}'><a>{0}</a></li>",
@@ -1460,7 +1460,7 @@
     };
 
     var _liItem = "<li class='{1}'><span class='spanRight'>{2}{3}</span><span>{0}</span></li>",
-        _menuArea = "<div class='autoSort'><a class='sortContent'><span>操作</span><ul></ul></a></div>",
+        _menuArea = "<div class='autoSort'><a class='sortContent'><span>操作</span><ul class='tptDiv'></ul></a></div>",
         _menuItem = "<li class='{1}'>{0}</li>",
         _editArea = "<li class='editLi selectItem'><input type='text' class='editTxt'/><span><a class='editAdd'>添加</a></span></li>",
         _option = {

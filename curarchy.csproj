@@ -58,6 +58,8 @@
     <Content Include="articles\programming\201307111.htm" />
     <Content Include="articles\programming\201307121.htm" />
     <Content Include="articles\programming\201307151.htm" />
+    <Content Include="articles\programming\Design Patterns\TheObserverPattern.htm" />
+    <Content Include="articles\programming\Design Patterns\Observer.js" />
     <Content Include="baidu_verify_Krqeg3gAim.html" />
     <Content Include="entertainment.htm" />
     <Content Include="favicon32.ico" />
