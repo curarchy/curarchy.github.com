@@ -4,7 +4,7 @@
 		summary: "javascript设计模式————观察者模式",
 		time: "2013-07-22",
 		key: "designPattern/TheObserverPattern",
-		tag: ["jquery","插件"]
+		tag: ["javascript","设计模式"]
 	},{
 		title: "MutiSelect插件",
 		summary: "下拉框多选插件",
