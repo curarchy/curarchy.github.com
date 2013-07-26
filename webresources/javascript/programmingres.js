@@ -1,5 +1,23 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "初试Avalon",
+		summary: "试水一下Avalon",
+		time: "2013-07-26",
+		key: "mvvm/avalon/201307261",
+		tag: ["javascript","Avalon","MVVM"]
+	},{
+		title: "中介者模式",
+		summary: "javascript设计模式————中介者模式",
+		time: "2013-07-24",
+		key: "designPattern/TheMediatorPattern",
+		tag: ["javascript","设计模式"]
+	},{
+		title: "发布、订阅",
+		summary: "javascript设计模式————发布、订阅",
+		time: "2013-07-23",
+		key: "designPattern/ThePubSubPattern",
+		tag: ["javascript","设计模式"]
+	},{
 		title: "观察者模式",
 		summary: "javascript设计模式————观察者模式",
 		time: "2013-07-22",
