@@ -112,7 +112,6 @@
 
 	Mediator.prototype = {
 		GetTopic: function(namespace) {
-			// debugger;
 			var topic = this._topics;
 			var	namespaceHierarchy = namespace?(namespace+"").split(":"):"";
 

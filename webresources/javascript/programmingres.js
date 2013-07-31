@@ -1,5 +1,11 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "ie8,table中input的宽度bug",
+		summary: "修复ie8,table中input的宽度随输入撑开的bug",
+		time: "2013-07-31",
+		key: "201307311",
+		tag: ["css","ie8"]
+	},{
 		title: "初试Avalon",
 		summary: "试水一下Avalon",
 		time: "2013-07-26",

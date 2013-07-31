@@ -1,39 +1,42 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            var topics = {};
-
-            window.observer = function () {
-
-            };
-
-            observer.prototype = {
-                publish: function (type, data) {
-                    var subList = topics[type];
-                    if (subList && subList.length) {
-                        for (var a in subList) {
-                            subList[a].fun.call(this,data);
-                        }
-                    }
-                },
-                addSub: function (type, sub) {
-                    topics[type] = topics[type] || [];
-                    topics[type].push(sub);
-                }
-            };
-
-            window.sub = function ( callback) {
-                this.fun = callback;
-            };
-        })();
-
-</script>
+    <style>
+        div { overflow: hidden; width: 460px; height: 220px; }
+        ul { overflow: hidden; margin: 0; padding: 0; background: #0099cc; margin-left: -20px; }
+        li { float: left; list-style: none; width: 100px; height: 100px; margin-left: 20px; margin-bottom: 20px; background-color: #FFF799; }
+    </style>
+    <script src="/articles/programming/mvvm/avalon/avalon.js" type="text/javascript"></script>
 </head>
 <body>
+<div class="bigpic_inquires_content_box" id="AWBArea" style="left: 52px;"  ms-controller="awb">
 
+                <label style="position:absolute;left:26px;top:55px;">请输入最多五票运单号，以“，”隔开。</label>
+                    <textarea id="awbNum" name="awbNum" class="table_textarea auto" ms-duplex="awbNo" style="ime-mode: disabled;
+                        margin-top: 20px; margin-left: 4%; height: 60px;">345</textarea>
+              
+    <div class="content_240_button" style="margin-top: 10px; margin-bottom: 10px;" id="awbbtnSearch" ms-click="searchAwb">
+        追踪
+    </div>
+</div>
 </body>
 </html>
+<script>
+    avalon.ready(function () {
+        var awb = avalon.define("awb", function (a) {
+            a.awbNo = "123321";
+            a.searchAwb = function () {
+                if (awb.awbNo === "") {
+                    //alert("请输入运单号");
+                }
+                else {
+                    //$("#awbTrackQry").submit();
+                }
+                avalon.log(awb.awbNo);
+            };
+        });
+
+        avalon.scan();
+    });
+
+</script>

@@ -58,6 +58,8 @@
     <Content Include="articles\programming\201307111.htm" />
     <Content Include="articles\programming\201307121.htm" />
     <Content Include="articles\programming\201307151.htm" />
+    <Content Include="articles\programming\201307311.htm" />
+    <Content Include="articles\programming\201307311_sub.htm" />
     <Content Include="articles\programming\designPattern\mediator.js" />
     <Content Include="articles\programming\designPattern\pubsub.js" />
     <Content Include="articles\programming\designPattern\TheMediatorPattern.htm" />

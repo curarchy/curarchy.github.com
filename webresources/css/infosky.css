@@ -43,7 +43,7 @@ body .tptDiv ul .spliHold{background: #F37C06;border: 1px solid #D74700;cursor: 
 .autoDiv .autoType{margin-left: 5px;}
 .autoDiv .autoSummary{margin-left: 5px;float: right;}
 .autoDiv .autoSummary b{color:red;margin-left: 2px;margin-right: 2px;}
-.autoSort{width: 2em;right:-26px;position: absolute;top: -1px;border: 1px solid #aaa;padding: 2px 0;cursor: pointer;}
+.autoSort{width: 2em;right:-26px;position: absolute;top: -1px;border: 1px solid #aaa;padding: 2px 0;cursor: pointer;background:#fff;}
 .autoSort .sortContent{display: inline-block;width: 1.5em;padding-left: 0.5em;background-color: #fff;}
 .autoSort .sortContent ul{display: none;position: absolute;padding: 0.5em;width: 100px;right: -1px;text-align: right;background: #fff;border:1px solid #aaa;}
 .autoSort .sortContent:hover ul{display: block;}
