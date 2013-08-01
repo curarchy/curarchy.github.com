@@ -1,0 +1,119 @@
+﻿<section id="articleTitle"></section>
+<section id="articleBody">
+    <link href="/webresources/bootstrap/css/docs.css" rel="stylesheet" type="text/css" />
+    <script src="/webresources/bootstrap/js/prettify.js" type="text/javascript"></script>
+    <link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
+    <link href="/webresources/css/infosky.css" rel="stylesheet" type="text/css" />
+    <script src="/webresources/javascript/jquery.color.js" type="text/javascript"></script>
+    <h4>案例</h4>
+    <p>数据源为XML的自动完成</p>
+    <span class="label label-success">大数据量（1.8M）</span>
+    <span class="label label-success"><a href="/webresources/javascript/data/bigxmldata.xml" style="color:#fff;" target="_blank">数据源点这里</a></span>
+    <div class="bs-docs-example">
+        <a class="btn" onclick="getData()" style="margin-right: 20px;">read xml</a>
+        <input id="filterInput" type="text" style="width: 100px;margin-bottom:0px;" />        
+        <div id="logArea" style="border:1px solid #ccc;margin:25px 5px;padding:10px;min-height: 20px;"></div>
+    </div>
+
+    <h6>html</h6>
+    <pre class="prettyprint linenums">
+&lt;a class="btn" onclick="getData()" style="margin-right: 20px;"&gt;read xml&lt;/a&gt;
+&lt;input id="filterInput" type="text" style="width: 100px;margin-bottom:0px;" /&gt;
+&lt;div id="logArea"&gt;&lt;/div&gt;
+    </pre>
+
+        <h6>javascript</h6>
+    <pre class="prettyprint linenums">
+function getData() {
+    var stamp = new Date();
+    log("Downloading XML...");
+    $.get("/webresources/javascript/data/bigxmldata.xml?" + (new Date())).done(
+        function (data) {   
+            log("Download Complete.Time used:"+(new Date() - stamp) + " ms");         
+            log("Parsing XML...");
+            stamp = new Date();
+            var b = arguments[2].responseText.replace(/\s*&lt;OPEDEPARTID&gt;\s*/g, "@-|").replace(/\s*&lt;\/OPEDEPARTID&gt;\s*/g, "")
+                .replace(/\s*&lt;OPEDEPSHORTNM&gt;\s*/g, "|").replace(/\s*&lt;\/OPEDEPSHORTNM&gt;\s*/g, "")
+                .replace(/\s*&lt;OPEDEPNAME&gt;\s*/g, "|").replace(/\s*&lt;\/OPEDEPNAME&gt;\s*/g, "")
+                .replace(/\s*&lt;COMPANYID&gt;\s*/g, "|").replace(/\s*&lt;\/COMPANYID&gt;\s*/g, "")
+                .replace(/\s*&lt;CITYID&gt;\s*/g, "|").replace(/\s*&lt;\/CITYID&gt;\s*/g, "")
+                .replace(/\s*&lt;CGODOM&gt;\s*/g, "|").replace(/\s*&lt;\/CGODOM&gt;\s*/g, "")
+                .replace(/\s*&lt;CGOINT&gt;\s*/g, "|").replace(/\s*&lt;\/CGOINT&gt;\s*/g, "")
+                .replace(/\s*&lt;TYPE&gt;\s*/g, "|").replace(/\s*&lt;\/TYPE&gt;\s*/g, "")
+                .replace(/\s*&lt;CUSTOMERSHORTNM&gt;\s*/g, "|").replace(/\s*&lt;\/CUSTOMERSHORTNM&gt;\s*/g, "")
+                .replace(/\s*&lt;AIRPORTID&gt;\s*/g, "|").replace(/\s*&lt;\/AIRPORTID&gt;\s*/g, "")
+                .replace(/\s*&lt;ITEM&gt;\s*/g, "").replace(/\s*&lt;\/ITEM&gt;\s*/g, "")
+                .replace(/\s*&lt;OPEDEPART&gt;\s*/g, "").replace(/\s*&lt;\/OPEDEPART&gt;\s*/g, "")
+                .replace(/\s*&lt;BASEDATA&gt;\s*/g, "").replace(/\s*&lt;\/BASEDATA&gt;\s*/g, "")
+                .replace(/\s*&lt;BASEDATARET&gt;\s*/g, "").replace(/\s*&lt;\/BASEDATARET&gt;\s*/g, "")
+                .replace(/\s*&lt;\?xml[\w\W]*&lt;\/RESULT&gt;\s*/g, "")
+                .replace(/\s*&lt;\w+\s*\/&gt;\s*/g, "");
+            log("Parsing XML complete.Old string length:"+arguments[2].responseText.length+"   New string length: " + b.length+"   Time used:"+(new Date() - stamp) + " ms");
+            log("Initing autocomplete...");
+            _$.auto.setup({ "sortEnable": false });
+            _$.auto.init($("#filterInput"), b, { key: "二字码" });
+            log("Initing autocomplete completed.");
+            log("Try to type something in the input box.");
+            _$.ui.blink($("#filterInput"));
+        })
+        .fail(function () {
+            log("failed...");
+        });
+}
+
+function log(msg){
+    var content = $("&lt;p&gt;&lt;/p&gt;");
+    content.html(msg);
+    $("#logArea").append(content);
+}</pre>
+</section>
+<script>
+    function getData() {
+        var stamp = new Date();
+        log("Downloading XML...");
+        $.get("/webresources/javascript/data/bigxmldata.xml?" + (new Date())).done(
+            function (data) {   
+                log("Download Complete.Time used:"+(new Date() - stamp) + " ms");         
+                log("Parsing XML...");
+                stamp = new Date();
+                var b = arguments[2].responseText.replace(/\s*<OPEDEPARTID>\s*/g, "@-|").replace(/\s*<\/OPEDEPARTID>\s*/g, "")
+                    .replace(/\s*<OPEDEPSHORTNM>\s*/g, "|").replace(/\s*<\/OPEDEPSHORTNM>\s*/g, "")
+                    .replace(/\s*<OPEDEPNAME>\s*/g, "|").replace(/\s*<\/OPEDEPNAME>\s*/g, "")
+                    .replace(/\s*<COMPANYID>\s*/g, "|").replace(/\s*<\/COMPANYID>\s*/g, "")
+                    .replace(/\s*<CITYID>\s*/g, "|").replace(/\s*<\/CITYID>\s*/g, "")
+                    .replace(/\s*<CGODOM>\s*/g, "|").replace(/\s*<\/CGODOM>\s*/g, "")
+                    .replace(/\s*<CGOINT>\s*/g, "|").replace(/\s*<\/CGOINT>\s*/g, "")
+                    .replace(/\s*<TYPE>\s*/g, "|").replace(/\s*<\/TYPE>\s*/g, "")
+                    .replace(/\s*<CUSTOMERSHORTNM>\s*/g, "|").replace(/\s*<\/CUSTOMERSHORTNM>\s*/g, "")
+                    .replace(/\s*<AIRPORTID>\s*/g, "|").replace(/\s*<\/AIRPORTID>\s*/g, "")
+                    .replace(/\s*<ITEM>\s*/g, "").replace(/\s*<\/ITEM>\s*/g, "")
+                    .replace(/\s*<OPEDEPART>\s*/g, "").replace(/\s*<\/OPEDEPART>\s*/g, "")
+                    .replace(/\s*<BASEDATA>\s*/g, "").replace(/\s*<\/BASEDATA>\s*/g, "")
+                    .replace(/\s*<BASEDATARET>\s*/g, "").replace(/\s*<\/BASEDATARET>\s*/g, "")
+                    .replace(/\s*<\?xml[\w\W]*<\/RESULT>\s*/g, "")
+                    .replace(/\s*<\w+\s*\/>\s*/g, "");
+                log("Parsing XML complete.Old string length:"+arguments[2].responseText.length+"   New string length: " + b.length+"   Time used:"+(new Date() - stamp) + " ms");
+                log("Initing autocomplete...");
+                _$.auto.setup({ "sortEnable": false });
+                _$.auto.init($("#filterInput"), b, { key: "二字码" });
+                log("Initing autocomplete completed.");
+                log("Try to type something in the input box.");
+                _$.ui.blink($("#filterInput"));
+            })
+            .fail(function () {
+                log("failed...");
+            });
+    }
+
+    function log(msg){
+        var content = $("<p></p>");
+        content.html(msg);
+        $("#logArea").append(content);
+    }
+</script>
+
+<script type="text/javascript">
+    (function () {
+        prettyPrint();
+    })();
+</script>

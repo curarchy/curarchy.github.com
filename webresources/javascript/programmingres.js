@@ -1,5 +1,11 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "大数据量XML解析",
+		summary: "自动完成控件数据源为1.8M的XML",
+		time: "2013-08-01",
+		key: "201308011",
+		tag: ["jquery","插件","xml","性能"]
+	},{
 		title: "ie8,table中input的宽度bug",
 		summary: "修复ie8,table中input的宽度随输入撑开的bug",
 		time: "2013-07-31",
