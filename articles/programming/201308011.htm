@@ -32,22 +32,10 @@ function getData() {
             log("Download Complete.Time used:"+(new Date() - stamp) + " ms");         
             log("Parsing XML...");
             stamp = new Date();
-            var b = arguments[2].responseText.replace(/\s*&lt;OPEDEPARTID&gt;\s*/g, "@-|").replace(/\s*&lt;\/OPEDEPARTID&gt;\s*/g, "")
-                .replace(/\s*&lt;OPEDEPSHORTNM&gt;\s*/g, "|").replace(/\s*&lt;\/OPEDEPSHORTNM&gt;\s*/g, "")
-                .replace(/\s*&lt;OPEDEPNAME&gt;\s*/g, "|").replace(/\s*&lt;\/OPEDEPNAME&gt;\s*/g, "")
-                .replace(/\s*&lt;COMPANYID&gt;\s*/g, "|").replace(/\s*&lt;\/COMPANYID&gt;\s*/g, "")
-                .replace(/\s*&lt;CITYID&gt;\s*/g, "|").replace(/\s*&lt;\/CITYID&gt;\s*/g, "")
-                .replace(/\s*&lt;CGODOM&gt;\s*/g, "|").replace(/\s*&lt;\/CGODOM&gt;\s*/g, "")
-                .replace(/\s*&lt;CGOINT&gt;\s*/g, "|").replace(/\s*&lt;\/CGOINT&gt;\s*/g, "")
-                .replace(/\s*&lt;TYPE&gt;\s*/g, "|").replace(/\s*&lt;\/TYPE&gt;\s*/g, "")
-                .replace(/\s*&lt;CUSTOMERSHORTNM&gt;\s*/g, "|").replace(/\s*&lt;\/CUSTOMERSHORTNM&gt;\s*/g, "")
-                .replace(/\s*&lt;AIRPORTID&gt;\s*/g, "|").replace(/\s*&lt;\/AIRPORTID&gt;\s*/g, "")
-                .replace(/\s*&lt;ITEM&gt;\s*/g, "").replace(/\s*&lt;\/ITEM&gt;\s*/g, "")
-                .replace(/\s*&lt;OPEDEPART&gt;\s*/g, "").replace(/\s*&lt;\/OPEDEPART&gt;\s*/g, "")
-                .replace(/\s*&lt;BASEDATA&gt;\s*/g, "").replace(/\s*&lt;\/BASEDATA&gt;\s*/g, "")
-                .replace(/\s*&lt;BASEDATARET&gt;\s*/g, "").replace(/\s*&lt;\/BASEDATARET&gt;\s*/g, "")
-                .replace(/\s*&lt;\?xml[\w\W]*&lt;\/RESULT&gt;\s*/g, "")
-                .replace(/\s*&lt;\w+\s*\/&gt;\s*/g, "");
+            var b = arguments[2].responseText.replace(/\s*&lt;OPEDEPARTID&gt;\s*/g, "@-|")
+                .replace(/\s*&lt;\/(OPEDEPARTID|OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART|BASEDATA|BASEDATARET)&gt;\s*/g, "")
+                .replace(/\s*&lt;(OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART)&gt;\s*/g, "|")
+                .replace(/\s*&lt;(BASEDATA|BASEDATARET|\?xml[\w\W]*&lt;\/RESULT|\w+\s*\/)&gt;\s*/g, "")
             log("Parsing XML complete.Old string length:"+arguments[2].responseText.length+"   New string length: " + b.length+"   Time used:"+(new Date() - stamp) + " ms");
             log("Initing autocomplete...");
             _$.auto.setup({ "sortEnable": false });
@@ -62,7 +50,7 @@ function getData() {
 }
 
 function log(msg){
-    var content = $("&lt;p&gt;&lt;/p&gt;");
+    var content = $("<p></p>");
     content.html(msg);
     $("#logArea").append(content);
 }</pre>
@@ -76,22 +64,10 @@ function log(msg){
                 log("Download Complete.Time used:"+(new Date() - stamp) + " ms");         
                 log("Parsing XML...");
                 stamp = new Date();
-                var b = arguments[2].responseText.replace(/\s*<OPEDEPARTID>\s*/g, "@-|").replace(/\s*<\/OPEDEPARTID>\s*/g, "")
-                    .replace(/\s*<OPEDEPSHORTNM>\s*/g, "|").replace(/\s*<\/OPEDEPSHORTNM>\s*/g, "")
-                    .replace(/\s*<OPEDEPNAME>\s*/g, "|").replace(/\s*<\/OPEDEPNAME>\s*/g, "")
-                    .replace(/\s*<COMPANYID>\s*/g, "|").replace(/\s*<\/COMPANYID>\s*/g, "")
-                    .replace(/\s*<CITYID>\s*/g, "|").replace(/\s*<\/CITYID>\s*/g, "")
-                    .replace(/\s*<CGODOM>\s*/g, "|").replace(/\s*<\/CGODOM>\s*/g, "")
-                    .replace(/\s*<CGOINT>\s*/g, "|").replace(/\s*<\/CGOINT>\s*/g, "")
-                    .replace(/\s*<TYPE>\s*/g, "|").replace(/\s*<\/TYPE>\s*/g, "")
-                    .replace(/\s*<CUSTOMERSHORTNM>\s*/g, "|").replace(/\s*<\/CUSTOMERSHORTNM>\s*/g, "")
-                    .replace(/\s*<AIRPORTID>\s*/g, "|").replace(/\s*<\/AIRPORTID>\s*/g, "")
-                    .replace(/\s*<ITEM>\s*/g, "").replace(/\s*<\/ITEM>\s*/g, "")
-                    .replace(/\s*<OPEDEPART>\s*/g, "").replace(/\s*<\/OPEDEPART>\s*/g, "")
-                    .replace(/\s*<BASEDATA>\s*/g, "").replace(/\s*<\/BASEDATA>\s*/g, "")
-                    .replace(/\s*<BASEDATARET>\s*/g, "").replace(/\s*<\/BASEDATARET>\s*/g, "")
-                    .replace(/\s*<\?xml[\w\W]*<\/RESULT>\s*/g, "")
-                    .replace(/\s*<\w+\s*\/>\s*/g, "");
+                var b = arguments[2].responseText.replace(/\s*<OPEDEPARTID>\s*/g, "@-|")
+                    .replace(/\s*<\/(OPEDEPARTID|OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART|BASEDATA|BASEDATARET)>\s*/g, "")
+                    .replace(/\s*<(OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART)>\s*/g, "|")
+                    .replace(/\s*<(BASEDATA|BASEDATARET|\?xml[\w\W]*<\/RESULT|\w+\s*\/)>\s*/g, "")
                 log("Parsing XML complete.Old string length:"+arguments[2].responseText.length+"   New string length: " + b.length+"   Time used:"+(new Date() - stamp) + " ms");
                 log("Initing autocomplete...");
                 _$.auto.setup({ "sortEnable": false });
