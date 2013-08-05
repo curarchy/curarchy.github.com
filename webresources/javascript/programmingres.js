@@ -96,6 +96,9 @@
 				}
 			});
 			return result;
+		},
+		length:function(){
+			return programmingcontent.length;
 		}
 	};
 })();

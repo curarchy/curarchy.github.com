@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="articles\entertainment\" />
+    <Folder Include="articles\programming\elong\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
