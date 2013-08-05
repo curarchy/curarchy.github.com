@@ -147,6 +147,7 @@
     <Content Include="webresources\javascript\programminglist.js" />
     <Content Include="webresources\javascript\programmingres.js" />
     <Content Include="webresources\javascript\resource.js" />
+    <Content Include="webresources\javascript\scrollTop.js" />
     <Content Include="webresources\javascript\tictactoe.js" />
   </ItemGroup>
   <ItemGroup>

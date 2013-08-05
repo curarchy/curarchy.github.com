@@ -1128,7 +1128,7 @@
             if ((eventType === "tab" || eventType === "enter") && dir.length) {
                 $(option.element).val(dir.data("autoData")[4]);
                 if (typeof option.callback === "function") {
-                    option.callback(data);
+                    option.callback(dir.data("autoData"));
                 }
             }
         }
@@ -2443,4 +2443,3 @@
         }
     });
 })();
-
