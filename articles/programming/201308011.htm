@@ -11,49 +11,43 @@
     <span class="label label-success"><a href="/webresources/javascript/data/bigxmldata.xml" style="color:#fff;" target="_blank">数据源点这里</a></span>
     <div class="bs-docs-example">
         <a class="btn" onclick="getData()" style="margin-right: 20px;">read xml</a>
-        <input id="filterInput" type="text" style="width: 100px;margin-bottom:0px;" />        
-        <div id="logArea" style="border:1px solid #ccc;margin:25px 5px;padding:10px;min-height: 20px;"></div>
+        <input id="filterInput" type="text" style="width: 100px;margin-bottom:0px;" />
     </div>
 
     <h6>html</h6>
     <pre class="prettyprint linenums">
 &lt;a class="btn" onclick="getData()" style="margin-right: 20px;"&gt;read xml&lt;/a&gt;
-&lt;input id="filterInput" type="text" style="width: 100px;margin-bottom:0px;" /&gt;
-&lt;div id="logArea"&gt;&lt;/div&gt;
-    </pre>
-
-        <h6>javascript</h6>
+&lt;input id="filterInput" type="text" style="width: 100px;margin-bottom:0px;" /&gt;</pre>
+    <h6>javascript</h6>
     <pre class="prettyprint linenums">
-function getData() {
-    var stamp = new Date();
-    log("Downloading XML...");
-    $.get("/webresources/javascript/data/bigxmldata.xml?" + (new Date())).done(
-        function (data) {   
-            log("Download Complete.Time used:"+(new Date() - stamp) + " ms");         
-            log("Parsing XML...");
-            stamp = new Date();
-            var b = arguments[2].responseText.replace(/\s*&lt;OPEDEPARTID&gt;\s*/g, "@-|")
-                .replace(/\s*&lt;\/(OPEDEPARTID|OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART|BASEDATA|BASEDATARET)&gt;\s*/g, "")
-                .replace(/\s*&lt;(OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART)&gt;\s*/g, "|")
-                .replace(/\s*&lt;(BASEDATA|BASEDATARET|\?xml[\w\W]*&lt;\/RESULT|\w+\s*\/)&gt;\s*/g, "")
-            log("Parsing XML complete.Old string length:"+arguments[2].responseText.length+"   New string length: " + b.length+"   Time used:"+(new Date() - stamp) + " ms");
-            log("Initing autocomplete...");
-            _$.auto.setup({ "sortEnable": false });
-            _$.auto.init($("#filterInput"), b, { key: "二字码" });
-            log("Initing autocomplete completed.");
-            log("Try to type something in the input box.");
-            _$.ui.blink($("#filterInput"));
-        })
-        .fail(function () {
-            log("failed...");
-        });
-}
+    function getData() {
+        var stamp = new Date();
+        log("Downloading XML...");
+        $.get("/webresources/javascript/data/bigxmldata.xml?" + (new Date())).done(
+            function (data) {   
+                log("Download Complete.Time used:"+(new Date() - stamp) + " ms");         
+                log("Parsing XML...");
+                stamp = new Date();
+                var b = arguments[2].responseText.replace(/\s*&lt;OPEDEPARTID>\s*/g, "@-|")
+                    .replace(/\s*&lt;\/(OPEDEPARTID|OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART|BASEDATA|BASEDATARET)>\s*/g, "")
+                    .replace(/\s*&lt;(OPEDEPSHORTNM|OPEDEPNAME|COMPANYID|CITYID|CGODOM|CGOINT|TYPE|CUSTOMERSHORTNM|AIRPORTID|ITEM|OPEDEPART)>\s*/g, "|")
+                    .replace(/\s*&lt;(BASEDATA|BASEDATARET|\?xml[\w\W]*&lt;\/RESULT|\w+\s*\/)>\s*/g, "")
+                log("Parsing XML complete.Old string length:"+arguments[2].responseText.length+"   New string length: " + b.length+"   Time used:"+(new Date() - stamp) + " ms");
+                log("Initing autocomplete...");
+                _$.auto.setup({ "sortEnable": false });
+                _$.auto.init($("#filterInput"), b, { key: "二字码" });
+                log("Initing autocomplete completed.");
+                log("Try to type something in the input box.");
+                _$.ui.blink($("#filterInput"));
+            })
+            .fail(function () {
+                log("failed...","error");
+            });
+    }
 
-function log(msg){
-    var content = $("&lt;p&gt;&lt;/p&gt;");
-    content.html(msg);
-    $("#logArea").append(content);
-}</pre>
+    function log(msg,type){
+        noty({type:type?type:"information",text:msg,layout:"bottomLeft",maxVisible:8});
+    }</pre>
 </section>
 <script>
     function getData() {
@@ -77,14 +71,12 @@ function log(msg){
                 _$.ui.blink($("#filterInput"));
             })
             .fail(function () {
-                log("failed...");
+                log("failed...","error");
             });
     }
 
-    function log(msg){
-        var content = $("<p></p>");
-        content.html(msg);
-        $("#logArea").append(content);
+    function log(msg,type){
+        noty({type:type?type:"information",text:msg,layout:"bottomLeft",maxVisible:8});
     }
 </script>
 

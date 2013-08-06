@@ -5,7 +5,6 @@
 	<link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
 	<script src="/articles/programming/mvvm/avalon/avalon.js" type="text/javascript"></script>
 	<style type="text/css">.loginArea label{color:#666;position: absolute;margin:5px 5px 5px 10px;cursor:text;}
-#logArea{border:1px solid #ddd;padding:15px;margin:25px 5px 5px 5px;}
 	</style>
 
 	<div class="alert alert-block">
@@ -32,8 +31,6 @@
 
 			<br/>
 			<div class="btn" ms-click="login">Login</div>
-
-			<div id="logArea"></div>
 		</form>
 
 	</div>
@@ -50,8 +47,6 @@
 
 	&lt;br/&gt;
 	&lt;bottom class="btn" ms-click="login"&gt;Login&lt;/bottom&gt;
-
-	&lt;div id="logArea"&gt;&lt;/div&gt;
 &lt;/form&gt;</pre>
 
 	<h6>script</h6>
@@ -60,7 +55,7 @@ var loginMod = avalon.define("loginArea", function(a) {
     	a.userName="";
     	a.password="";
     	a.login = function(){
-    		$( "#logArea" ).prepend("&lt;p&gt;" + JSON.stringify(loginMod.$json) + "&lt;/p&gt;");
+    		noty({type:"information",text:JSON.stringify(loginMod.$json),layout:"bottomLeft"});
     	};
     });
 avalon.scan();</pre>
@@ -79,7 +74,7 @@ avalon.scan();</pre>
 	    	a.userName="";
 	    	a.password="";
 	    	a.login = function(){
-	    		$( "#logArea" ).prepend("<p>" + JSON.stringify(loginMod.$json) + "</p>");
+	    		noty({type:"information",text:JSON.stringify(loginMod.$json),layout:"bottomLeft"});
 	    	}
 	    });
 	avalon.scan();

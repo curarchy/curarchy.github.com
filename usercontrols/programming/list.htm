@@ -1,6 +1,6 @@
 ﻿<div class="btn-group">
 	<style type="text/css">
-		pre.block{min-width:240px;max-width:380px;min-height: 98px;margin:10px 10px 10px 0;float:left;}
+		pre.block{min-width:318px;max-width:318px;width:318px;min-height: 98px;margin:10px 10px 10px 0;float:left;}
 	</style>
 	<button class="btn" disabled="disabled" id="btnList">List</button>
 	<button class="btn" id="btnBlock">Block</button>
@@ -10,11 +10,12 @@
 			$(this).attr("disabled","disabled");
 			if($(this).is("#btnList"))
 				$("#listarea pre").removeClass("block");
-			else
+			else{
 				$("#listarea pre").addClass("block");
-		});
+            }
+        });
 	</script>
 </div>
 <div id="listarea" style="margin-top:20px;">
-<script type="text/javascript">	_$.programminglist.init();</script>
+	<script type="text/javascript">_$.programminglist.init();</script>
 </div>
