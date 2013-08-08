@@ -1,5 +1,11 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "javascript跨域",
+		summary: "javascript中跨域的解决方案",
+		time: "2013-08-08",
+		key: "201308081",
+		tag: ["javascript","跨域"]
+	},{
 		title: "大数据量XML解析",
 		summary: "自动完成控件数据源为1.8M的XML",
 		time: "2013-08-01",

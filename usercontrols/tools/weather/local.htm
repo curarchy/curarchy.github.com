@@ -1,0 +1,39 @@
+﻿hello world
+
+<a class="btn" onclick="_$.xml.parseXMLByURL('http://flash.weather.com.cn/wmaps/xml/china.xml');">test</a>
+
+<script type="text/javascript">
+	function localWeather(data){
+		noty(data);
+	};
+
+	(function(){
+		var url = _$.resource.get("position",true);
+		$.getScript(url, function(){  
+			console.info(remote_ip_info);
+			noty({text:JSON.stringify(remote_ip_info)});
+		}); 
+
+		var xhr = _$.xml.createDoc();
+		xhr.onreadystatechange = function(){
+		    console.info(xhr.responseXML);
+		    console.info(xhr.responseText);
+		    console.info(xhr.status);
+		    console.info("---");
+		};
+		xhr.open("get","http://flash.weather.com.cn/wmaps/xml/china.xml",true);
+		xhr.send(null);
+	})();
+</script>
+
+<script type="text/html" id="a" src="http://flash.weather.com.cn/wmaps/xml/china.xml"></script>
+
+var xhr = _$.xml.createDoc();
+xhr.onreadystatechange = function(){
+    console.info(xhr.responseXML);
+    console.info(xhr.responseText);
+    console.info(xhr.status);
+    console.info("---");
+};
+xhr.open("get","http://flash.weather.com.cn/wmaps/xml/china.xml",true);
+xhr.send(null);

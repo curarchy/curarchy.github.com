@@ -61,6 +61,7 @@
     <Content Include="articles\programming\201307311.htm" />
     <Content Include="articles\programming\201307311_sub.htm" />
     <Content Include="articles\programming\201308011.htm" />
+    <Content Include="articles\programming\201308081.htm" />
     <Content Include="articles\programming\designPattern\mediator.js" />
     <Content Include="articles\programming\designPattern\pubsub.js" />
     <Content Include="articles\programming\designPattern\TheMediatorPattern.htm" />
@@ -69,6 +70,7 @@
     <Content Include="articles\programming\designPattern\ThePubSubPattern.htm" />
     <Content Include="articles\programming\mvvm\avalon\201307261.htm" />
     <Content Include="articles\programming\mvvm\avalon\avalon.js" />
+    <Content Include="tools\weather.htm" />
     <Content Include="baidu_verify_Krqeg3gAim.html" />
     <Content Include="entertainment.htm" />
     <Content Include="favicon32.ico" />
@@ -85,6 +87,7 @@
     <Content Include="usercontrols\nav.htm" />
     <Content Include="usercontrols\programming\list.htm" />
     <Content Include="usercontrols\programming\nav.htm" />
+    <Content Include="usercontrols\tools\weather\local.htm" />
     <Content Include="usercontrols\weiboshow.htm" />
     <Content Include="usercontrols\xiami.htm" />
     <Content Include="Web.config" />
@@ -164,6 +167,7 @@
     <Content Include="webresources\javascript\resource.js" />
     <Content Include="webresources\javascript\scrollTop.js" />
     <Content Include="webresources\javascript\tictactoe.js" />
+    <Content Include="webresources\javascript\tools\weather.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

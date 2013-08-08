@@ -1,14 +1,14 @@
 ﻿/*************************************************************
-* infosky.core
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-04-11
-************************************************************/
+ * infosky.core
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-04-11
+ ************************************************************/
 
-(function () {
+(function() {
 
-    window.usingNamespace = function (a) {
-        if (!(typeof (a) === "string" && a.length !== 0)) {
+    window.usingNamespace = function(a) {
+        if (!(typeof(a) === "string" && a.length !== 0)) {
             throw Error("param error");
         }
         var co = window;
@@ -20,7 +20,7 @@
         return co;
     };
 
-    var infosky = function () {
+    var infosky = function() {
         return new infosky.fn.init();
     };
 
@@ -29,7 +29,7 @@
         infosky: "1.0",
 
         // buildurl from environment or envir
-        buildUrl: function (name, timeStamp, envir) {
+        buildUrl: function(name, timeStamp, envir) {
             var url = (envir || Environment)[name];
             if (timeStamp) {
                 if (url.indexOf('?') === -1) {
@@ -41,47 +41,47 @@
             return url;
         },
 
-        trimLeft: function (str) {
+        trimLeft: function(str) {
             return str === null ? "" : str.toString().replace(/^\s+/, "");
         },
 
-        trimRight: function (str) {
+        trimRight: function(str) {
             return str === null ? "" : str.toString().replace(/\s+$/, "");
         },
 
-        trim: function (str) {
+        trim: function(str) {
             return str === null ? "" : ("" + str).replace(/^\s+|\s+$/g, "");
         },
 
         //多个空格合并成一个
-        resetBlank: function (str) {
+        resetBlank: function(str) {
             var regEx = /\s+/g;
             return str === null ? "" : ("" + str).replace(regEx, ' ');
         },
 
-        padLeft: function (str, c, count) {
+        padLeft: function(str, c, count) {
             while (str.length < count) {
                 str = c + str;
             }
             return str;
         },
 
-        padRight: function (str, c, count) {
+        padRight: function(str, c, count) {
             while (str.length < count) {
                 str += c;
             }
             return str;
         },
 
-        hrefTo: function (url, newwin) {
+        hrefTo: function(url, newwin) {
             return newwin ? open(url) : (location.href = url);
         },
 
-        isNullOrEmpty: function (str) {
-            return !(typeof (str) === "string" && str.replace(/^\s+|\s+$/g, "").length !== 0);
+        isNullOrEmpty: function(str) {
+            return !(typeof(str) === "string" && str.replace(/^\s+|\s+$/g, "").length !== 0);
         },
 
-        isNumeric: function (obj) {
+        isNumeric: function(obj) {
             return !isNaN(parseFloat(obj)) && isFinite(obj);
         },
 
@@ -98,13 +98,13 @@
         // _$.stringFormat("{0} xxx {1}","a","b")  =>> "a xxx b"
         // _$.stringFormat("{0} xxx {1}",["a","b"]) =>> "a xxx b"
         // _$.stringFormat("{{0}} xxx {{1}}",{"0":"hello","1":"world"}) =>> "hello xxx world"
-        stringFormat: function (source, params) {
-            if (arguments.length === 1) return function () {
+        stringFormat: function(source, params) {
+            if (arguments.length === 1) return function() {
                 var args = $.makeArray(arguments);
                 args.unshift(source);
                 return infosky.stringFormat.apply(this, args);
             };
-            if (arguments.length === 2 && typeof (arguments[1]) == "object" && (arguments[1] === null || arguments[1].constructor != Array)) {
+            if (arguments.length === 2 && typeof(arguments[1]) == "object" && (arguments[1] === null || arguments[1].constructor != Array)) {
                 var obj;
                 if (arguments[1] === null)
                     obj = [""];
@@ -113,7 +113,7 @@
 
                 var beginchar = "{{";
                 var endchar = "}}";
-                return source.replace(new RegExp(beginchar + "([^\\[\\]]*?)" + endchar, "igm"), function ($, $1) {
+                return source.replace(new RegExp(beginchar + "([^\\[\\]]*?)" + endchar, "igm"), function($, $1) {
                     return obj[$1] ? obj[$1] : $;
                 });
             }
@@ -123,20 +123,20 @@
             if ((params || "").constructor != Array) {
                 params = [params];
             }
-            $.each(params || "", function (i, n) {
+            $.each(params || "", function(i, n) {
                 source = source.replace(new RegExp("\\{" + i + "\\}", "g"), n);
             });
             return source;
         },
 
-        upFirst: function (str) {
+        upFirst: function(str) {
             var reg = /\b(\w)|\s(\w)/g;
-            return str.replace(reg, function (m) {
+            return str.replace(reg, function(m) {
                 return m.toUpperCase();
             });
         },
 
-        caret: function (elem, begin, end) {
+        caret: function(elem, begin, end) {
             if (!elem) return;
             var range;
             if (typeof begin === 'number') {
@@ -180,7 +180,7 @@
 
         //cookie相关操作
         cookie: {
-            get: function (name) {
+            get: function(name) {
                 var cookieName = encodeURIComponent(name) + "=",
                     cookieStart = document.cookie.indexOf(cookieName),
                     cookieValue = null;
@@ -193,7 +193,7 @@
                 }
                 return cookieValue;
             },
-            set: function (name, value, expires, path, domain, secure) {
+            set: function(name, value, expires, path, domain, secure) {
                 var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
                 if (expires instanceof Date) cookieText += "; expires=" + expires.toGMTString();
                 if (path) cookieText += "; path=" + path;
@@ -204,7 +204,7 @@
         },
 
         //数组过滤重复数据
-        unique: function (arr) {
+        unique: function(arr) {
             var hash = {}, result = [];
             for (var i = 0, l = arr.length; i < l; ++i) {
                 if (!hash.hasOwnProperty(arr[i])) {
@@ -216,27 +216,27 @@
         },
 
         //创建一个对象，其原型为p
-        inherit: function (p) {
+        inherit: function(p) {
             if (p === null) throw TypeError();
             if (Object.create) return Object.create(p);
             var t = typeof p;
             if (t !== "object" && t !== "function") throw TypeError();
 
-            var f = function () { };
+            var f = function() {};
             f.prototype = p;
             return new f();
         },
 
         //0至(length-1)的随机数
-        random: function (length) {
+        random: function(length) {
             return Math.floor(Math.random() * (infosky.isNumeric(length) ? length : 65535));
         },
 
 
         //记录错误日志
-        error: (function () {
+        error: (function() {
             var maxError = 3;
-            return function (msg, url) {
+            return function(msg, url) {
                 if (!maxError) return;
                 maxError--;
                 var img = new Image();
@@ -246,7 +246,7 @@
 
 
         //获取querystring
-        getParameterByName: function (name) {
+        getParameterByName: function(name) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
             var regexS = "[\\?&]" + name + "=([^&#]*)";
             var regex = new RegExp(regexS);
@@ -264,13 +264,13 @@
         //cfg:配置       {
         //                  dftval : "key"      当取到值为空时，用该属性赋值
         //               }
-        buildDataByIDs: function (obj, ids, cfg) {
+        buildDataByIDs: function(obj, ids, cfg) {
             var _cfg = {
                 dftval: ""
             };
             $.extend(_cfg, cfg);
             obj = obj || {};
-            $.each(ids, function (i, n) {
+            $.each(ids, function(i, n) {
                 var item = $("#" + n);
                 if (item.is("[type=checkbox]")) {
                     obj[n] = item.is(":checked");
@@ -294,15 +294,15 @@
         //cfg:配置        {
         //                   dftval : "key"      当取到值为空时（null,undefined,false,"",0），用该属性赋值
         //                }
-        buildDataByNames: function (area, names, cfg) {
+        buildDataByNames: function(area, names, cfg) {
             var _cfg = {
                 dftval: ""
             };
             area = area || $("body");
             var result = [];
             var obj = {};
-            $.each($(area).find("[name=" + names[0] + "]"), function (index) {
-                $.each(names, function (i, n) {
+            $.each($(area).find("[name=" + names[0] + "]"), function(index) {
+                $.each(names, function(i, n) {
                     var item = $(area).find("[name=" + n + "]:eq(" + index + ")");
                     var val = infosky.trim(item.val());
                     if (val) {
@@ -320,14 +320,14 @@
         },
 
         //阻塞线程（浏览器无响应的）
-        sleep: function (second) {
+        sleep: function(second) {
             var current = new Date().setSeconds(new Date().getSeconds() + second);
-            while (new Date() < current) { }
+            while (new Date() < current) {}
         }
     });
 
     infosky.fn = infosky.prototype = {
-        init: function () {
+        init: function() {
             return this;
         }
     };
@@ -338,18 +338,18 @@
 
 
 /*************************************************************
-* infosky.ui
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-04-15
-************************************************************/
+ * infosky.ui
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-04-15
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
     _$.ui = _$.ui || {};
 
     //scrollto the element or top by animate
-    _$.ui.scrollto = function (param, time, callback) {
+    _$.ui.scrollto = function(param, time, callback) {
         callback = callback || $.noop;
         $("html,body").animate({
             scrollTop: _$.isNumeric(param) ? param : param.offset().top
@@ -357,7 +357,7 @@
         return param;
     };
 
-    _$.ui.scrollHelper = function (parent, child, position, delta) {
+    _$.ui.scrollHelper = function(parent, child, position, delta) {
         if (position === "top") {
             data = child.offset().top - parent.offset().top + parent.scrollTop();
             if (_$.isNumeric(delta)) {
@@ -377,11 +377,11 @@
 
     //require jqueryui or jquery.color
     //do not add too many items into parameter "items"
-    _$.ui.blink = function (items, colors, oricolors) {
+    _$.ui.blink = function(items, colors, oricolors) {
         colors = colors || [];
         oricolors = oricolors || [];
-        $(items).each(function (index, item) {
-            $(item).first().queue(function (next) { //due to getting the oricolor,the animation should be added into a queue
+        $(items).each(function(index, item) {
+            $(item).first().queue(function(next) { //due to getting the oricolor,the animation should be added into a queue
                 var color = colors[index] || "#FF7171";
                 var oricolor = oricolors[index] || $(item).css("backgroundColor");
                 $(item).first().animate({
@@ -400,7 +400,7 @@
     };
 
     //items can be shaked
-    _$.ui.shake = function (item, size, speed) {
+    _$.ui.shake = function(item, size, speed) {
         size = size || 10;
         speed = speed || 150;
         return $(item).animate({
@@ -417,15 +417,15 @@
 })();
 
 /*************************************************************
-* infosky.vali
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-04-15
-************************************************************/
+ * infosky.vali
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-04-15
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.vali = function (item) {
+    _$.vali = function(item) {
         //TODO 初始化。。。
         this.item = item;
     };
@@ -433,55 +433,55 @@
 
     $.extend(_$.vali.rules, {
         IsOr: {
-            method: function (value) {
+            method: function(value) {
                 return (/^\|\|/).test(value);
             },
             msg: "以||开头"
         },
         Required: {
-            method: function (value) {
+            method: function(value) {
                 return (value === null || value === undefined || value === "undefined") ? false : (value.length > 0);
             },
             msg: "该字段必填"
         },
         NotRequired: {
-            method: function (value) {
+            method: function(value) {
                 return value.length === 0;
             },
             msg: "该处无需填写"
         },
         MinLength: {
-            method: function (value, param) {
+            method: function(value, param) {
                 return value.length >= param[0];
             },
             msg: "不能少于{0}位"
         },
         MaxLength: {
-            method: function (value, param) {
+            method: function(value, param) {
                 return value.length <= param[0];
             },
             msg: "不能超过{0}位"
         },
         LengthRange: {
-            method: function (value, param) {
+            method: function(value, param) {
                 return value.length >= param[0] && value.length <= param[1];
             },
             msg: "请输入{0}至{1}位之间"
         },
         Min: {
-            method: function (value, param) {
+            method: function(value, param) {
                 return value >= param[0];
             },
             msg: "最小值为{0}"
         },
         Max: {
-            method: function (value, param) {
+            method: function(value, param) {
                 return value <= param[0];
             },
             msg: "最大值为{0}"
         },
         Range: {
-            method: function (value, param) {
+            method: function(value, param) {
                 if (/^((\d+\.)?\d+)?d*$/.test(value) && value !== "") {
                     return value >= param[0] && value <= param[1];
                 }
@@ -490,64 +490,64 @@
             msg: "请输入{0}至{1}之间"
         },
         IsASCII: {
-            method: function (value) {
+            method: function(value) {
                 return (/^[\u0021-\u007E]*$/).test(value);
             },
             msg: "只能输入英文或半角符号"
         },
         IsInt: {
-            method: function (value) {
+            method: function(value) {
                 return (/^\d*$/).test(value);
             },
             msg: "请输入整数"
         },
         IsFloat: {
-            method: function (value) {
+            method: function(value) {
                 return (/^((\d+\.)?\d+)?d*$/).test(value);
             },
             msg: "请输入数字"
         },
         IsDigits: {
-            method: function (value) {
+            method: function(value) {
                 return (/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/).test(value);
             },
             msg: "请输入数字"
         },
         IsEmail: {
-            method: function (value) {
+            method: function(value) {
                 return (/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/).test(value);
             },
             msg: "email格式不正确"
         },
         IsCharacter: {
-            method: function (value) {
+            method: function(value) {
                 return (/^([a-zA-Z])*$/).test(value);
             },
             msg: "请输入字母"
         },
         IsCharacterOrInteger: {
-            method: function (value) {
+            method: function(value) {
                 return (/^([A-Za-z0-9])*$/).test(value);
             },
             msg: "请输入字母或整数"
         },
         EqualTo: {
-            method: function (value, param) {
+            method: function(value, param) {
                 return value == $(param[0]).val();
             },
             msg: "两次输入不一致"
         },
         Ajax: {
-            method: function () { }
+            method: function() {}
         },
         IsUrl: {
-            method: function (value) {
+            method: function(value) {
                 return (/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/).test(value);
             },
             msg: "请输入合法的网址，以http(s)开头"
         },
         IsPhone: {
-            method: function (value) {
+            method: function(value) {
                 return (/^((0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/).test(value);
             },
             msg: "电话号码不正确，格式:区号-号码"
@@ -567,7 +567,7 @@
             autoAlert: 4
         };
 
-    var _init = function (item) {
+    var _init = function(item) {
         var element = $(item);
         if (!element.data("vali.validation")) {
             var option = $.extend({}, _option, $.parseJSON(element.attr("validation")));
@@ -579,11 +579,11 @@
         }
     };
 
-    var _destory = function (item) {
+    var _destory = function(item) {
         var element = $(item);
         element.removeData("vali.validation", null);
         for (var group in _cache) {
-            $.each(_cache[group], function (index, target) {
+            $.each(_cache[group], function(index, target) {
                 if (target === item) {
                     _cache[group].splice(index, 1);
                     return false;
@@ -592,13 +592,13 @@
         }
     };
 
-    var _validate = function (obj, callback) {
+    var _validate = function(obj, callback) {
         var result = true,
             msg = "",
             element = $(obj),
             option = element.data("vali.validation");
         if (!option) return true;
-        $(option.rules).each(function (index, item) {
+        $(option.rules).each(function(index, item) {
             var isOr = _$.vali.test("IsOr", item[0]);
             if (isOr && result) return false;
             else if (!isOr && !result) return true;
@@ -626,7 +626,7 @@
         return result;
     };
 
-    var _processError = function () {
+    var _processError = function() {
         if (!_errors[0]) {
             return;
         }
@@ -649,11 +649,11 @@
         }
     };
 
-    var _processErrors = function () {
+    var _processErrors = function() {
         var msg = "";
         if (_errors.length && _option.autoAlert) {
             var count = _option.autoAlert;
-            $.each(_errors, function (index, item) {
+            $.each(_errors, function(index, item) {
                 if (item.msg && count) {
                     msg += (item.tag || "错误") + ":    " + (item.msg) + "\r\n";
                     count--;
@@ -668,30 +668,30 @@
 
     $.extend(_$.vali, {
         //只有初始化之前有效
-        valiSetup: function (params) {
+        valiSetup: function(params) {
             $.extend(_option, params);
         },
-        appendNewRule: function (name, fun, msg) {
+        appendNewRule: function(name, fun, msg) {
             _$.vali.rules[name] = {
                 method: fun,
                 msg: msg
             };
         },
-        test: function (name, value, params) {
+        test: function(name, value, params) {
             var rule = _$.vali.rules[name];
             if (!rule || !$.isFunction(rule.method)) return false;
             return rule.method.call(this, value, params);
         },
         //jquery元素(组)、区域或不传
-        init: function (area) {
+        init: function(area) {
             var items = (area instanceof jQuery) ? area.find("[validation]").andSelf("[validation]") : $("*[validation]");
-            items.each(function (index, item) {
+            items.each(function(index, item) {
                 _init(item);
             });
         },
 
         //jquery元素(组)、区域、group、不传
-        destory: function (area) {
+        destory: function(area) {
             var items;
             if (area instanceof jQuery) {
                 items = area.find("[validation]").andSelf("[validation]");
@@ -700,26 +700,26 @@
             } else {
                 items = $("*[validation]");
             }
-            items.each(function (index, item) {
+            items.each(function(index, item) {
                 _destory(item);
             });
             return items.length;
         },
 
-        getLastErrors: function (item) {
+        getLastErrors: function(item) {
             return _errors;
         },
-        validate: function (items, callback) {
+        validate: function(items, callback) {
             _errors = [];
             if (items instanceof jQuery) {
                 //vali by element
-                items.each(function (index, item) {
+                items.each(function(index, item) {
                     _validate(item);
                 });
             } else {
                 //vali by group
                 var group = items ? items : _option.group;
-                $(_cache[group]).filter(_option.target).each(function (index, item) {
+                $(_cache[group]).filter(_option.target).each(function(index, item) {
                     _validate(item);
                 });
             }
@@ -732,20 +732,20 @@
 })();
 
 /*************************************************************
-* infosky.rules
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-04-15
-************************************************************/
+ * infosky.rules
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-04-15
+ ************************************************************/
 
-(function () {
-    _$.vali.appendNewRule("IsMoney", function (value) {
+(function() {
+    _$.vali.appendNewRule("IsMoney", function(value) {
         return (/^(-)?(([1-9]{1}\d*)|([0]{1}))(\.(\d){1,2})?$/).test(value);
     }, "请输入货币格式");
-    _$.vali.appendNewRule("IsTime", function (value) {
+    _$.vali.appendNewRule("IsTime", function(value) {
         return (/^([01]\d|2[0-3])(:[0-5]\d){0,2}$/).test(value);
     }, "请输入时间格式，00:00 至 23:59");
-    _$.vali.appendNewRule("IsAWBNo", function (value) {
+    _$.vali.appendNewRule("IsAWBNo", function(value) {
         var array = value.split("-");
         if (array[0].length != 3) {
             return false;
@@ -756,25 +756,25 @@
         }
         return (awbNo.substr(0, 7) % 7 == awbNo.substr(7, 1));
     }, "请输入正确的运单格式");
-    _$.vali.appendNewRule("IsFloat2", function (value) {
+    _$.vali.appendNewRule("IsFloat2", function(value) {
         return (/^\d*(\d(\.\d{1,2})?)?$/).test(value);
     }, "请输入整数或者最多2位小数");
-    _$.vali.appendNewRule("IsDate", function (value) {
+    _$.vali.appendNewRule("IsDate", function(value) {
         return (/((^((1[8-9]\d{2})|([2-9]\d{3}))([-\/\._])(10|12|0?[13578])([-\/\._])(3[01]|[12][0-9]|0?[1-9])$)|(^((1[8-9]\d{2})|([2-9]\d{3}))([-\/\._])(11|0?[469])([-\/\._])(30|[12][0-9]|0?[1-9])$)|(^((1[8-9]\d{2})|([2-9]\d{3}))([-\/\._])(0?2)([-\/\._])(2[0-8]|1[0-9]|0?[1-9])$)|(^([2468][048]00)([-\/\._])(0?2)([-\/\._])(29)$)|(^([3579][26]00)([-\/\._])(0?2)([-\/\._])(29)$)|(^([1][89][0][48])([-\/\._])(0?2)([-\/\._])(29)$)|(^([2-9][0-9][0][48])([-\/\._])(0?2)([-\/\._])(29)$)|(^([1][89][2468][048])([-\/\._])(0?2)([-\/\._])(29)$)|(^([2-9][0-9][2468][048])([-\/\._])(0?2)([-\/\._])(29)$)|(^([1][89][13579][26])([-\/\._])(0?2)([-\/\._])(29)$)|(^([2-9][0-9][13579][26])([-\/\._])(0?2)([-\/\._])(29)$)|(^\s{0}$))/).test(value);
     }, "日期格式不正确");
 })();
 
 
 /*************************************************************
-* infosky.tag
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-05-13
-************************************************************/
+ * infosky.tag
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-05-13
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.tag = function (item) {
+    _$.tag = function(item) {
         this.item = item;
     };
 
@@ -785,9 +785,9 @@
         repeatclear: true
     };
 
-    var _init = function (obj, option) {
+    var _init = function(obj, option) {
         $(obj).data("tag.option", option)
-            .on("keydown.tag", function (e) {
+            .on("keydown.tag", function(e) {
                 switch (e.keyCode) {
                     case 8:
                         //退格
@@ -814,15 +814,15 @@
                         break;
                 }
                 _setWidth($(this), option);
-            }).on("keyup.tag", function () {
+            }).on("keyup.tag", function() {
                 _setWidth($(this), option);
-            }).on("blur.tag", function () {
+            }).on("blur.tag", function() {
                 // _add($(this));
                 // _setInputAtLast($(this));
                 if ($(obj).val().length === 0) {
                     _setInputAtLast($(obj), option);
                 }
-            }).parent().on("click.tag", function (e) {
+            }).parent().on("click.tag", function(e) {
                 if ($(obj).val().length === 0) {
                     _setInputAtLast($(obj), option);
                 }
@@ -833,7 +833,7 @@
             });
     };
 
-    var _toLeft = function (obj, e, option) {
+    var _toLeft = function(obj, e, option) {
         var caret = _$.caret(obj);
         if (caret.begin === 0 && caret.end === 0) {
             if ($(obj).prev().is(".tag-span")) {
@@ -843,7 +843,7 @@
         }
     };
 
-    var _toRight = function (obj, option) {
+    var _toRight = function(obj, option) {
         var caret = _$.caret(obj);
         if (caret.begin === $(obj).val().length) {
             if ($(obj).next().is(".tag-span")) {
@@ -854,7 +854,7 @@
         }
     };
 
-    var _tabClick = function (obj, e, option) {
+    var _tabClick = function(obj, e, option) {
         if ($(obj).next().is(".tag-span")) {
             _setToEdit($(obj).next(), option);
             e.preventDefault();
@@ -865,7 +865,7 @@
         }
     };
 
-    var _add = function (obj, text, option) {
+    var _add = function(obj, text, option) {
         option = option || $(obj).data("tag.option");
         text = text || $.trim($(obj).val());
         if (!option.repeatable) {
@@ -880,10 +880,10 @@
         if (text.length) {
             $(obj).before($(_$.stringFormat(option.element, text)).data("tag.val", text));
             $(obj).val("").prev()
-                .on("click.tag", function () {
+                .on("click.tag", function() {
                     _setToEdit(this, option);
                 }).find(".tag-delete")
-                .on("click.tag", function (event) {
+                .on("click.tag", function(event) {
                     $(this).parent().siblings("input").focus();
                     $(this).parent().remove();
                     event.stopPropagation();
@@ -891,24 +891,24 @@
         }
     };
 
-    var _remove = function (obj, text) {
+    var _remove = function(obj, text) {
         var objs = _getTag(obj, text);
         $(objs).remove();
         return objs.length;
     };
 
-    var _getTag = function (obj, text) {
-        return $.grep($(obj).siblings(".tag-span").toArray(), function (item, index) {
+    var _getTag = function(obj, text) {
+        return $.grep($(obj).siblings(".tag-span").toArray(), function(item, index) {
             return $(item).data("tag.val") === text;
         });
     };
 
-    var _delete = function (obj) {
+    var _delete = function(obj) {
         var text = $(obj).val();
         if (text.length === 0) $(obj).prev(".tag-container span").remove();
     };
 
-    var _setWidth = function (obj, option) {
+    var _setWidth = function(obj, option) {
         if ($(obj).is("input")) {
             var text = $(obj).val();
             var count = text.replace(/[^\u0000-\u00ff]/g, "aa").length;
@@ -916,12 +916,12 @@
         }
     };
 
-    var _destory = function (obj) {
+    var _destory = function(obj) {
         $(obj).siblings(".tag-span").remove();
         $(obj).off(".tag");
     };
 
-    var _setToEdit = function (span, option) {
+    var _setToEdit = function(span, option) {
         var input = $(span).siblings("input");
         _add(input, null, option);
         input.detach();
@@ -932,53 +932,53 @@
         input.focus();
     };
 
-    var _setInputAtLast = function (obj) {
+    var _setInputAtLast = function(obj) {
         if ($(obj).next().is(".tag-span")) {
             $(obj).siblings().last().after($(obj).detach());
         }
     };
 
     $.extend(_$.tag, {
-        tagSetup: function (params) {
+        tagSetup: function(params) {
             $.extend(_option, params);
         },
-        init: function (obj, option) {
+        init: function(obj, option) {
             if (obj instanceof jQuery) {
-                obj.filter("input").each(function (index, item) {
+                obj.filter("input").each(function(index, item) {
                     var opt = $.extend({}, _option, option);
                     _init(item, opt);
                     _$.tag.setValue(item);
                 });
             }
         },
-        destory: function (obj) {
+        destory: function(obj) {
             if (obj instanceof jQuery) {
-                obj.each(function (index, item) {
+                obj.each(function(index, item) {
                     _destory($(item));
                 });
             }
         },
-        getValue: function (obj, format) {
+        getValue: function(obj, format) {
             var result = [];
-            $(obj).siblings(".tag-span").each(function (index, item) {
+            $(obj).siblings(".tag-span").each(function(index, item) {
                 result.push($(item).data("tag.val"));
             });
             return format ? result.join(format) : result;
         },
-        setValue: function (obj, values, sp) {
+        setValue: function(obj, values, sp) {
             values = values || $(obj).val();
             if (values) {
                 sp = sp; //|| ' ';
                 var array = values.split(sp);
-                $.each(array, function (index, item) {
+                $.each(array, function(index, item) {
                     _add(obj, item);
                 });
             }
         },
-        add: function (obj, text) {
+        add: function(obj, text) {
             _add(obj, text);
         },
-        remove: function (obj, text) {
+        remove: function(obj, text) {
             return _remove(obj, text);
         }
     });
@@ -986,15 +986,15 @@
 
 
 /*************************************************************
-* infosky.auto
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-05-13
-************************************************************/
+ * infosky.auto
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-05-13
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.auto = function (item) {
+    _$.auto = function(item) {
         this.item = item;
     };
 
@@ -1016,7 +1016,7 @@
                 paginationSize: 5 //显示分页个数,请选择奇数
             },
             sort: 4,
-            key : "三字码",
+            key: "三字码",
             sortGroup: [{
                 title: "默认排序", //不排序(ie6,7推荐关闭排序功能)
                 index: 0
@@ -1032,23 +1032,22 @@
             }, {
                 title: "按{0}排序",
                 index: 4
-            }
-            ],
+            }],
             sortEnable: true,
             showFormat: [1, 2, 4],
             directThreeWord: 4,
             hint: "全拼、key、英文、中文",
             keyFocus: -1
         };
-    var _init = function (option) {
+    var _init = function(option) {
         var obj = option.element;
-        option.sortGroup[4].title=_$.stringFormat(option.sortGroup[4].title,option.key);
-        $(document).off("click.auto").on("click.auto", function (e) {
+        option.sortGroup[4].title = _$.stringFormat(option.sortGroup[4].title, option.key);
+        $(document).off("click.auto").on("click.auto", function(e) {
             $("#" + option.popID).hide();
         });
-        $(obj).on("click.auto", function (e) {
+        $(obj).on("click.auto", function(e) {
             //return false;
-        }).on("keydown.auto", function (e) {
+        }).on("keydown.auto", function(e) {
             switch (e.keyCode) {
                 case 9: //tab
                     if ($("#" + option.popID + ":visible").length) {
@@ -1082,7 +1081,7 @@
                 default:
                     break;
             }
-        }).on("keyup.auto", function (e) {
+        }).on("keyup.auto", function(e) {
             switch (e.keyCode) {
                 case 9:
                 case 38:
@@ -1112,12 +1111,12 @@
             } else {
                 $("#" + option.popID).hide();
             }
-        }).on("destory.auto", function () {
+        }).on("destory.auto", function() {
             _destory(option);
         });
     };
 
-    var _setVal = function (option, data, eventType) {
+    var _setVal = function(option, data, eventType) {
         if (data) {
             $(option.element).val(data[4]);
             if (typeof option.callback === "function") {
@@ -1135,7 +1134,7 @@
         $("#" + option.popID).hide();
     };
 
-    var _toUp = function (option) {
+    var _toUp = function(option) {
         option.keyFocus--;
         if (option.keyFocus < 0) {
             var toPage = 0;
@@ -1163,7 +1162,7 @@
         }
     };
 
-    var _toDown = function (option) {
+    var _toDown = function(option) {
         option.keyFocus++;
         if (option.keyFocus > ($("#" + option.popID).find(".autoDataLi").length - 1)) {
             var toPage = 0;
@@ -1187,7 +1186,7 @@
         }
     };
 
-    var _nextPage = function (option) {
+    var _nextPage = function(option) {
         if (option.pagination.pageCount <= 1) {
             $("#" + option.popID).find(".autoDataLi").last().addClass("keyFocus").siblings("li").removeClass("keyFocus");
         } else {
@@ -1198,7 +1197,7 @@
         }
     };
 
-    var _prevPage = function (option) {
+    var _prevPage = function(option) {
         if (option.pagination.pageCount <= 1) {
             $("#" + option.popID).find(".autoDataLi").first().addClass("keyFocus").siblings("li").removeClass("keyFocus");
         } else {
@@ -1209,12 +1208,12 @@
         }
     };
 
-    var _buildSort = function (option) {
+    var _buildSort = function(option) {
         if (option.sortEnable) {
             var sortArea = $(_sortArea);
-            $.each(option.sortGroup, function (index, item) {
+            $.each(option.sortGroup, function(index, item) {
                 var sortli = _$.stringFormat(_sortItem, item.title, item.index === option.sort ? "spli" : "");
-                sortli = $(sortli).on("click", function () {
+                sortli = $(sortli).on("click", function() {
                     _sortTo(option, item.index);
                 });
                 sortArea.find("ul").append(sortli);
@@ -1223,7 +1222,7 @@
         }
     };
 
-    var _getReg = function (option, value, spchar) {
+    var _getReg = function(option, value, spchar) {
         try {
             if (value) {
                 value = value.replace(/\s/, "\\s");
@@ -1236,12 +1235,12 @@
         }
     };
 
-    var _destory = function (option) {
+    var _destory = function(option) {
         $(option.element).off(".auto");
         $("#" + option.popID).remove();
     };
 
-    var _filter = function (option, value) { //fastest
+    var _filter = function(option, value) { //fastest
         var reg = _getReg(option, value);
         var array = [];
         for (var i = 0, j = option.oriData.length; i < j; i++) { //for loop fast than $.filter
@@ -1253,9 +1252,9 @@
         return array;
     };
 
-    var _buildDirectVal = function (option) {
+    var _buildDirectVal = function(option) {
         option.directVal = null;
-        if (option.directThreeWord /*&& option.value.length === 3*/) {
+        if (option.directThreeWord /*&& option.value.length === 3*/ ) {
             var reg = _getReg(option);
             for (var i = 0, j = option.filteredData.length; i < j; i++) {
                 var array = option.filteredData[i].split(reg);
@@ -1267,13 +1266,13 @@
         }
     };
 
-    var _sort = function (option) {
+    var _sort = function(option) {
         option.pagination.pageIndex = 1;
         if (!option.sortEnable || option.sort <= 0) { //sort is slowest in this plugin. 
             return option.filteredData; //if data is large and use ie6, please turn off sort. (set sortEnable false)
         }
         var reg = _getReg(option);
-        return option.filteredData.sort(function (s, t) {
+        return option.filteredData.sort(function(s, t) {
             var a = (s.split(reg)[option.sortGroup[option.sort].index]).toUpperCase();
             var b = (t.split(reg)[option.sortGroup[option.sort].index]).toUpperCase();
             if (a < b) return -1;
@@ -1282,7 +1281,7 @@
         });
     };
 
-    var _sortTo = function (option, sort) {
+    var _sortTo = function(option, sort) {
         if (option.sort === sort) {
             return;
         } else {
@@ -1294,7 +1293,7 @@
         }
     };
 
-    var _pagination = function (option) {
+    var _pagination = function(option) {
         var startIndex = (option.pagination.pageIndex - 1) * option.pagination.pageSize;
         var endIndex = startIndex + option.pagination.pageSize;
         startIndex = Math.max(0, startIndex);
@@ -1302,7 +1301,7 @@
         return option.filteredData.slice(startIndex, endIndex);
     };
 
-    var _buildPagination = function (option) {
+    var _buildPagination = function(option) {
         var paginationArea = $(_paginationArea);
         var ulArea = paginationArea.find("ul");
         var index = option.pagination.pageIndex;
@@ -1323,7 +1322,7 @@
             if ((end + 1) <= count)
                 shows.push(end + 1);
         }
-        $.each(shows, function (num, item) {
+        $.each(shows, function(num, item) {
             ulArea.append(_bindPageFun(
                 $(_$.stringFormat(_paginationItem, item, item === index ? "autoPagDis num" : "")), item, option, item !== index));
         });
@@ -1334,38 +1333,38 @@
         return paginationArea;
     };
 
-    var _bindPageFun = function (item, index, option, needed) {
+    var _bindPageFun = function(item, index, option, needed) {
         if (needed) {
-            item.on("click.auto", function () {
+            item.on("click.auto", function() {
                 _goto(option, index);
             });
         }
         return item;
     };
 
-    var _goto = function (option, index) {
+    var _goto = function(option, index) {
         option.pagination.pageIndex = index;
         option.keyFocus = -1;
         option.showData = _pagination(option);
         _show(option);
     };
 
-    var _replaceEM = function (str, option, format) {
+    var _replaceEM = function(str, option, format) {
         var val = option.value.replace(/\s/, "\\s");
         var reg = new RegExp("^" + val, "i");
-        var result = str.replace(reg, function ($, $1) {
+        var result = str.replace(reg, function($, $1) {
             return "<b>" + $ + "</b>";
         });
         return result;
     };
 
-    var _show = function (option) {
+    var _show = function(option) {
         var popDiv = $("#" + option.popID);
         if (!popDiv.length) {
             popDiv = $("<div class='tptDiv " + option.popClass + "' id='" + option.popID + "'></div>");
             $("body").append(popDiv);
         }
-        popDiv.on("click.auto", function (e) {
+        popDiv.on("click.auto", function(e) {
             option.element.focus();
             return false;
         });
@@ -1389,12 +1388,12 @@
                 _replaceEM(option.showFormat[0] >= 0 ? array[option.showFormat[0]] : "", option),
                 _replaceEM(option.showFormat[1] >= 0 ? array[option.showFormat[1]] : "", option),
                 _replaceEM(option.showFormat[2] >= 0 ? array[option.showFormat[2]] : "", option),
-                "spli autoDataLi", option.key+"匹配"));
+                "spli autoDataLi", option.key + "匹配"));
             liItem.data("autoData", array);
             data.append(liItem);
         }
 
-        $.each(option.showData, function (index, item) {
+        $.each(option.showData, function(index, item) {
             var array = item.split(reg);
             if (option.directThreeWord && option.directVal && option.directVal === item) {
                 return;
@@ -1408,7 +1407,7 @@
                 data.append(liItem);
             }
         });
-        data.find(".autoDataLi").on("click", function () {
+        data.find(".autoDataLi").on("click", function() {
             _setVal(option, $(this).data("autoData"), "click");
         });
         var sortArea = _buildSort(option);
@@ -1417,11 +1416,11 @@
     };
 
     $.extend(_$.auto, {
-        setup: function (params) {
+        setup: function(params) {
             $.extend(_option, params);
         },
-        init: function (obj, data, option) {
-            option = $.extend(true,{}, _option, option);
+        init: function(obj, data, option) {
+            option = $.extend(true, {}, _option, option);
             if (data instanceof Array) {
                 option.oriData = data;
             } else if (typeof data === "string") {
@@ -1430,15 +1429,15 @@
                 return 0;
             }
             if (obj instanceof jQuery) {
-                return obj.filter("input,textarea").each(function (index, item) {
+                return obj.filter("input,textarea").each(function(index, item) {
                     option.element = item;
-                    _init($.extend(true,{}, option));
+                    _init($.extend(true, {}, option));
                 }).length;
             }
         },
-        destory: function (obj) {
+        destory: function(obj) {
             if (obj instanceof jQuery) {
-                return obj.filter("input,textarea").each(function (index, item) {
+                return obj.filter("input,textarea").each(function(index, item) {
                     $(item).trigger("destory.auto");
                 }).length;
             }
@@ -1447,15 +1446,15 @@
 })();
 
 /*************************************************************
-* infosky.select
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-05-24
-************************************************************/
+ * infosky.select
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-05-24
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.select = function (item) {
+    _$.select = function(item) {
         this.item = item;
     };
 
@@ -1471,20 +1470,20 @@
             keyFocus: 0,
             clearAll: true,
             selectAll: true,
-            exheight:5
+            exheight: 5
         };
 
-    var _init = function (option) {
+    var _init = function(option) {
         var element = option.input;
         var select = option.select;
         option.data = [];
-        $(select).children().each(function (index, item) {
+        $(select).children().each(function(index, item) {
             if ($(item).is("optgroup")) {
                 option.data.push({
                     nodeType: "group",
                     value: $(item).attr("label")
                 });
-                $(item).find("option").each(function (index, optItem) {
+                $(item).find("option").each(function(index, optItem) {
                     option.data.push({
                         nodeType: "option",
                         value: $(optItem).attr("value"),
@@ -1500,7 +1499,7 @@
             }
         });
 
-        $(document).on("click.select", function (e) {
+        $(document).on("click.select", function(e) {
             if (option.popDiv) {
                 if ($.contains(option.popDiv.get(0), e.target)) {
                     if ($(e.target).not(".editTxt")) {
@@ -1513,10 +1512,10 @@
             }
         });
 
-        $(element).on("click.select", function () {
+        $(element).on("click.select", function() {
             _show(option);
             return false;
-        }).on("keydown.select", function (e) {
+        }).on("keydown.select", function(e) {
             switch (e.keyCode) {
                 case 9: //tab
                     option.popDiv.hide();
@@ -1537,7 +1536,7 @@
                     _esc(option);
                     break;
             }
-        }).on("keyup.select", function (e) {
+        }).on("keyup.select", function(e) {
             switch (e.keyCode) {
                 case 9: //tab
                     _show(option);
@@ -1549,7 +1548,7 @@
         });
     };
 
-    var _destory = function (input) {
+    var _destory = function(input) {
         var data = $(input).data("select.option");
         if (data.popDiv)
             data.popDiv.hide();
@@ -1557,7 +1556,7 @@
         $(input).off(".select").removeData("select.option");
     };
 
-    var _toUp = function (option) {
+    var _toUp = function(option) {
         if (!$(option.popDiv).is(":visible")) {
             _show(option);
         }
@@ -1580,7 +1579,7 @@
         }
     };
 
-    var _toDown = function (option) {
+    var _toDown = function(option) {
         if (!$(option.popDiv).is(":visible")) {
             _show(option);
         }
@@ -1605,7 +1604,7 @@
         }
     };
 
-    var _enter = function (option) {
+    var _enter = function(option) {
         if (!$(option.popDiv).is(":visible")) {
             _show(option);
             return;
@@ -1615,18 +1614,18 @@
         item.trigger("click.select");
     };
 
-    var _esc = function (option) {
+    var _esc = function(option) {
         option.popDiv.hide();
         $(option.menu).hide();
     };
 
-    var _bindLiItemEvent = function (option, liItem, e) {
+    var _bindLiItemEvent = function(option, liItem, e) {
         var data = null;
         if (option.muti) {
             $(option.input).val("");
             liItem.toggleClass("liSelected");
             var result = [];
-            option.popDiv.find(".liSelected").each(function (index, item) {
+            option.popDiv.find(".liSelected").each(function(index, item) {
                 data = $(item).data("selectData");
                 result.push(data.value);
                 $(option.input).val(result.join(option.optChar));
@@ -1643,14 +1642,14 @@
         }
     };
 
-    var _bindLiEvent = function (option) {
-        option.popDiv.find(".selectItem").on("click.select", function (e) {
+    var _bindLiEvent = function(option) {
+        option.popDiv.find(".selectItem").on("click.select", function(e) {
             var liItem = $(this);
             _bindLiItemEvent(option, liItem, e);
         });
     };
 
-    var _addLiItem = function (option, input) {
+    var _addLiItem = function(option, input) {
         var value = input.val();
         if (_$.isNullOrEmpty(value)) {
             _$.ui.blink(input);
@@ -1660,7 +1659,7 @@
         var liItem = $(_$.stringFormat(_liItem, value, "selectItem", value, ""));
         option.popDiv.find(">ul li:last").before(liItem);
         option.keyFocus++;
-        liItem.on("click.select", function (e) {
+        liItem.on("click.select", function(e) {
             _bindLiItemEvent(option, liItem, e);
         }).data("selectData", {
             nodeType: "option",
@@ -1671,10 +1670,10 @@
         input.focus();
     };
 
-    var _addLiItemWithoutTrigger = function (option, value) {
+    var _addLiItemWithoutTrigger = function(option, value) {
         var liItem = $(_$.stringFormat(_liItem, value, "selectItem", value, ""));
         option.popDiv.find("li:last").before(liItem);
-        liItem.on("click.select", function (e) {
+        liItem.on("click.select", function(e) {
             _bindLiItemEvent(option, liItem, e);
         }).data("selectData", {
             nodeType: "option",
@@ -1683,13 +1682,13 @@
         }).trigger("click.select");
     };
 
-    var _bindEditEvent = function (option) {
+    var _bindEditEvent = function(option) {
         var addBtn = option.popDiv.find(".editAdd");
         var input = option.popDiv.find(".editTxt");
-        addBtn.on("click.select", function (e) {
+        addBtn.on("click.select", function(e) {
             _addLiItem(option, input);
         });
-        input.on("keydown.select", function (e) {
+        input.on("keydown.select", function(e) {
             switch (e.keyCode) {
                 case 13:
                     _addLiItem(option, input);
@@ -1716,7 +1715,7 @@
         });
     };
 
-    var _buildMenu = function (option, top, left, width) {
+    var _buildMenu = function(option, top, left, width) {
         var menu, menuItem;
         if (option.clearAll || option.selectAll) {
             option.menu = option.menu || $(_menuArea);
@@ -1731,7 +1730,7 @@
                 $("body").append(option.menu);
                 if (option.clearAll) {
                     menuItem = $(_$.stringFormat(_menuItem, "全部取消", ""));
-                    menuItem.on("click.select", function () {
+                    menuItem.on("click.select", function() {
                         area.find(".selectItem").removeClass("liSelected");
                         $(option.input).val("");
                     });
@@ -1739,10 +1738,10 @@
                 }
                 if (option.selectAll) {
                     menuItem = $(_$.stringFormat(_menuItem, "全部选中", ""));
-                    menuItem.on("click.select", function () {
+                    menuItem.on("click.select", function() {
                         area.find(".selectItem").not(".editLi").addClass("liSelected");
                         var result = [];
-                        option.popDiv.find(".liSelected").each(function (index, item) {
+                        option.popDiv.find(".liSelected").each(function(index, item) {
                             data = $(item).data("selectData");
                             result.push(data.value);
                             $(option.input).val(result.join(option.optChar));
@@ -1755,12 +1754,12 @@
         }
     };
 
-    var _show = function (option) {
+    var _show = function(option) {
         if (!option.popDiv) {
             option.keyFocus = 0;
             option.popDiv = $("<div class='tptDiv selectDiv'><ul></ul></div>");
             var ulArea = option.popDiv.find(">ul");
-            $.each(option.data, function (index, item) {
+            $.each(option.data, function(index, item) {
                 var li = null;
                 if (item.nodeType === "group") {
                     li = _$.stringFormat(_liItem, item.value, "selectGroup spliHold", "", "");
@@ -1770,7 +1769,7 @@
                 }
                 ulArea.append(li);
             });
-            option.popDiv.on("click.select", function (e) {
+            option.popDiv.on("click.select", function(e) {
                 if ($.contains(option.popDiv.find(".editLi").get(0), e.target)) {
                     $(".editTxt").focus();
                     return false;
@@ -1787,7 +1786,7 @@
             $("body").append(option.popDiv);
         }
         var position = option.position ? $(option.position).offset() : $(option.input).offset();
-        var top = position.top + (option.position ? $(option.position).height() : $(option.input).height()) + 5+option.exheight;
+        var top = position.top + (option.position ? $(option.position).height() : $(option.input).height()) + 5 + option.exheight;
         var left = position.left;
 
         $(".tptDiv.selectDiv,.autoSort.tptDiv.selectSort").not(option.popDiv).not(option.menu).hide();
@@ -1803,11 +1802,11 @@
         _buildMenu(option, top, left, width);
     };
 
-    var _triggerShow = function (input) {
+    var _triggerShow = function(input) {
         $(input).trigger("click.select");
     };
 
-    var _setVal = function (input, value) {
+    var _setVal = function(input, value) {
         var varArray = value.split(",");
         var option = input.data("select.option");
         if (!option.popDiv) {
@@ -1817,11 +1816,11 @@
         }
         var lis = option.popDiv.find(".selectItem").not(".editLi");
         if (option.muti) {
-            $.each(varArray, function (index, item) {
+            $.each(varArray, function(index, item) {
                 if (!item || _$.trim(item) === "")
                     return;
                 var flag = false;
-                lis.each(function (index, liItem) {
+                lis.each(function(index, liItem) {
                     var li = $(liItem);
                     if (li.is(".liSelected")) {
                         return;
@@ -1841,7 +1840,7 @@
             });
         } else {
             var flag = false;
-            lis.each(function (index, liItem) {
+            lis.each(function(index, liItem) {
                 var li = $(liItem);
                 var data = li.data("selectData");
                 if (data.value === value) {
@@ -1861,11 +1860,11 @@
     };
 
     $.extend(_$.select, {
-        init: function (input, select, option) {
+        init: function(input, select, option) {
             option = $.extend({}, _option, option);
             if ($(select).is("select")) {
                 if (input instanceof jQuery) {
-                    return input.filter("input").each(function (index, item) {
+                    return input.filter("input").each(function(index, item) {
                         var opt = $.extend({}, option);
                         opt.input = item;
                         opt.select = select;
@@ -1876,38 +1875,38 @@
             }
             return 0;
         },
-        destory: function (input) {
+        destory: function(input) {
             if (input instanceof jQuery) {
-                return input.filter("input").each(function (index, item) {
+                return input.filter("input").each(function(index, item) {
                     _destory($(item));
                 });
             }
         },
-        setValue: function (input, value) {
+        setValue: function(input, value) {
             if (input instanceof jQuery) {
-                return input.filter("input").each(function (index, item) {
+                return input.filter("input").each(function(index, item) {
                     if (value === undefined)
                         value = $(item).val();
                     _setVal($(item), value);
                 });
             }
         },
-        show: function (input) {
+        show: function(input) {
             _triggerShow(input);
         }
     });
 })();
 
 /*************************************************************
-* infosky.tree
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-06-05
-************************************************************/
+ * infosky.tree
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-06-05
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.tree = function (item) {
+    _$.tree = function(item) {
         this.item = item;
     };
 
@@ -1926,7 +1925,7 @@
             lazyUp: true
         };
 
-    var _init = function (option, data) {
+    var _init = function(option, data) {
         if (option.lazyLoad) {
             option.open = false;
         }
@@ -1947,7 +1946,7 @@
 
     var _hash = {}, _hashKey = 0;
 
-    var _buildTree = function (option, nodes, parent, layer, lastTree, lazyTrick) {
+    var _buildTree = function(option, nodes, parent, layer, lastTree, lazyTrick) {
         if (option.lazyLoad && layer >= 1 && !lazyTrick) {
             var key = _hashKey++;
             _hash["" + key] = nodes;
@@ -1968,13 +1967,13 @@
         for (var i = 0; i < nodes.length; i++) {
             _buildTreeNode(option, nodes[i], tree, layer, i === nodes.length - 1, i === 0);
         }
-        tree.find(".checkOne").each(function (index, item) {
+        tree.find(".checkOne").each(function(index, item) {
             _processParentCheck($(item));
         });
         return tree;
     };
 
-    var _buildTreeNode = function (option, node, parent, layer, lastNode, firstNode) {
+    var _buildTreeNode = function(option, node, parent, layer, lastNode, firstNode) {
         var nodeItem = $(_nodeTemp);
         var hasChild = node.children && node.children.length;
         if (hasChild) {
@@ -2008,7 +2007,7 @@
         }
     };
 
-    var _buildTreeNodePrefix = function (type, lastNode, firstNode) {
+    var _buildTreeNodePrefix = function(type, lastNode, firstNode) {
         result = $(_$.stringFormat(_nodeIcon, type));
         if (firstNode)
             result.addClass("first");
@@ -2017,8 +2016,8 @@
         return result;
     };
 
-    var _bindEvent = function (option, tree) {
-        $(tree).on("click.tree", ".folderClose,.folderOpen", function () {
+    var _bindEvent = function(option, tree) {
+        $(tree).on("click.tree", ".folderClose,.folderOpen", function() {
             if ($(this).is(".folderClose")) {
                 $(this).removeClass("folderClose").addClass("folderOpen").next().removeClass("folderItemClose")
                     .addClass("folderItemOpen").siblings("ul").hide();
@@ -2030,7 +2029,7 @@
                     var key = item.data("tree.lazyLoad");
                     data = _hash[key];
                     if (data) {
-                        delete (_hash[key]);
+                        delete(_hash[key]);
                         _buildTree(option, data, item, 4, !item.next().is("li"), true);
                     }
                     if (option.checkbox) {
@@ -2038,19 +2037,19 @@
                         option.lazyUp ?
                             _processSubCheck(box) :
                             _processParentCheck(box.siblings(".subTree")
-                            .find(">.treeNode").first()
-                            .find(".checkOne,.checkNone,.checkHalf"));
+                                .find(">.treeNode").first()
+                                .find(".checkOne,.checkNone,.checkHalf"));
                     }
                 }
             }
         });
     };
 
-    var _bindCheckEvent = function (tree) {
-        $(tree).on("click.tree", ".nodeTitle", function () {
+    var _bindCheckEvent = function(tree) {
+        $(tree).on("click.tree", ".nodeTitle", function() {
             $(this).prev().trigger("click.tree");
         });
-        $(tree).on("click.tree", ".checkNone,.checkOne,.checkHalf", function () {
+        $(tree).on("click.tree", ".checkNone,.checkOne,.checkHalf", function() {
             if ($(this).is(".checkNone,.checkHalf")) {
                 $(this).addClass("checkOne").removeClass("checkNone checkHalf");
             } else {
@@ -2061,7 +2060,7 @@
         });
     };
 
-    var _processSubCheck = function (node) {
+    var _processSubCheck = function(node) {
         if (node.is(".checkNone")) {
             node.siblings("ul").find(".checkOne,.checkHalf").removeClass("checkOne checkHalf")
                 .addClass("checkNone");
@@ -2071,7 +2070,7 @@
         }
     };
 
-    var _processParentCheck = function (node) {
+    var _processParentCheck = function(node) {
         var parentNode = node.closest(".subTree").siblings(".checkOne,.checkNone,.checkHalf");
         if (parentNode.length) {
             parentNode.removeClass("checkOne checkNone checkHalf");
@@ -2088,18 +2087,18 @@
         }
     };
 
-    var _bindClickEvent = function (option, tree) {
-        $(tree).on("click.tree", ".nodeTitle,.leafItem", function () {
+    var _bindClickEvent = function(option, tree) {
+        $(tree).on("click.tree", ".nodeTitle,.leafItem", function() {
             var data = $(this).closest(".treeNode").data("tree.data");
             option.onSelect(data);
         });
     };
 
-    var _bindContextMenu = function (option, tree) {
+    var _bindContextMenu = function(option, tree) {
         _$.menu.init($(tree), ".treeNode", {
             menuData: [{
                 title: "delete",
-                onclick: function (liItem, target) {
+                onclick: function(liItem, target) {
                     var treeNode = null;
                     if ($(target).is(".treeNode")) {
                         treeNode = $(target);
@@ -2114,22 +2113,21 @@
                         option.onDelete(treeNode);
                     }
                 }
-            }
-            ],
-            onMenu: function (target) {
+            }],
+            onMenu: function(target) {
                 $(tree).find(".keyFocus").removeClass("keyFocus");
                 if ($(target).is(".treeNode"))
                     $(target).addClass("keyFocus");
                 else
                     $(target).closest(".treeNode").addClass("keyFocus");
             },
-            onMenuOff: function () {
+            onMenuOff: function() {
                 $(tree).find(".keyFocus").removeClass("keyFocus");
             }
         });
     };
 
-    var _repaintTree = function (tree, node, option) {
+    var _repaintTree = function(tree, node, option) {
         var siblLis = $(node).find(">.treeNode");
         siblLis.last().find(">.subTree").addClass("lastNode");
         siblLis.last().find(">.nodeIcon").addClass("last");
@@ -2138,7 +2136,7 @@
         siblLis.first().find(">.nodeIcon").addClass("first");
     };
 
-    var _recheckTree = function (tree, node) {
+    var _recheckTree = function(tree, node) {
         var liItem = $(node).closest(".treeNode");
 
         var checked = liItem.find(".nodeIcon.checkOne:not(:has(div))").length;
@@ -2158,8 +2156,8 @@
         _recheckTree(tree, liItem.closest(".subTree"));
     };
 
-    var _recheckAllTree = function (option, tree) {
-        $(tree).find(">.treeNode").each(function (index, item) {
+    var _recheckAllTree = function(option, tree) {
+        $(tree).find(">.treeNode").each(function(index, item) {
             var liItem = $(item);
             var node = liItem.find(">.checkOne,>.checkHalf,>.checkNone");
             var checked = liItem.find(".nodeIcon.checkOne:not(:has(div))").length;
@@ -2179,9 +2177,9 @@
         });
     };
 
-    var _getValueForMuti = function (option, tree, ids) {
+    var _getValueForMuti = function(option, tree, ids) {
         var result = [];
-        $(tree).find(".checkOne").each(function (index, item) {
+        $(tree).find(".checkOne").each(function(index, item) {
             var target = $(item);
             if (target.prev().is(".leafItem")) {
                 var data = target.closest("li").data("tree.data");
@@ -2191,9 +2189,9 @@
         return result;
     };
 
-    var _getTree = function (tree, list) {
+    var _getTree = function(tree, list) {
         list = list || [];
-        $(tree).find(">.treeNode").each(function (index, item) {
+        $(tree).find(">.treeNode").each(function(index, item) {
             var data = $(item).data("tree.data");
             data.children = [];
             data.checked = $(item).find(".checkOne").length > 0;
@@ -2202,7 +2200,7 @@
             list.push(data);
             if (subTree.length) {
                 data.children = data.children || [];
-                subTree.each(function (subIndex, subItem) {
+                subTree.each(function(subIndex, subItem) {
                     _getTree($(subItem), data.children);
                 });
             }
@@ -2211,7 +2209,7 @@
     };
 
     $.extend(_$.tree, {
-        init: function (data, option) {
+        init: function(data, option) {
             option = $.extend({}, _option, option);
             var _data = null;
             if (data instanceof Array) {
@@ -2221,14 +2219,14 @@
             }
             _init(option, _data);
         },
-        getValue: function (container, ids) {
+        getValue: function(container, ids) {
             var tree = $(container).find(".rootTree");
             var opt = tree.data("tree.option");
             if (opt.checkbox) {
                 return _getValueForMuti(opt, tree, ids);
             }
         },
-        getTree: function (container) {
+        getTree: function(container) {
             var tree = $(container).find(".rootTree");
             return _getTree(tree);
         }
@@ -2236,15 +2234,15 @@
 })();
 
 /*************************************************************
-* infosky.menu
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-06-04
-************************************************************/
+ * infosky.menu
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-06-04
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.menu = function (item) {
+    _$.menu = function(item) {
         this.item = item;
     };
 
@@ -2254,11 +2252,11 @@
             menuData: []
         };
 
-    var _init = function (area, target, option) {
+    var _init = function(area, target, option) {
         var menu = $(_menuArea).hide();
-        $.each(option.menuData, function (index, data) {
+        $.each(option.menuData, function(index, data) {
             var liItem = $(_$.stringFormat(_menuItem, data.title));
-            liItem.on("click.menu", function (e) {
+            liItem.on("click.menu", function(e) {
                 if (data.onclick) {
                     data.onclick($(this), menu.data("menu.target"));
                 }
@@ -2269,7 +2267,7 @@
 
         $("body").append(menu);
 
-        area.on("contextmenu", target, function (e) {
+        area.on("contextmenu", target, function(e) {
             menu.css({
                 "top": e.clientY + $(window).scrollTop() + "px",
                 "left": e.clientX + $(window).scrollLeft() + "px",
@@ -2282,7 +2280,7 @@
             return false;
         });
 
-        $(document).on("click.menu", function () {
+        $(document).on("click.menu", function() {
             menu.hide();
             if (option.onMenuOff) {
                 option.onMenuOff();
@@ -2291,7 +2289,7 @@
     };
 
     $.extend(_$.menu, {
-        init: function (area, target, option) {
+        init: function(area, target, option) {
             option = $.extend({}, _option, option);
             _init(area, target, option);
         }
@@ -2299,15 +2297,15 @@
 })();
 
 /*************************************************************
-* infosky.placeholder
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-06-08
-************************************************************/
+ * infosky.placeholder
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-06-08
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.placeholder = function (item) {
+    _$.placeholder = function(item) {
         this.item = item;
     };
 
@@ -2315,7 +2313,7 @@
         placeholderClass: "placeholder"
     };
 
-    var _init = function (element, option) {
+    var _init = function(element, option) {
         if (!element.is("input[type='text'],textarea"))
             return;
         var pdVal = element.attr("placeholder");
@@ -2325,50 +2323,50 @@
             element.addClass(option.placeholderClass).val(pdVal);
         else
             element.removeClass(option.placeholderClass);
-        element.on("focus.placeholder clear.placeholder", function () {
+        element.on("focus.placeholder clear.placeholder", function() {
             element.removeClass(option.placeholderClass);
             if (element.val() === pdVal) {
                 element.val("");
             }
-        }).on("blur.placeholder reset.placeholder", function () {
+        }).on("blur.placeholder reset.placeholder", function() {
             if (element.val() === "" || element.val() === pdVal) {
                 element.addClass(option.placeholderClass).val(pdVal);
             }
         });
     };
 
-    var _clear = function (element) {
+    var _clear = function(element) {
         element.trigger("clear.placeholder");
     };
 
-    var _reset = function (element) {
+    var _reset = function(element) {
         element.trigger("reset.placeholder");
     };
 
-    var _supportNative = function () {
+    var _supportNative = function() {
         return 'placeholder' in document.createElement('input');
     };
 
     $.extend(_$.placeholder, {
-        init: function (target, option) {
+        init: function(target, option) {
             if (_supportNative())
                 return;
             option = $.extend({}, _option, option);
-            $(target).each(function (index, item) {
+            $(target).each(function(index, item) {
                 _init($(item), option);
             });
         },
-        clear: function (target) {
+        clear: function(target) {
             if (_supportNative())
                 return;
-            $(target).each(function (index, item) {
+            $(target).each(function(index, item) {
                 _clear($(item));
             });
         },
-        reset: function (target) {
+        reset: function(target) {
             if (_supportNative())
                 return;
-            $(target).each(function (index, item) {
+            $(target).each(function(index, item) {
                 _reset($(item));
             });
         }
@@ -2376,22 +2374,22 @@
 })();
 
 /*************************************************************
-* infosky.tip
-*------------------------------------------------------------
-* Author: Chenhy(curarpiktchen@hotmail.com)
-* Create Date: 2013-06-05
-************************************************************/
+ * infosky.tip
+ *------------------------------------------------------------
+ * Author: Chenhy(curarpiktchen@hotmail.com)
+ * Create Date: 2013-06-05
+ ************************************************************/
 
-(function () {
+(function() {
     _$ = _$ || {};
-    _$.tip = function (item) {
+    _$.tip = function(item) {
         this.item = item;
     };
 
     var _option = {},
         _tip = "<div class='tip'><p>{0}</p></div>";
 
-    var _init = function (item, option) {
+    var _init = function(item, option) {
         var content = $(item).attr("title");
         if (content) {
             $(item).data("tip.title", content);
@@ -2399,17 +2397,17 @@
         }
     };
 
-    var _bindEvent = function (item, content, option) {
-        item.hover(function () {
+    var _bindEvent = function(item, content, option) {
+        item.hover(function() {
             item.attr("title", "");
             _show(item, content, option);
-        }, function () {
+        }, function() {
             item.attr("title", content);
             _hide(item);
         });
     };
 
-    var _show = function (item, content, option) {
+    var _show = function(item, content, option) {
         var poptip = item.data("tip.poptip");
         if (!poptip) {
             poptip = $(_$.stringFormat(_tip, content));
@@ -2428,16 +2426,16 @@
         }).show();
     };
 
-    var _hide = function (item) {
+    var _hide = function(item) {
         var poptip = item.data("tip.poptip");
         poptip.hide();
     };
 
     $.extend(_$.tip, {
-        init: function (area, option) {
+        init: function(area, option) {
             option = $.extend({}, _option, option);
             var items = (area instanceof jQuery) ? area.find("[title]").andSelf("[title]") : $("*[title]");
-            items.each(function (index, item) {
+            items.each(function(index, item) {
                 _init(item, option);
             });
         }

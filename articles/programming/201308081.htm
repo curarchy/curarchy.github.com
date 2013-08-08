@@ -1,0 +1,90 @@
+﻿<section id="articleTitle"></section>
+<section id="articleBody">
+	<link href="/webresources/bootstrap/css/docs.css" rel="stylesheet" type="text/css" />
+	<script src="/webresources/bootstrap/js/prettify.js" type="text/javascript"></script>
+	<link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
+	<link href="/webresources/css/infosky.css" rel="stylesheet" type="text/css" />
+	<script src="/webresources/javascript/jquery.color.js" type="text/javascript"></script>
+	<h4>案例</h4>
+	<p>javascript跨域调用的各种方案。以下部分未测试。</p>
+	<h6>1.被访问站点可控，且两站点是同一主站下的子站。</h6>
+	<p>
+		如有 a.domain.com 和 b.domain.com 。如需摆脱同源策略，则可以将两个文档的domain设为相同的值即可。
+	</p>
+	<pre class="prettyprint linenums">document.domain = "domain.com";</pre>
+
+	<h6>2.被访问站点可控。</h6>
+	<span class="label label-success">IE8+</span>
+	<p>被访资源需标记新的响应头： Access-Control-Allow-Origin 显式列出受信源。 *表示全部公开。</p>
+	<pre class="prettyprint linenums">Access-Control-Allow-Origin ：*</pre>
+
+	<h6>3.JSONP</h6>
+	<p>
+		最实用的跨域访问。被访问站点必须给予JSONP格式的响应。
+    	原理是网站的加载脚本不受域名限制。所以可以用script标签请求一段脚本，服务器把数据以json形式放在脚本内返回，并执行callback函数。即可达成跨域目的。
+	</p>
+	<pre class="prettyprint linenums">
+$.getJSON("http://xxx.com",   
+    function(data) {   
+        xxx
+	}
+); 
+    </pre>
+
+	<h6>4.图像Ping</h6>
+	<p>
+		最方便的跨域访问。只能单向发送，不能接受响应。适合做访问次数统计、js错误日志回发。
+    	原理是网站的加载图片不受域名限制。所以可以直接以querystring方式把数据跟在路径后面，放在img标签后回发。
+	</p>
+	<pre class="prettyprint linenums">
+var img = new Image();
+img.src = "www.xxx.com/test?data=helloworld";
+    </pre>
+
+	<h6>5.location.hash</h6>
+	<p>修改location.hash 以此传递数据。不推荐使用。（因为会不停地改变地址栏地址。。。）</p>
+
+	<h6>6.iframe跨域</h6>
+	<p>需控制两个站点。</p>
+	<p>
+		A站下有a1.htm , a2.htm . B站下有 b.htm . b 想传数据给 a1。
+		解决流程：
+		a1 内嵌 b ， b 内嵌 a2。
+		a1、a2同源，可互访。b跨域，不能访问任何页面。
+		b把数据跟在a2的hash上，a2监听hash变化值，然后传给a1。
+	</p>
+	<pre class="prettyprint linenums">
+agent_iframe.src = "http://xxx.com/test.html#data"	//b给a2设hash
+window.top.document 	//a2 访问 a1
+    </pre>
+
+	<h6>7.插件跨域</h6>
+	<p>利用activeX或flash实现跨域。</p>
+
+	<h6>8.Yahoo ylq</h6>
+	<p>
+		利用Yahoo ylq 跨域获取资源。
+		推荐。<a class="btn" onclick="getData()" style="margin-right: 20px;">test</a>
+	</p>
+	<pre class="prettyprint linenums">$.getJSON("http://query.yahooapis.com/v1/public/yql", {
+    q: "select * from xml where url=\"http://www.weather.com.cn/data/sk/101010100.html\"",
+    format: "json"
+}, function(data){
+    noty(JSON.stringify(data));
+});
+</pre>
+</section>
+
+<script type="text/javascript">
+    (function () {
+        prettyPrint();
+    })();
+function getData(){
+    	$.getJSON("http://query.yahooapis.com/v1/public/yql", {
+    q: "select * from json where url=\"http://www.weather.com.cn/data/sk/101010100.html\"",
+    format: "json"
+}, function(data){
+    noty({text:JSON.stringify(data),type:"infomation",layout:"center"});
+});
+}
+</script>
