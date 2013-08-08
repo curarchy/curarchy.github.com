@@ -13,15 +13,15 @@
 		programminglist: "/usercontrols/programming/list.htm",
 		programming: "/articles/programming/",
 		entertainment: "/articles/entertainment/",
-		comment:"/usercontrols/comment.htm"
+		comment: "/usercontrols/comment.htm"
 	};
 
 	window._$ = window._$ || {};
 
 	_$.resource = {
-		get: function(key) {
+		get: function(key, noprefix) {
 			if (urls[key])
-				return baseUrl + urls[key];
+				return (noprefix ? "" : baseUrl) + urls[key];
 			else
 				return "";
 		},
@@ -44,9 +44,14 @@
 			var url = this.get(type);
 			if (url) {
 				url = url + key + ".htm";
-				area.load(url,function(){
+				area.load(url, function() {
 					$.getScript("/webresources/javascript/initarticle.js");
 				});
+			}
+		},
+		extendUrl: function(data) {
+			if (data) {
+				$.extend(urls, data);
 			}
 		}
 	};
