@@ -140,6 +140,7 @@
     <Content Include="webresources\img\twitter_24.gif" />
     <Content Include="webresources\img\weibo_24.gif" />
     <Content Include="webresources\img\xiami_24.gif" />
+    <Content Include="webresources\javascript\api\weather.js" />
     <Content Include="webresources\javascript\common.js" />
     <Content Include="webresources\javascript\data\airport.js" />
     <Content Include="webresources\javascript\data\bigxmldata.xml" />
@@ -167,7 +168,6 @@
     <Content Include="webresources\javascript\resource.js" />
     <Content Include="webresources\javascript\scrollTop.js" />
     <Content Include="webresources\javascript\tictactoe.js" />
-    <Content Include="webresources\javascript\tools\weather.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

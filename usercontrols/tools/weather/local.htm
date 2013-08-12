@@ -1,39 +1,161 @@
-﻿hello world
+﻿<div id="tab"></div>
 
-<a class="btn" onclick="_$.xml.parseXMLByURL('http://flash.weather.com.cn/wmaps/xml/china.xml');">test</a>
-
+<script id="template" type="text/x-handlebars-template">
+<table class='table'>
+	<tr>
+		<td colspan="6">{{city}}</td>
+	</tr>
+	<tr>
+		<td>{{date_y}}</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>
+			{{weather1}}
+			<br/>
+			<img src='{{baseUrl}}{{img1}}.gif'/>
+			~
+			<img src='{{baseUrl}}{{img2}}.gif'/>
+			<br/>
+			摄氏：{{temp1}}
+			<br/>
+			华氏：{{tempF1}}
+			<br/>
+			风力：{{wind1}}
+			<br/>
+			风速：{{fl1}}
+		</td>
+		<td>
+			{{weather2}}
+			<br/>
+			<img src='{{baseUrl}}{{img3}}.gif'/>
+			~
+			<img src='{{baseUrl}}{{img4}}.gif'/>
+			<br/>
+			摄氏：{{temp2}}
+			<br/>
+			华氏：{{tempF2}}
+			<br/>
+			风力：{{wind2}}
+			<br/>
+			风速：{{fl2}}
+		</td>
+		<td>
+			{{weather3}}
+			<br/>
+			<img src='{{baseUrl}}{{img5}}.gif'/>
+			~
+			<img src='{{baseUrl}}{{img6}}.gif'/>
+			<br/>
+			摄氏：{{temp3}}
+			<br/>
+			华氏：{{tempF3}}
+			<br/>
+			风力：{{wind3}}
+			<br/>
+			风速：{{fl3}}
+		</td>
+		<td>
+			{{weather4}}
+			<br/>
+			<img src='{{baseUrl}}{{img7}}.gif'/>
+			~
+			<img src='{{baseUrl}}{{img8}}.gif'/>
+			<br/>
+			摄氏：{{temp4}}
+			<br/>
+			华氏：{{tempF4}}
+			<br/>
+			风力：{{wind4}}
+			<br/>
+			风速：{{fl4}}
+		</td>
+		<td>
+			{{weather5}}
+			<br/>
+			<img src='{{baseUrl}}{{img9}}.gif'/>
+			~
+			<img src='{{baseUrl}}{{img10}}.gif'/>
+			<br/>
+			摄氏：{{temp5}}
+			<br/>
+			华氏：{{tempF5}}
+			<br/>
+			风力：{{wind5}}
+			<br/>
+			风速：{{fl5}}
+		</td>
+		<td>
+			{{weather6}}
+			<br/>
+			<img src='{{baseUrl}}{{img11}}.gif'/>
+			~
+			<img src='{{baseUrl}}{{img12}}.gif'/>
+			<br/>
+			摄氏：{{temp6}}
+			<br/>
+			华氏：{{tempF6}}
+			<br/>
+			风力：{{wind6}}
+			<br/>
+			风速：{{fl6}}
+		</td>
+	</tr>
+</table>
+</script>
 <script type="text/javascript">
-	function localWeather(data){
-		noty(data);
-	};
-
 	(function(){
-		var url = _$.resource.get("position",true);
-		$.getScript(url, function(){  
-			console.info(remote_ip_info);
-			noty({text:JSON.stringify(remote_ip_info)});
-		}); 
+		var _liTemplete="<li><a href='#tab{0}' data-toggle='tab' data-content='{2}' title='{3}' data-placement='bottom' data-html='true' data-trigger='hover'>{1}</a></li>";
+		var _contentTemplete = "<div class='tab-pane' id='tab{0}'></div>";
+		var _container = "<div class='tabbable'><ul class='nav nav-tabs' id='nav{0}'></ul><div class='tab-content' id='navContent{0}'></div></div>";
+		var _weatherTemplete = "<p>{{stateDetailed}}&nbsp;&nbsp;<img src=\"{{pic1}}\"/>&nbsp;/&nbsp;<img src=\"{{pic2}}\"/></p><p>{{tem2}}°C ~{{tem1}}°C</p><p>{{windState}}</p>";
 
-		var xhr = _$.xml.createDoc();
-		xhr.onreadystatechange = function(){
-		    console.info(xhr.responseXML);
-		    console.info(xhr.responseText);
-		    console.info(xhr.status);
-		    console.info("---");
+		var getChina =function(id,li){
+			id=id||""; 
+			_$.api.weather.getChina(function(data){
+				if(data&&data.length){
+					var container = $("#tab"+id);
+					var content = _$.stringFormat(_container,id);
+					container.append($(content));
+					$.each(data,function(index,item){
+						item.pic1=_$.api.weather.getPic(item.state1);
+						item.pic2=_$.api.weather.getPic(item.state2);
+						item.pyName = item.pyName||"noData"+_$.random();
+						var weather = _$.stringFormat(_weatherTemplete,item);
+						var li = _$.stringFormat(_liTemplete,item.pyName,item.quName||item.cityname,weather,item.quName?item.cityname:item.centername);
+						$("#nav"+id).append($(li).data({"key":item.pyName,"url":item.url}));
+						var content = _$.stringFormat(_contentTemplete,item.pyName);
+						$("#navContent"+id).append($(content));
+					});
+					$("#nav"+id+" >li").on("click",function(){
+						var nextid = $(this).data("key");
+						getChina(nextid,$(this));
+					});
+					$("#nav"+id+">li>a").popover();
+				}
+				else{
+					var url = li.data("url");
+					var key = li.data("key");
+					getWeather(url,key);
+				}
+			},id);
 		};
-		xhr.open("get","http://flash.weather.com.cn/wmaps/xml/china.xml",true);
-		xhr.send(null);
+
+		var getWeather = function(id,key){
+			_$.api.weather.getWeather(id,function(data){
+				if(data){
+					var container = $("#tab"+key);
+					data.baseUrl=_$.api.weather.getPicBase();
+					var content = _$.stringFormat($("#template").html(),data);
+					container.append($(content));
+				}
+			});
+		};
+
+		getChina();
 	})();
 </script>
-
-<script type="text/html" id="a" src="http://flash.weather.com.cn/wmaps/xml/china.xml"></script>
-
-var xhr = _$.xml.createDoc();
-xhr.onreadystatechange = function(){
-    console.info(xhr.responseXML);
-    console.info(xhr.responseText);
-    console.info(xhr.status);
-    console.info("---");
-};
-xhr.open("get","http://flash.weather.com.cn/wmaps/xml/china.xml",true);
-xhr.send(null);
