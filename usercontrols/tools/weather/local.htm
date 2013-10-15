@@ -153,6 +153,9 @@
 					var content = _$.stringFormat($("#template").html(),data);
 					container.append($(content));
 				}
+				else{
+					containers.append($("<p>没有数据</p>"));
+				}
 			});
 		};
 

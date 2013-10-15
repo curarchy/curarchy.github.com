@@ -14,7 +14,8 @@
 		programming: "/articles/programming/",
 		entertainment: "/articles/entertainment/",
 		comment: "/usercontrols/comment.htm",
-		local:"/usercontrols/tools/weather/local.htm"
+		local:"/usercontrols/tools/weather/local.htm",
+		weatherHtml5:"/usercontrols/tools/weather/weatherHtml5.htm"
 	};
 
 	window._$ = window._$ || {};

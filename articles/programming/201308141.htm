@@ -1,0 +1,51 @@
+<section id="articleTitle">
+</section>
+<section id="articleBody">
+    <link href="/webresources/bootstrap/css/docs.css" rel="stylesheet" type="text/css" />
+    <script src="/webresources/bootstrap/js/prettify.js" type="text/javascript"></script>
+    <link href="/webresources/css/prettify.css" rel="stylesheet" type="text/css" />
+    <link href="/webresources/css/infosky.css" rel="stylesheet" type="text/css" />
+    <script src="/webresources/javascript/data/treeData.js" type="text/javascript"></script>
+    <script src="/webresources/javascript/data/treeJson.js" type="text/javascript"></script>
+
+    <style type="text/css">
+    .treeArea{
+        width:300px;
+        height:400px;
+        border:1px solid #ccc;
+        padding:10px;
+        background-color: #ffffcc;
+        overflow-y: scroll;
+        margin:0 auto;
+    }
+    </style>
+	<h4>案例</h4>
+    <div class="bs-docs-example">
+        <label><input type="checkbox" id="open"/>初始展开</label><br/>    
+        <label><input type="checkbox" id="largeData"/>大数据量</label>(（9000+叶子节点，18000+叶子和支节点）不延时加载会死。。。)<br/>
+    <lavel><input type="checkbox" id="lazyLoad"/>延时加载</label><br/>
+    <lavel><input type="checkbox" id="checkType"/>回溯选中方式</label>
+        （选中时：延时加载情况下展开后，根据父节点选中子节点，未选中时，根据子节点选中父节点）
+            <br/>
+            <a href="#" onclick="init()">加载</a>
+
+            <div class="treeArea"></div>
+        </div>
+        <script type="text/javascript">
+
+        var init = function() {
+            $(".treeArea").empty();
+            _$.tree.init(
+                $("#largeData").prop("checked") ? airport : treeJson, {
+                container: $(".treeArea"),
+                onDelete: function(data) {noty({text:JSON.stringify(data)});},
+                onSelect: function(data) {debugger;noty({text:JSON.stringify(data)});},
+                lazyLoad: $("#lazyLoad").prop("checked"),
+                lazyUp: $("#checkType").prop("checked"),
+                open:$("#open").prop("checked")
+            });
+        };
+        </script>
+        
+	<pre class="prettyprint linenums">document.domain = "domain.com";</pre>
+</section>

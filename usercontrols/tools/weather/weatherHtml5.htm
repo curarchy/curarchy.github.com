@@ -1,0 +1,78 @@
+﻿<div id="drawing"></div>
+<script src="/webresources/javascript/kinetic-v4.5.5.min.js" type="text/javascript"></script>
+<script type="text/javascript" defer="defer">
+	(function(){
+		var stage = new Kinetic.Stage({
+			container: 'drawing',
+			width: 930,
+			height: 800,
+			draggable: true
+		});
+
+	  	var layer = new Kinetic.Layer();
+
+		function createTooltip(container,id,position,context,layer,parent,callback){
+			//debugger;
+			var tooltip = new Kinetic.Label({x:position.x,y:position.y,opacity:0.75});
+			tooltip.add(new Kinetic.Tag({
+				fill: 'black',
+				pointerDirection: 'down',
+				pointerWidth: 10,
+				pointerHeight: 10,
+				lineJoin: 'round',
+				shadowColor: 'black',
+				shadowBlur: 5,
+				shadowOffset: 5,
+				shadowOpacity: 0.5
+			}));
+			tooltip.add(new Kinetic.Text({
+				text:context,
+				fontSize:(19-layer),
+				padding:5,
+				fill:"white"
+			}));
+			var circle = new Kinetic.Circle({
+				x: position.x,
+				y: position.y,
+				radius: 12,
+				fillRadialGradientStartPoint: 0,
+				fillRadialGradientStartRadius: 0,
+				fillRadialGradientEndPoint: 0,
+				fillRadialGradientEndRadius: 12,
+				fillRadialGradientColorStops: [0, '#fff', 0.6, '#fff', 1, 'blue']
+			});
+			container.add(circle);
+			container.add(tooltip);
+			return container;
+		};
+		
+
+		var getChina =function(id,parentPos,layer){
+			id=id||""; 
+			_$.api.weather.getChina(function(data){
+				if(data&&data.length){
+					var l = data.length;
+					var delta = 2*Math.PI/l;
+					$.each(data,function(index,item){
+						item.pic1=_$.api.weather.getPic(item.state1);
+						item.pic2=_$.api.weather.getPic(item.state2);
+						item.pyName = item.pyName||"noData"+_$.random();
+
+						var pos;
+						if(parentPos){
+							pos = {x:(465+300*Math.sin(delta*index)),
+									y:(400+300*Math.cos(delta*index))}}
+						else{
+							pos = {x:465,y:400}
+						}
+						createTooltip(layer,item.pyName,pos,item.quName||item.cityname,2,null,null);
+					});
+					stage.add(layer);
+				}
+			},id);
+		};
+
+		createTooltip(layer,"中国",{x:465,y:400},"China",2,null,null);
+		getChina("china",{x:465,y:400},layer);
+	})();
+</script>

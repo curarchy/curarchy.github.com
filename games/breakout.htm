@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+	<title>水心云影</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="wb:webmaster" content="ffd5c88222d68b87" />
+	<link href="/favicon.ico?" type="image/x-icon" rel="shortcut icon">
+	<link href="/favicon.ico?" type="image/x-icon" rel="icon">
+	<link href="/webresources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+        media="screen" />
+	<link href="/webresources/css/common.css" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="/webresources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/webresources/javascript/resource.js" type="text/javascript"></script>
+	<script src="/webresources/javascript/common.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header" class="navbar navbar-fixed-top">
+			<script type="text/javascript">
+			    (function () {
+			        _$.resource.loadHtml("header", $("#header"));
+			    })();
+            </script>
+		</div>
+		<div id="push-head"></div>
+		<div class="container">
+			<div class="row">
+				<div class="span8" style="margin-top: 20px;" id="mainarea">
+					<div id="gameArea" style="margin:0 auto;"></div>
+						<script type="text/javascript">
+						    (function () {
+						        var url = "http://widget.weibo.com/distribution/comments.php?width=588&url=auto&border=1&brandline=y&appkey=2161119953&dpc=1";
+						        url = url.replace("url=auto", "url=" + document.URL);
+						        document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:588px"></iframe>');
+						    })();
+						</script>
+						<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+						<script type="text/javascript">
+						    window.WBComment.init({
+						        "id": "WBCommentFrame"
+						    });
+						</script>
+				</div>
+				<div class="span4" style="margin-top: 20px;" id="msg">
+					<div>
+						<label>胜利条件:</label>
+						<label class="radio">
+							<input type="radio" checked="checked" id="one" name="success"/>
+							one
+						</label>
+						<label class="radio">
+							<input type="radio"  id="two" name="success"/>
+							two
+						</label>
+						<label class="radio">
+							<input type="radio"  id="three" name="success"/>
+							three
+						</label>
+						<label class="radio">
+							<input type="radio"  id="threeLine" name="success"/>
+							three in line
+						</label>
+						<a class="btn btn-success" role="button" data-toggle="modal" href="#explain">说明</a>
+						<a class="btn btn-warning" role="button" data-toggle="modal" href="#code">源码</a>
+						<a class="btn btn-info" role="button" onclick="javascript:location.href=location.href;">重玩</a>
+					</div>
+					<div class="alert alert-error" id="turn" style="margin-top:10px;">red turn</div>
+					<script src="/webresources/javascript/tictactoe.js" type="text/javascript"></script>
+
+					<!--begin explain-->
+					<div id="explain" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h3 id="myModalLabel">说明</h3>
+						</div>
+						<div class="modal-body">
+							<p>井字棋升级版。</p>
+							<p>每一个小方块完成连线后，会在对应的大方块达成一个圈或叉。</p>
+							<p>胜利方式可选，分别为达成一至三个大方块，或是达成三个连线的大方块。</p>
+							<p>行棋规则：A若走在小方块的第一个，B的下一步必须在大方块的第一大格中的任意一格。</p>
+							<p>如果第一大格占满，B可以走全盘任意一格。</p>
+						</div>
+						<div class="modal-footer">
+							<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+						</div>
+					</div>
+					<!--end explain-->
+
+					<!--begin code-->
+					<div id="code" style="width:700px;" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h3 id="myModalLabel">源码</h3>
+						</div>
+						<div class="modal-body">
+
+							<div class="accordion" id="accordion1">
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Html</a>
+									</div>
+									<div id="collapseOne" class="accordion-body collapse">
+										<div class="accordion-inner">
+											<pre>
+&lt;div class="span8" style="margin-top: 20px;" id="mainarea"&gt;
+	&lt;div id="gameArea" style="margin:0 auto;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="span4" style="margin-top: 20px;" id="msg"&gt;
+	&lt;div&gt;
+		&lt;label&gt;胜利条件:&lt;/label&gt;
+		&lt;label class="radio"&gt;
+			&lt;input type="radio" checked="checked" id="one" name="success"/&gt;
+			one
+		&lt;/label&gt;
+		&lt;label class="radio"&gt;
+			&lt;input type="radio"  id="two" name="success"/&gt;
+			two
+		&lt;/label&gt;
+		&lt;label class="radio"&gt;
+			&lt;input type="radio"  id="three" name="success"/&gt;
+			three
+		&lt;/label&gt;
+		&lt;label class="radio"&gt;
+			&lt;input type="radio"  id="threeLine" name="success"/&gt;
+			three in line
+		&lt;/label&gt;
+		&lt;a class="btn btn-success" role="button" data-toggle="modal" href="#explain"&gt;说明&lt;/a&gt;
+		&lt;a class="btn btn-warning" role="button" data-toggle="modal" href="#code"&gt;源码&lt;/a&gt;
+		&lt;a class="btn btn-info" role="button" onclick="javascript:location.href=location.href;"&gt;重玩&lt;/a&gt;
+	&lt;/div&gt;
+	&lt;div class="alert alert-error" id="turn" style="margin-top:10px;"&gt;red turn&lt;/div&gt;&lt;/div&gt;
+							</pre>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">CSS</a>
+									</div>
+									<div id="collapseTwo" class="accordion-body collapse">
+										<div class="accordion-inner">
+											<pre>
+#gameArea { width: 620px; margin: 0 auto; height: 620px; }
+.smallDiv { border: 2px solid #B8FFB7; float: left; width: 60px; height: 60px; }
+.bigDiv { border: 2px solid #0DB300; float: left; width: 192px; height: 192px; }
+.off { cursor: pointer; }
+.on { cursor: default; }
+.on.smallDiv.circle { background: url(../../img/games/circle.png) no-repeat center center; }
+.on.smallDiv.cross { background: url(../../img/games/cross.png) no-repeat center center; }
+.shadow { background-color: #ccc; }
+.shadow .off { cursor: default; }
+.bigDiv.circle, .bigDiv.circle .smallDiv { border-color: #FFAAAA; }
+.bigDiv.circle .smallDiv.line { background-color: #FEE0E0; }
+.bigDiv.cross, .bigDiv.cross .smallDiv { border-color: #7DC9FF; }
+.bigDiv.cross .smallDiv.line { background-color: #C2E6FF; }
+#msg { padding: 25px; width: 200px;  border: 1px solid #ccc; }
+#turn { margin-top: 5px; }
+.red { color: red; }
+.blue { color: blue; }
+							</pre>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Javascript</a>
+									</div>
+									<div id="collapseThree" class="accordion-body collapse">
+										<div class="accordion-inner">
+											<pre>
+(function () {
+    var area = $("#gameArea");
+    var flag = 1;
+    var baseMatrix = [];
+    var matrix = [];
+    for (var i = 1; i &lt; 10; i++) {
+        matrix.push([]);
+        var bigDiv = $("&lt;div class='bigDiv off'&gt;&lt;/div&gt;");
+        for (var j = 1; j &lt; 10; j++) {
+            var smallDiv = $("&lt;div class='smallDiv off'&gt;&lt;/div&gt;");
+            smallDiv.attr("sKey", j);
+            smallDiv.attr("bKey", i);
+            bigDiv.append(smallDiv);
+            matrix[i - 1][j - 1] = 0;
+        }
+        area.append(bigDiv);
+    }
+    var success = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [1, 5, 9],
+        [3, 5, 7]
+    ];
+    var judgeMatrix = function (matrix) {
+        for (var i = 0; i &lt; success.length; i++) {
+            var num = success[i][0];
+            if (matrix[num - 1] !== 0) {
+                var flag = matrix[num - 1];
+                if (flag === matrix[success[i][1] - 1] && flag === matrix[success[i][2] - 1]) {
+                    return [flag, success[i]];
+                }
+            }
+        }
+        return 0;
+    };
+    var judgeSuccess = function (matrix, type) {
+        if (type === "threeLine") {
+            var result = judgeMatrix(matrix);
+            if (result === 0) {
+                return;
+            } else {
+                win(result[0]);
+            }
+        } else {
+            var red = 0;
+            var blue = 0;
+            for (var i = 0; i &lt; matrix.length; i++) {
+                if (matrix[i] !== undefined && matrix[i] &gt; 0) {
+                    red++;
+                } else if (matrix[i] !== undefined && matrix[i] &lt; 0) {
+                    blue++;
+                }
+            }
+            if (type === "one") {
+                if (red &gt; 0) win(1);
+                else if (blue &gt; 0) win(-1);
+            } else if (type === "two") {
+                if (red &gt; 1) win(1);
+                else if (blue &gt; 1) win(-1);
+            } else if (type === "three") {
+                if (red &gt; 2) win(1);
+                else if (blue &gt; 2) win(-1);
+            }
+        }
+    };
+    var win = function (flag) {
+        alert(flag &gt; 0 ? "red win" : "blue win");
+        $(".smallDiv").off("click.game");
+        $("#turn").html(flag &gt; 0 ? "red win" : "blue win")
+            .removeClass("alert-info alert-error")
+            .addClass(flag &gt; 0 ? "alert-error" : "alert-info");
+    };
+    $(".smallDiv").on("click.game", function () {
+        var div = $(this);
+        var bigDiv = $(this).parent();
+        if (div.is(".off") && !bigDiv.is(".shadow")) {
+            var sKey = +div.attr("sKey");
+            var bKey = +div.attr("bKey");
+            matrix[bKey - 1][sKey - 1] = flag;
+            div.addClass(flag &gt; 0 ? "circle" : "cross").addClass("on").removeClass("off");
+            flag *= -1;
+            $("#turn").removeClass("alert-info alert-error")
+                .addClass(flag === 1 ? "alert-error" : "alert-info")
+                .html(flag === 1 ? "red turn" : "blue turn");
+            setShadow(sKey);
+            if (bigDiv.is(".on")) {
+                return;
+            } else {
+                var result = judgeMatrix(matrix[bKey - 1]);
+                if (result === 0)
+                    return;
+                else {
+                    bigDiv.removeClass("off").addClass("on");
+                    bigDiv.addClass(result[0] &lt; 0 ? "cross" : "circle");
+                    var smalldivs = bigDiv.find(".smallDiv");
+                    for (var i = 0; i &lt; 3; i++) {
+                        $(smalldivs.get(result[1][i] - 1)).addClass("line");
+                    }
+                    baseMatrix[bKey - 1] = result[0];
+                    var type = $("[name=success]:checked").attr("id");
+                    judgeSuccess(baseMatrix, type);
+                }
+            }
+        } else {
+            return;
+        }
+    });
+    var setShadow = function (index) {
+        $(".shadow").removeClass("shadow");
+        var div = $(".bigDiv:eq(" + (index - 1) + ")");
+
+        if (div.find(".on").length === 9) {
+            return;
+        } else {
+            $(".bigDiv").addClass("shadow");
+            div.removeClass("shadow");
+        }
+    };
+})();
+							</pre>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+						</div>
+					</div>
+					<!--end code-->
+
+
+
+				</div>
+			</div>
+		</div>
+		<div id="push"></div>
+	</div>
+	<div id="footer">
+		<script type="text/javascript">		    _$.resource.loadHtml("footer", $("#footer"));</script>
+	</div>
+</body>
+</html>
