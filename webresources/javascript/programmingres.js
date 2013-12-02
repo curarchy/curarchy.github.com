@@ -1,5 +1,11 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "跨浏览器事件绑定",
+		summary: "原生javascript跨浏览器事件绑定",
+		time: "2013-12-02",
+		key: "201312021",
+		tag: ["javascript","原生"]
+	},{
 		title: "树",
 		summary: "jquery树插件",
 		time: "2013-08-14",
