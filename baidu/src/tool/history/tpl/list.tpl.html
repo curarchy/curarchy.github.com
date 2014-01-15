@@ -1,0 +1,30 @@
+<!-- target: historyList -->
+<!-- import: historyListMain -->
+
+<!-- target: historyListMain -->
+<div id="content" class="sidebar-page list">
+    <section id="action">
+        <form id="filter" data-ui-type="Form" data-ui-id="filter" style="float:none"
+            action="/history/search" method="GET">
+            <div data-ui-type="Select" data-ui-id="status" data-ui-name="opObjectType"
+                data-ui-datasource="@opTypes" data-ui-value="@opObjectType"
+                data-ui-extension-submit-type="AutoSubmit"></div>
+            <!-- import: listSearchBox -->
+           <div data-ui-type="RangeCalendar" data-ui-name="rangeDate" style="float:right;"
+                data-ui-id="range-date"
+                data-ui-value="@rangeDate"
+                data-ui-extension-submit-type="AutoSubmit"/>
+        </form>
+    </section>
+
+    <section id="view">
+        <!-- if: ${keyword} -->
+            <section id="filter-options-panel" class="table-filter-options-panel">
+                <!-- import: listSearchInfo -->
+            </section>
+        <!-- /if -->
+        <!-- import: detailTable -->
+        <!-- import: detailPager -->
+       
+    </section>
+</div>

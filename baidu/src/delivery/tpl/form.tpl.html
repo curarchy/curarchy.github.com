@@ -1,0 +1,804 @@
+<!-- target: deliveryForm -->
+<!-- if: ${formType} === 'create' -->
+    <!-- import: deliveryformNavi -->
+<!-- /if -->
+<!-- if: ${formType} === 'update' && ${status} === 5 -->
+    <!-- import: deliveryUpdateformNavi -->
+<!-- /if -->
+
+<div id="content" class="sidebar-page">
+    <!-- if: ${formType} === 'update' && ${status} !== 5 -->
+        <!-- import: formCrumb -->
+    <!-- /if -->
+    <!-- import: deliveryFormMain -->
+</div>
+
+<!-- target: deliveryformNavi -->
+<div class="delivery-form-navi">
+    <div class="delivery-form-navi-main">
+        <span class="delivery-navi-item delivery-navi-item-active">新建广告</span>
+        <span class="delivery-navi-item">上传创意</span>
+    </div>
+</div>
+
+<!-- target: deliveryUpdateformNavi -->
+<div class="delivery-form-navi">
+    <div class="delivery-form-navi-main">
+        <span class="delivery-navi-item delivery-navi-item-active" style="padding-right:45px;">修改待确认广告</span>
+        <span class="delivery-navi-item">修改创意</span>
+    </div>
+</div>
+
+<!-- target: deliveryFormMain -->
+<!-- if: ${formType} === 'create' -->
+<div id="direct-form" class="form form-no-first-line">
+<!-- else -->
+<div id="direct-form" class="form">
+<!-- /if -->
+    <form data-ui-type="Form" data-ui-id="form"
+        action="/deliverys" method="POST" novalidate="novalidate">
+        <section class="form-section">
+            <h3 class="form-section-title">基本信息</h3>
+            <div class="form-field">
+                <label for="direct-name" class="form-field-name">名称：</label>
+                <input data-ui-type="TextBox" data-ui-id="name"
+                    data-ui-required="required"
+                    data-ui-required-error-message="请输入广告名称"
+                    data-ui-length="130"
+                    data-ui-value="@name"
+                    data-ui-max-length="130"
+                    data-ui-max-length-error-message="您已超出130个字符"
+                    data-ui-extension-count-type="WordCount"
+                    id="direct-name" name="name" title="广告名称" />
+            </div>
+            <div class="form-field">
+                <span class="form-field-name">计费方式：</span>
+                <div class="form-field-value">
+                    <div data-ui-type="BoxGroup" data-ui-id="price-model" 
+                        data-ui-name="priceModel" data-ui-value="@priceModel"
+                        data-ui-box-type="radio" >
+                        <ul>
+                            <li>
+                                <input type="radio" id="direct-price-model-cpd"
+                                    name="priceModel" value="0" checked="checked" />
+                                <label for="direct-price-model-cpd">CPD</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="direct-price-model-cpc" 
+                                    name="priceModel" value="1"/>
+                                <label for="direct-price-model-cpc">CPM</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="direct-price-model-cpm" 
+                                    name="priceModel" value="2"/>
+                                <label for="direct-price-model-cpm">CPC</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- if: 0 -->
+            <div class="form-field">
+                <span class="form-field-name">目标广告平台：</span>
+                <div data-ui-type="BoxGroup" data-ui-id="platform" data-ui-name="platform"
+                    data-ui-box-type="radio" data-ui-value="@platform">
+                    <ul>
+                        <li>
+                            <input type="radio" id="direct-platform-pc"
+                                name="platform" value="0" checked="checked" />
+                            <label for="direct-platform-pc">电脑</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="direct-platform-mobile" 
+                                name="platform" value="1"/>
+                            <label for="direct-platform-mobile">移动设备</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /if -->
+            <div class="form-field">
+                <label for="slot-size" class="form-field-name">尺寸：</label>
+                <div class="form-field-value">
+                    <div data-ui-type="ToggleSelector"
+                        data-ui-name="slotSize" 
+                        data-ui-id="slot-size" 
+                        data-ui-width="210"
+                        data-ui-item-name="尺寸" 
+                        data-ui-title="请选择" 
+                        data-ui-required-error-message="请选择广告位尺寸"
+                        data-ui-value="@size"
+                        data-ui-datasource="@sizes">
+                    </div>
+                </div>
+            </div>
+            <div class="form-field form-field-traget-slots">
+                <span class="form-field-name">目标广告位：</span>
+                <div class="form-field-value">
+                    <div data-ui-type="Panel" data-ui-id="slot-list">
+                        <div data-ui-type="Table" data-ui-id="slots-table" 
+                            data-ui-datasource="@selectedSlots"
+                            data-ui-select="false"
+                            data-ui-extension-command-type="Command"
+                            data-ui-extension-tip-type="TableTip"></div>
+                        <div data-ui-type="Button" data-ui-id="keep-on-add-slot"
+                            data-ui-skin="spring-add-tiny"
+                            class="keep-on-add-slot">继续添加广告位</div>
+                    </div>
+                    <div data-ui-type="Panel" data-ui-id="slot-list-empty">
+                        <div data-ui-type="Button" data-ui-id="add-slot"
+                            data-ui-skin="spring-add-tiny">添加广告位</div>
+                        <aside data-ui-type="Tip" data-ui-group="weight"
+                            title="什么是目标广告位？">
+                            广告将被投放到的广告位。
+                        </aside>
+                        <div>
+                            <span class="warning">请先进行尺寸的选择，再进行目标广告位的选择</span>
+                        </div>
+                    </div>
+                    <span data-ui-type="Label" data-ui-id="slots-validity"
+                        data-ui-hidden="hidden"
+                        class="ui-ctrl ui-validity ui-select-validity-label ui-validity-invalid ui-select-validity-label-invalid ui-select-validity-label-hidden">
+                        请至少选择一个广告位。
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="form-section">
+            <h3 class="form-section-title">投放设置</h3>
+            <div data-ui-type="Panel" data-ui-id="continuous-time-panel">
+                <div class="form-field form-float">
+                    <span class="form-field-name">开始时间：</span>
+                    <div class="form-field-value">
+                        <div data-ui-type="Calendar" data-ui-id="begin-date"
+                            data-ui-name="beginDate" data-ui-group="continuous-time"
+                            data-ui-value="@beginDate" data-ui-auto-hide-layer="true"
+                            data-ui-range="@dateRange" id="direct-begin-date" >
+                        </div>
+                        <select data-ui-type="Select" data-ui-id="begin-time" 
+                            data-ui-name="beginTime" data-ui-group="continuous-time"
+                            data-ui-width="80" data-ui-value="@beginTime" 
+                            data-ui-validity-label="begin-time-validity" >
+                            <!-- import: deliveryFormMainBeginTimeSelect -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-field form-float">
+                    <span class="form-field-name">结束时间：</span>
+                    <div class="form-field-value">
+                        <div data-ui-type="Panel" data-ui-id="continuous-end-time-panel">
+                            <div data-ui-type="Calendar" data-ui-id="end-date"
+                                data-ui-name="endDate" data-ui-group="continuous-time end-time"
+                                data-ui-auto-hide-layer="true" data-ui-range="@dateRange"
+                                data-ui-value="@endDate" id="direct-end-date"
+                                data-ui-validity-label="end-time-validity" >
+                            </div>
+                            <select data-ui-type="Select" data-ui-id="end-time" 
+                                data-ui-name="endTime" data-ui-group="continuous-time end-time"
+                                data-ui-width="80" data-ui-value="@endTime" 
+                                data-ui-validity-label="end-time-validity" >
+                                <!-- import: deliveryFormMainEndTimeSelect -->
+                            </select>
+                            <span data-ui-type="Label" data-ui-id="end-time-label" 
+                                data-ui-group="continuous-time end-time" 
+                                class="form-line-tip-link-inline">不限时间</span>
+                        </div>
+                        <div data-ui-type="Panel" data-ui-id="continuous-endless-time-panel">
+                            <span class="form-line-tip-inline">不限时间   |  </span>
+                            <span data-ui-type="Label" data-ui-id="endless-time-label" 
+                                data-ui-group="continuous-time endless-time" 
+                                class="form-line-tip-link-inline">设定时间</span>
+                        </div>
+                        <div class="fix-line-height">
+                            <span class="form-line-tip-inline">如果投放时间为不连续的多个时间段，</span>
+                            <span data-ui-type="Label" data-ui-id="continuous-time-label" 
+                                data-ui-group="continuous-time" class="form-line-tip-link-inline">请点击这里选择</span>
+                        </div>
+                        <span data-ui-type="Validity" data-ui-id="begin-time-validity"></span>
+                        <span data-ui-type="Validity" data-ui-id="end-time-validity"></span>
+                    </div>
+                </div>
+            </div>
+            <div data-ui-type="Panel" data-ui-id="discontinuous-time-panel">
+                <div class="form-field discontinuous-time-field">
+                    <span class="form-field-name">投放时间：</span>
+                    <div class="form-field-value">
+                        <div id="direct-discontinuous-line-tip">
+                            <span class="form-line-tip-inline">不连续时间段选择   |  </span>
+                            <span data-ui-type="Label" data-ui-id="discontinuous-time-label" 
+                                data-ui-group="discontinuous-time" class="form-line-tip-link-inline">返回默认选择</span>
+                        </div>
+                        <div data-ui-type="RichCalendar" data-ui-name="discontinuousTime"
+                            data-ui-id="discontinuous-time"
+                            data-ui-group="discontinuous-time"
+                            data-ui-required="required"
+                            data-ui-range="@dateRange"
+                            data-ui-value="@discontinuousTime"
+                            data-ui-required-error-message="投放日期不能为空"
+                            data-ui-validity-label="discontinuous-time-validity">
+                        </div>
+                        <span data-ui-type="Validity" data-ui-id="discontinuous-time-validity"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-field form-float-priority">
+                <span class="form-field-name">优先级：</span>
+                <div class="form-field-value">
+                    <select data-ui-type="Select" data-ui-id="priority-class" 
+                        data-ui-name="priorityClass" data-ui-width="60">
+                        <!-- import: deliveryFormMainPriorityClassSelect -->
+                    </select>
+                    <aside data-ui-type="Tip" title="什么是优先级别？">
+                        优先级决定广告的展现顺序。优先级：独占>标准>库存收益>内部。</br>
+                        1.独占：支持按日计费，通常用于广告客户直投广告</br>
+                        2.标准：默认的优先级，通常用于广告客户直投广告</br>
+                        3.库存收益：通常用于联盟广告。</br>
+                        4.内部：通常用于抄底广告，例如广告位招租等。
+                    </aside>
+                    <div data-ui-type="Select" data-ui-id="priority" 
+                        data-ui-name="priority" data-ui-width="60"
+                        data-ui-value="@priority">
+                    </div>
+                    <aside data-ui-type="Tip" title="优先级数">
+                        1（最高）-31（最低）
+                    </aside>
+                    <input type="checkbox" data-ui-type="CheckBox"
+                        title="设置权重"
+                        data-ui-id="set-weight" 
+                        data-ui-name="setWeight"
+                        data-ui-value="1" />
+                    <div data-ui-type="Panel" data-ui-id="weight-panel">
+                        <select data-ui-type="Select" data-ui-id="weight" 
+                            data-ui-name="weight" data-ui-width="60"
+                            data-ui-group="weight" data-ui-value="@weight">
+                            <!-- import: deliveryFormMainWeightSelect -->
+                        </select>
+                        <aside data-ui-type="Tip" data-ui-group="weight"
+                            title="什么是权重？">
+                            权重：优先级相同时，高权重的广告的展现概率更高。
+                        </aside>
+                    </div>
+                    <!-- <div>
+                        <span class="warning">该订单为直销订单，建议使用独占或标准</span>
+                    </div> -->
+                </div>
+            </div>
+            <div class="form-field form-field-balance-delivery">
+                <span class="form-field-name">每日投放量：</span>
+                <div class="form-field-value">
+                    <input type="checkbox" data-ui-type="CheckBox"
+                        title="限制每日投放数量"
+                        data-ui-id="set-balance-delivery" 
+                        data-ui-name="setBalancedDelivery"
+                        data-ui-value="1" />
+                    <aside data-ui-type="Tip" data-ui-group="weight"
+                        title="如何设置每日投放量？">
+                        勾选后，您可以设置广告每天展现或点击的数量，到达该数量后，当天不再展现该广告。第二个投放日广告将再次展现，并从0开始重新计算当天的投放数量。
+                    </aside>
+                    <div data-ui-type="Panel" data-ui-id="balance-delivery-panel">
+                        <span>每天</span>
+                        <div data-ui-type="Select" data-ui-id="balance-delivery-type" 
+                            data-ui-name="balancedDeliveryType" data-ui-width="30"
+                            data-ui-group="balance-delivery">
+                        </div>
+                        <input data-ui-type="TextBox" data-ui-id="balance-delivery-amount"
+                            data-ui-name="balancedDeliveryAmount" data-ui-group="balance-delivery"
+                            data-ui-required="required" data-ui-value="@balancedDeliveryAmount"
+                            data-ui-width="100"
+                            data-ui-min="1"
+                            data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+                            data-ui-max="1000000000"
+                            data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+                            data-ui-pattern="^(\d+)?$"
+                            data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+                            data-ui-hint="次" data-ui-hint-type="suffix" />
+                    </div>
+                </div>
+            </div>
+            <div data-ui-type="Panel" data-ui-id="total-delivery-main-panel">
+                <div class="form-field form-field-total-delivery">
+                    <span class="form-field-name">投放上限：</span>
+                    <div class="form-field-value">
+                        <input type="checkbox" data-ui-type="CheckBox"
+                            title="设置投放上限"
+                            data-ui-id="set-total-delivery" 
+                            data-ui-name="setTotalDelivery"
+                            data-ui-value="1" />
+                        <aside data-ui-type="Tip" data-ui-group="weight"
+                            title="什么是投放上限？">
+                            投放周期内，该广告总展现/点击达到投放上限则立即下线。
+                        </aside>
+                        <div data-ui-type="Panel" data-ui-id="total-delivery-panel">
+                            <select data-ui-type="Select" data-ui-id="total-delivery-type" 
+                                data-ui-name="totalDeliveryType" data-ui-width="30"
+                                data-ui-group="total-delivery" data-ui-value="@totalDeliveryType">
+                                <!-- import: deliveryFormMainTotalDeliveryTypeSelect -->
+                            </select>
+                            <input data-ui-type="TextBox" data-ui-id="total-delivery-amount"
+                                data-ui-name="totalDeliveryAmount" data-ui-group="total-delivery"
+                                data-ui-required="required" data-ui-value="@totalDeliveryAmount"
+                                data-ui-width="100"
+                                data-ui-min="1"
+                                data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+                                data-ui-max="1000000000"
+                                data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+                                data-ui-pattern="^(\d+)?$"
+                                data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+                                data-ui-hint="次" data-ui-hint-type="suffix" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-field form-field-frequency">
+                <span class="form-field-name">频次控制：</span>
+                <div class="form-field-value">
+                    <input type="checkbox" data-ui-type="CheckBox"
+                        title="限制对独立访客的展现次数"
+                        data-ui-id="set-frequency" 
+                        data-ui-name="setFrequency"
+                        data-ui-value="1" />
+                    <aside data-ui-type="Tip" title="如何设置频次控制？">
+                        勾选后，您可以从每天、每小时、每分钟多个维度限制广告对独立访客的展现次数。
+                    </aside>
+                    <div data-ui-type="Panel" data-ui-id="frequency-panel">
+                        <!-- import: deliveryFormMainFrequencyLines -->
+                        <span data-ui-type="Label" data-ui-id="add-frequency" data-ui-group="frequency" 
+                            class="form-line-tip-link-inline fix-line-height">＋ 添加维度
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-field form-field-ad-inturn">
+                <span class="form-field-name">创意轮换：</span>
+                <div class="form-field-value">
+                    <select data-ui-type="Select" data-ui-id="ad-inturn" 
+                        data-ui-name="adInturn" data-ui-width="80"
+                        data-ui-value="@adInturn">
+                        <!-- import: deliveryFormMainAdInturnSelect -->
+                    </select>
+                    <aside data-ui-type="Tip" title="创意轮换方式的有几种？">
+                        均匀：每条创意获得均等的展现概率。</br>
+                        手动权重：手工设置创意的权重，高权重的创意展现概率更高。</br>
+                        幻灯片轮换：以幻灯片播放的方式在一次浏览中依次展现全部创意，只支持文字和图片创意。</br>
+                        微轮播：针对单个cookies，每次刷新都按照创意顺序播下次创意，循环轮换。</br>
+                    </aside>
+                    <div data-ui-type="Panel" data-ui-id="ad-inturn-slide-panel">
+                        <span>轮换时间间隔</span>
+                        <input data-ui-type="TextBox" data-ui-id="ad-inturn-slide-time"
+                            data-ui-name="inturnTime" data-ui-group="ad-inturn-slide"
+                            data-ui-required="required" data-ui-value="@inturnTime"
+                            data-ui-width="70"
+                            data-ui-min="1"
+                            data-ui-min-error-message="请填写>0且≤3600的整数"
+                            data-ui-max="3600"
+                            data-ui-max-error-message="请填写>0且≤3600的整数"
+                            data-ui-pattern="^(\d+)?$"
+                            data-ui-pattern-error-message="请填写>0且≤3600的整数"
+                            data-ui-hint="秒" data-ui-hint-type="suffix" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="form-section">
+            <h3 class="form-section-title">定向设置
+                <aside data-ui-type="Tip" title="什么是定向设置？" style="margin-left:10px;">
+                    定向设置是从各个维度对网站访客的筛选，实现根据访客的不同特征来展现不同的广告。
+                </aside>
+            </h3>
+            <div class="form-field form-field-locate">
+                <span class="form-field-name">投放地域：</span>
+                <div class="form-field-value">
+                    <div data-ui-type="BoxGroup" data-ui-id="set-region" 
+                        data-ui-name="setRegion" data-ui-value="@setRegion"
+                        data-ui-box-type="radio" >
+                        <ul>
+                            <li>
+                                <input type="radio" id="direct-region-all"
+                                    name="setRegion" value="0" checked="checked" />
+                                <label for="direct-region-all">不限</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="direct-region-chosen" 
+                                    name="setRegion" value="1"/>
+                                <label for="direct-region-chosen">选择地域</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-ui-type="Region" data-ui-id="region"
+                        data-ui-name="region" data-ui-value="@region"
+                        data-ui-region-data="@regionData" data-ui-pure-select="true">
+                    </div>
+                </div>
+            </div>
+            <div class="form-field form-field-locate form-field-locate-schedule">
+                <span class="form-field-name">投放日程：</span>
+                <div class="form-field-value">
+                    <div data-ui-type="BoxGroup" data-ui-id="set-schedule" 
+                        data-ui-name="setSchedule" data-ui-value="@setSchedule"
+                        data-ui-box-type="radio">
+                        <ul>
+                            <li>
+                                <input type="radio" id="direct-schedule-all"
+                                    name="setSchedule" value="0" checked="checked" />
+                                <label for="direct-schedule-all">全日程</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="direct-schedule-chosen" 
+                                    name="setSchedule" value="1"/>
+                                <label for="direct-schedule-chosen">指定时间段</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-ui-type="Schedule" data-ui-id="schedule"
+                        data-ui-name="schedule" data-ui-value="@schedule">
+                    </div>
+                </div>
+            </div>
+            <div class="form-field form-field-locate">
+                <span class="form-field-name">浏览器类型：</span>
+                <div class="form-field-value">
+                    <div data-ui-type="BoxGroup" data-ui-id="set-browser" 
+                        data-ui-name="setBrowser" data-ui-value="@setBrowser"
+                        data-ui-box-type="radio" >
+                        <ul>
+                            <li>
+                                <input type="radio" id="direct-browser-all"
+                                    name="setBrowser" value="0" checked="checked" />
+                                <label for="direct-browser-all">不限</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="direct-browser-chosen" 
+                                    name="setBrowser" value="1"/>
+                                <label for="direct-browser-chosen">选择浏览器</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-ui-type="CascadingSelector" data-ui-id="browser"
+                        data-ui-name="browser"
+                        data-ui-item-name="浏览器类型" 
+                        data-ui-source-title="请选择浏览器类型" 
+                        data-ui-target-title="已选择浏览器类型" 
+                        data-ui-source-empty-text="没有符合条件的浏览器类型" 
+                        data-ui-target-empty-text="请从左侧选择要添加的浏览器类型" 
+                        data-ui-has-height="300" 
+                        data-ui-has-width="200" 
+                        data-ui-table-type="list" 
+                        data-ui-datasource="@browser"
+                        data-ui-required-error-message="浏览器类型不可为空，请选择">
+                    </div>
+                </div>
+            </div>
+            <div class="form-field form-field-locate">
+                <span class="form-field-name">分辨率：</span>
+                <div class="form-field-value">
+                    <div data-ui-type="BoxGroup" data-ui-id="set-resolution" 
+                        data-ui-name="setResolution" data-ui-value="@setResolution"
+                        data-ui-box-type="radio" >
+                        <ul>
+                            <li>
+                                <input type="radio" id="direct-resolution-all"
+                                    name="setResolution" value="0" checked="checked" />
+                                <label for="direct-resolution-all">不限</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="direct-resolution-chosen" 
+                                    name="setResolution" value="1"/>
+                                <label for="direct-resolution-chosen">选择分辨率</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-ui-type="CascadingSelector" data-ui-id="resolution"
+                        data-ui-name="resolution"
+                        data-ui-item-name="分辨率" 
+                        data-ui-source-title="请选择分辨率" 
+                        data-ui-target-title="已选择分辨率" 
+                        data-ui-source-empty-text="没有符合条件的分辨率" 
+                        data-ui-target-empty-text="请从左侧选择要添加的分辨率" 
+                        data-ui-has-height="300" 
+                        data-ui-has-width="200" 
+                        data-ui-table-type="list" 
+                        data-ui-datasource="@resolution"
+                        data-ui-required-error-message="分辨率不可为空，请选择">
+                    </div>
+                </div>
+            </div>
+            <div data-ui-type="TogglePanel" data-ui-id="other-locate-panel">
+                <h3>
+                    <span class="other-locate-title">其它定向设置</span>
+                </h3>
+                <div class="form-field form-field-other-locate">
+                    <div data-ui-type="Orient" data-ui-id="other-orients"
+                        data-ui-name="otherOrients" data-ui-datasource="@otherOrients">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div data-ui-type="Panel" data-ui-id="amount-section" id="direct-amount-section">
+            <section class="form-section form-section-amount">
+                <h3 class="form-section-title">投放量</h3>
+                <div data-ui-type="PartialForm" id="direct-slot-amount"
+                    data-ui-id="slot-amount" data-ui-group="child-action"
+                    data-ui-name="amount" data-ui-url="/delivery/amount"
+                    data-ui-action-options="@slotsAmount">
+                </div>
+                <div data-ui-type="Panel" data-ui-id="delivery-speed">
+                    <div class="form-field form-field-delivery-speed">
+                        <span class="form-field-name">投放速度：</span>
+                        <div class="form-field-value">
+                            <input type="checkbox" data-ui-type="CheckBox"
+                                title="设置投放速度"
+                                data-ui-id="set-delivery-speed" 
+                                data-ui-name="setDeliverySpeed"
+                                data-ui-group="delivery-speed"
+                                data-ui-value="1" />
+                            <aside data-ui-type="Tip" data-ui-group="delivery-speed-tip"
+                                title="什么是投放速度？">
+                                尽快投放：有机会就展现广告，尽快投放完成。
+                                均匀投放：使规定数量的广告在投放起止时间内尽可能均匀展现。
+                            </aside>
+                            <div data-ui-type="Panel" data-ui-id="delivery-speed-panel">
+                                <span>在投放期内</span>
+                                <select data-ui-type="Select" data-ui-id="delivery-speed-type" 
+                                    data-ui-name="deliverySpeed" data-ui-width="30"
+                                    data-ui-group="delivery-speed" data-ui-value="@deliverySpeed">
+                                    <!-- import: deliveryFormMainDeliverySpeedTypeTypeSelect -->
+                                </select>
+                                <span>投放广告</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="form-section">
+            <div class="form-field form-submit-field">
+                <!-- if: ${submitFieldWithCreative} -->
+                <button type="button" data-ui-type="Button" data-ui-id="add-creative"
+                    data-ui-skin="spring">保存并上传创意</button>
+                <button data-ui-type="Button" data-ui-id="submit"
+                    data-ui-skin="spring" type="submit">确认并保存</button>
+                <!-- else -->
+                <button data-ui-type="Button" data-ui-id="submit"
+                    data-ui-skin="spring" type="submit">保存</button>
+                <!-- /if -->
+                <button type="button" data-ui-type="Button" data-ui-id="cancel"
+                    data-ui-skin="link">取消</button>
+            </div>
+        </section>
+    </form>
+</div>
+
+
+
+
+<!-- target: deliveryFormMainSlotTable -->
+<div data-ui-type="Table" data-ui-id="direct-table" data-ui-datasource="@slots"
+    data-ui-order-by="@orderBy" data-ui-order="@order"
+    data-ui-extension-command-type="Command"
+    data-ui-extension-tip-type="TableTip" class="form-field-value">
+</div>
+
+<!-- target: deliveryFormMainFrequencyLines -->
+<div data-ui-type="Panel" data-ui-id="frequency-subpanel-0">
+    <select data-ui-type="Select" data-ui-id="frequency-type-0" 
+        data-ui-name="frequencyType" data-ui-width="60"
+        data-ui-group="frequency line0" data-ui-value="@frequencyType0"
+        data-ui-validity-label="frequency-line-validity-0">
+        <!-- import: deliveryFormMainFrequencyTypeSelect -->
+    </select>
+    <span>最多展现</span>
+    <input data-ui-type="TextBox" data-ui-id="frequency-amount-0"
+        data-ui-name="frequencyAmount" data-ui-group="frequency line0"
+        data-ui-required="required" data-ui-value="@frequencyAmount0"
+        data-ui-width="100"
+        data-ui-min="1"
+        data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-max="1000000000"
+        data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-pattern="^(\d+)?$"
+        data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-hint="次" data-ui-hint-type="suffix" />
+    <span data-ui-type="Label" data-ui-id="delete-frequency-0" 
+        data-ui-group="frequency line0"
+        class="delete-operation link-like">删除
+    </span>
+    <span data-ui-type="Validity" data-ui-id="frequency-line-validity-0"></span>
+</div>
+<div data-ui-type="Panel" data-ui-id="frequency-subpanel-1">
+    <select data-ui-type="Select" data-ui-id="frequency-type-1" 
+        data-ui-name="frequencyType" data-ui-width="60"
+        data-ui-group="frequency line1" data-ui-value="@frequencyType1"
+        data-ui-validity-label="frequency-line-validity-1" >
+        <!-- import: deliveryFormMainFrequencyTypeSelect -->
+    </select>
+    <span>最多展现</span>
+    <input data-ui-type="TextBox" data-ui-id="frequency-amount-1"
+        data-ui-name="frequencyAmount" data-ui-group="frequency line1"
+        data-ui-required="required" data-ui-value="@frequencyAmount1"
+        data-ui-width="100"
+        data-ui-min="1"
+        data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-max="1000000000"
+        data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-pattern="^(\d+)?$"
+        data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-hint="次" data-ui-hint-type="suffix" />
+    <span data-ui-type="Label" data-ui-id="delete-frequency-1" 
+        data-ui-group="frequency line1"
+        class="delete-operation link-like">删除
+    </span>
+    <span data-ui-type="Validity" data-ui-id="frequency-line-validity-1"></span>
+</div>
+<div data-ui-type="Panel" data-ui-id="frequency-subpanel-2">
+    <select data-ui-type="Select" data-ui-id="frequency-type-2" 
+        data-ui-name="frequencyType" data-ui-width="60"
+        data-ui-group="frequency line2" data-ui-value="@frequencyType2"
+        data-ui-validity-label="frequency-line-validity-2">
+        <!-- import: deliveryFormMainFrequencyTypeSelect -->
+    </select>
+    <span>最多展现</span>
+    <input data-ui-type="TextBox" data-ui-id="frequency-amount-2"
+        data-ui-name="frequencyAmount" data-ui-group="frequency line2"
+        data-ui-required="required" data-ui-value="@frequencyAmount2"
+        data-ui-width="100"
+        data-ui-min="1"
+        data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-max="1000000000"
+        data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-pattern="^(\d+)?$"
+        data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-hint="次" data-ui-hint-type="suffix" />
+    <span data-ui-type="Label" data-ui-id="delete-frequency-2" 
+        data-ui-group="frequency line2"
+        class="delete-operation link-like">删除
+    </span>
+    <span data-ui-type="Validity" data-ui-id="frequency-line-validity-2"></span>
+</div>
+<div data-ui-type="Panel" data-ui-id="frequency-subpanel-3">
+    <select data-ui-type="Select" data-ui-id="frequency-type-3" 
+        data-ui-name="frequencyType" data-ui-width="60"
+        data-ui-group="frequency line3" data-ui-value="@frequencyType3"
+        data-ui-validity-label="frequency-line-validity-3">
+        <!-- import: deliveryFormMainFrequencyTypeSelect -->
+    </select>
+    <span>最多展现</span>
+    <input data-ui-type="TextBox" data-ui-id="frequency-amount-3"
+        data-ui-name="frequencyAmount" data-ui-group="frequency line3"
+        data-ui-required="required" data-ui-value="@frequencyAmount3"
+        data-ui-width="100"
+        data-ui-min="1"
+        data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-max="1000000000"
+        data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-pattern="^(\d+)?$"
+        data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-hint="次" data-ui-hint-type="suffix" />
+    <span data-ui-type="Label" data-ui-id="delete-frequency-3" 
+        data-ui-group="frequency line3"
+        class="delete-operation link-like">删除
+    </span>
+    <span data-ui-type="Validity" data-ui-id="frequency-line-validity-3"></span>
+</div>
+<div data-ui-type="Panel" data-ui-id="frequency-subpanel-4">
+    <select data-ui-type="Select" data-ui-id="frequency-type-4" 
+        data-ui-name="frequencyType" data-ui-width="60"
+        data-ui-group="frequency line4" data-ui-value="@frequencyType4"
+        data-ui-validity-label="frequency-line-validity-4">
+        <!-- import: deliveryFormMainFrequencyTypeSelect -->
+    </select>
+    <span>最多展现</span>
+    <input data-ui-type="TextBox" data-ui-id="frequency-amount-4"
+        data-ui-name="frequencyAmount" data-ui-group="frequency line4"
+        data-ui-required="required" data-ui-value="@frequencyAmount4"
+        data-ui-width="100"
+        data-ui-min="1"
+        data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-max="1000000000"
+        data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-pattern="^(\d+)?$"
+        data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-hint="次" data-ui-hint-type="suffix" />
+    <span data-ui-type="Label" data-ui-id="delete-frequency-4" 
+        data-ui-group="frequency line4"
+        class="delete-operation link-like">删除
+    </span>
+    <span data-ui-type="Validity" data-ui-id="frequency-line-validity-4"></span>
+</div>
+<div data-ui-type="Panel" data-ui-id="frequency-subpanel-5">
+    <select data-ui-type="Select" data-ui-id="frequency-type-5" 
+        data-ui-name="frequencyType" data-ui-width="60"
+        data-ui-group="frequency line5" data-ui-value="@frequencyType5"
+        data-ui-validity-label="frequency-line-validity-5">
+        <!-- import: deliveryFormMainFrequencyTypeSelect -->
+    </select>
+    <span>最多展现</span>
+    <input data-ui-type="TextBox" data-ui-id="frequency-amount-5"
+        data-ui-name="frequencyAmount" data-ui-group="frequency line5"
+        data-ui-required="required" data-ui-value="@frequencyAmount5"
+        data-ui-width="100"
+        data-ui-min="1"
+        data-ui-min-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-max="1000000000"
+        data-ui-max-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-pattern="^(\d+)?$"
+        data-ui-pattern-error-message="请填写>0且≤1,000,000,000的整数"
+        data-ui-hint="次" data-ui-hint-type="suffix" />
+    <span data-ui-type="Label" data-ui-id="delete-frequency-5" 
+        data-ui-group="frequency line5"
+        class="delete-operation link-like">删除
+    </span>
+    <span data-ui-type="Validity" data-ui-id="frequency-line-validity-5"></span>
+</div>
+
+<!-- target: deliveryFormMainTimeSelect -->
+<option value="01:00">01:00</option>
+<option value="02:00">02:00</option>
+<option value="03:00">03:00</option>
+<option value="04:00">04:00</option>
+<option value="05:00">05:00</option>
+<option value="06:00">06:00</option>
+<option value="07:00">07:00</option>
+<option value="08:00">08:00</option>
+<option value="09:00">09:00</option>
+<option value="10:00">10:00</option>
+<option value="11:00">11:00</option>
+<option value="12:00">12:00</option>
+<option value="13:00">13:00</option>
+<option value="14:00">14:00</option>
+<option value="15:00">15:00</option>
+<option value="16:00">16:00</option>
+<option value="17:00">17:00</option>
+<option value="18:00">18:00</option>
+<option value="19:00">19:00</option>
+<option value="20:00">20:00</option>
+<option value="21:00">21:00</option>
+<option value="22:00">22:00</option>
+<option value="23:00">23:00</option>
+
+<!-- target: deliveryFormMainBeginTimeSelect -->
+<option value="00:00" selected="selected">00:00</option>
+<!-- import: deliveryFormMainTimeSelect -->
+
+<!-- target: deliveryFormMainEndTimeSelect -->
+<!-- import: deliveryFormMainTimeSelect -->
+<option value="23:59" selected="selected">23:59</option>
+
+<!-- target: deliveryFormMainPriorityClassSelect -->
+<option value="mono">独占</option>
+<option value="standard">标准</option>
+<option value="yield">库存收益</option>
+<option value="houseAD">内部</option>
+
+<!-- target: deliveryFormMainWeightSelect -->
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5" selected="selected">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+
+<!-- target: deliveryFormMainTotalDeliveryTypeSelect -->
+<option value="1">展现</option>
+<option value="2">点击</option>
+
+<!-- target: deliveryFormMainFrequencyTypeSelect -->
+<option value="day">每天</option>
+<option value="hour">每小时</option>
+<option value="thirtyMin">每30分钟</option>
+<option value="twentyMin">每20分钟</option>
+<option value="tenMin">每10分钟</option>
+<option value="min">每分钟</option>
+
+<!-- target: deliveryFormMainAdInturnSelect -->
+<option value="0">均匀</option>
+<option value="1">手动权重</option>
+<option value="2">幻灯片轮换</option>
+<option value="3">微轮播</option>
+
+<!-- target: deliveryFormMainDeliverySpeedTypeTypeSelect -->
+<option value="1">尽快</option>
+<option value="2">均匀</option>

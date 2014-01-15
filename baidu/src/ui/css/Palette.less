@@ -1,0 +1,114 @@
+.ui-palette {
+    position: relative;
+    width: 420px;
+}
+
+.ui-palette-canvas {
+    width: 360px;
+    height: 280px;
+    background-repeat: no-repeat;
+    background-image: url(../img/palette.png);
+    background-image: -o-linear-gradient(
+        top,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    ),
+    -o-linear-gradient(
+        left,
+        #ff0000 0%, #ffff00 16.67%,
+        #00ff00 33.33%, #00ffff 50%, 
+        #0000ff 66.67%, #ff00ff 83.33%,
+        #ff0000 100%
+    );
+    background-image: -ms-linear-gradient(
+        top,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    ),
+    -ms-linear-gradient(
+        left,
+        #ff0000 0%, #ffff00 16.67%,
+        #00ff00 33.33%, #00ffff 50%, 
+        #0000ff 66.67%, #ff00ff 83.33%,
+        #ff0000 100%
+    );
+    background-image: -moz-linear-gradient(
+        top,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    ),
+    -moz-linear-gradient(
+        left,
+        #ff0000 0%, #ffff00 16.67%,
+        #00ff00 33.33%, #00ffff 50%, 
+        #0000ff 66.67%, #ff00ff 83.33%,
+        #ff0000 100%
+    );
+    background-image: -webkit-linear-gradient(
+        top,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    ),
+    -webkit-linear-gradient(
+        left,
+        #ff0000 0%, #ffff00 16.67%,
+        #00ff00 33.33%, #00ffff 50%, 
+        #0000ff 66.67%, #ff00ff 83.33%,
+        #ff0000 100%
+    );
+    background-image: linear-gradient(
+        top,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+    ),
+    linear-gradient(
+        left,
+        #ff0000 0%, #ffff00 16.67%,
+        #00ff00 33.33%, #00ffff 50%, 
+        #0000ff 66.67%, #ff00ff 83.33%,
+        #ff0000 100%
+    );
+    position: relative;
+}
+
+.ui-palette-canvas-pointer {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.ui-palette-light {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+}
+.ui-palette-light-slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+}
+.ui-palette-light-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(
+        top,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 1) 100%
+    );
+}
+
+.ui-palette-light-pointer {
+    position: absolute;
+    right: 0;
+    width: 10px;
+    height: 4px;
+    background-color: #000;
+}

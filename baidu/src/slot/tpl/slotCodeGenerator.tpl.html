@@ -1,0 +1,51 @@
+<!-- target: slotsCodeGenerator -->
+<!-- import: slotsCodeGeneratorMain -->
+
+<!-- target: slotsCodeGeneratorMain -->
+<div id="slot-code-generator">
+    <section class="slot-get-code-cross-domain">
+        如果您的网站修改了document.domain，<a href="http://yingxiao.baidu.com/support/adm/detail_7663.html" target="_blank">请先完成跨域策略设置</a>
+    </section>
+    <section class="slot-get-code-title">
+        <strong>&lt;head&gt;代码：</strong>每个页面只需投放一次
+    </section>
+    <section class="slot-get-code-content">
+        <textarea data-ui-type="TextBox"
+            data-ui-id="slot-get-code-head"
+            data-ui-auto-select="true"
+            data-ui-width="720"
+            data-ui-height="104">
+<!-- 请置于所有广告位代码之前 -->
+&lt;script src="http://cbjs.baidu.com/js/m.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+BAIDU_CLB_preloadSlots(${slotIds});
+&lt;/script&gt;</textarea>
+    </section>
+    <section class="slot-get-code-title-bottom">
+        <strong>&lt;/head&gt;</strong>
+    </section>
+    <section class="slot-get-code-title">
+        <strong>&lt;body&gt;代码：</strong>请粘贴到广告位所在位置
+    </section>
+    <!-- for: ${slots} as ${slot}, ${index} -->
+    <section class="slot-get-code-content">
+        <textarea data-ui-type="TextBox"
+            data-ui-id="slot-get-code-body-${slot.id}"
+            data-ui-auto-select="true" 
+            data-ui-width="720"
+            data-ui-height="65">
+<!-- 广告位：${slot.name} -->
+&lt;script&gt;BAIDU_CLB_fillSlot("${slot.id}");&lt;/script&gt;</textarea>
+        <div class="slot-get-code-content-tip" title="${slot.name} 尺寸：${slot.size}">
+            ${slot.name}<br>尺寸：${slot.size}
+        </div>
+    </section>
+    <!--/for-->
+    <section class="slot-get-code-title-bottom">
+        <strong>&lt;/body&gt;</strong>
+    </section>
+    <section class="slot-get-code-operate">
+        <div data-ui-type="Button" data-ui-id="cancel"
+            data-ui-skin="link">返回</div>
+    </section>
+</div>

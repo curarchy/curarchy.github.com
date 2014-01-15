@@ -1,0 +1,64 @@
+.ui-scheduletable {
+    background:#fff;
+    .ui-scheduletable-date,
+    .ui-scheduletable-day,
+    .ui-scheduletable-content-row {
+        height: 26px;
+        border: none;
+    }
+
+    .ui-scheduletable-item,
+    .ui-scheduletable-head-item {
+        border: 1px solid #e0e0e0;
+        border-bottom: none;
+        color: #333333;
+        height: 26px;
+        text-align: center;
+        width: 26px;
+    }
+
+    .ui-scheduletable-head-item {
+        background: #F3F3F3 ;
+    }
+
+    .ui-scheduletable-item {
+        cursor: pointer;
+    }
+
+    .ui-scheduletable-item-all-sold {
+        background: #b1e0fa;
+    }
+
+    .ui-scheduletable-item-part-sold {
+        background: url('../img/schedule-part-sold.png');
+    }
+
+    .ui-scheduletable-item-reserved {
+        background: url('../img/schedule-reserved.png');
+    }
+
+    .ui-scheduletable-item-part-reserved {
+        background: url('../img/schedule-part-reserved.png') scroll center center;
+    }    
+
+    .ui-scheduletable-item-sold-or-reserved {
+        background: url('../img/schedule-sold-or-reserved.png') scroll center center;
+    }
+
+    .ui-scheduletable-item-part-sold-or-reserved {
+        background: url('../img/schedule-part-sold-or-reserved.png') scroll center center;
+    }
+
+    .ui-scheduletable-item-vacant {
+        background: #fff;
+    }
+}
+
+//for ie9
+:root {
+    .ui-scheduletable-date,
+    .ui-scheduletable-day,
+    .ui-scheduletable-content-row {
+        height: 27px\0;
+    }
+}

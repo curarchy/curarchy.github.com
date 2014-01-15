@@ -1,0 +1,41 @@
+@import "./form.less";
+@import "./list.less";
+
+.sidebar-page {
+    padding: 0 15px;
+    // 以下是表单
+    #crumb {
+        // TODO: 为啥是padding，是否能改用margin
+        padding: 20px 0;
+        height: 14px;
+        line-height: 14px;
+    }
+
+    // section是表单的次级组成单位
+    // 包括title和content
+    .form-section {
+        padding: 32px 0 35px 20px;
+        border-bottom: 1px solid #e8e8e8;
+
+        &:first-child {
+            border-top: 1px solid #e8e8e8;
+        }
+    }
+
+    .form-submit-field {
+        padding-left: 0;
+        margin-top: 60px;
+        margin-bottom: 0;
+    }
+
+    // section是表单的次级组成单位
+    // 包括title和content
+    .read-section {
+        padding: 40px 0 35px 20px;
+        border-bottom: 1px solid #e8e8e8;
+
+        &:first-child {
+            border-top: 1px solid #e8e8e8;
+        }
+    }
+}

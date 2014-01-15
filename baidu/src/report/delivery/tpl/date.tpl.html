@@ -1,0 +1,26 @@
+<!-- target: deliveryDate -->
+<!-- import: deliverySideBar -->
+
+<div id="content" class="report">
+    <!-- import: reportHeader -->
+    <!-- import: reportSubmenu -->
+    <div id="report-graph">
+        <!-- import: reportGeneralData -->
+        <div id="property-filter">
+            <!-- import: reportCompareProperty -->
+        </div>
+        <div id="chart">
+            <!-- import: reportLineChart -->
+        </div>
+        <!-- if: ${keyword} -->
+        <section id="filter-result-panel" class="table-filter-options-panel" style="border:none">
+            <!-- if: ${keyword} -->
+                <!-- import: reportSearchInfo -->
+            <!-- /if -->
+        </section>
+        <!-- /if -->
+        <section id="table">
+            <!-- import: reportTable -->
+        </section>
+</div>
+

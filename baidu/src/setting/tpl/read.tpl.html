@@ -1,0 +1,114 @@
+<!-- target: settingNameField -->
+<div class="read-field">
+    <span class="read-field-name">帐户名称：</span>
+    <div class="read-field-value">
+        <div>
+            <span data-ui-type="Label" data-ui-id="name" class="modifiable-field">${accountName}</span>
+            <!-- if: ${canModifyAccount} -->
+            <span data-ui-type="Label" data-ui-id="modify-name" class="link-like">修改</span>
+            <!-- /if -->
+        </div>
+        <!-- if: ${canModifyAccount} -->
+        <div data-ui-type="ActionPanel" data-ui-id="modify-name-region"
+            data-ui-url="/setting/modifyName" data-ui-lazy="lazy"
+            data-ui-hidden="hidden" class="embed-form"></div>
+        <!-- /if -->
+    </div>
+</div>
+
+<!-- target: settingRoleField -->
+<div class="read-field">
+    <span class="read-field-name">帐户角色：</span>
+    <span class="read-field-value">
+        <!-- if: ${subRole} === 6 -->
+        超级管理员
+        <!-- elif: ${subRole} === 9 -->
+        销售经理
+        <!-- elif: ${subRole} === 4 -->
+        销售人员
+        <!-- elif: ${subRole} === 3 -->
+        投放人员
+        <!-- elif: ${subRole} === 5 -->
+        技术人员
+        <!-- elif: ${subRole} === 2 -->
+        数据监测员
+        <!-- elif: ${subRole} === 1 -->
+        联系人
+        <!-- /if -->
+    </span>
+</div>
+
+<!-- target: settingAuthField -->
+<div class="read-field">
+    <span class="read-field-name">帐户权限：</span>
+    <span class="read-field-value">
+        <!-- if: ${subRole} === 6 -->
+        拥有全部权限，其中管理联盟账号的权限仅主账号具备。
+        <!-- elif: ${subRole} === 9 -->
+        拥有增删改审批媒介计划，查看自己订单广告创意，查看广告位、频道、频道分组，增删改标签，查看流量预估、广告位排期表、刊例表、查看自己的历史日志、查看账户设置、站内信，查看销售人员、广告客户报告、订单广告报告、广告位报告的权限。
+        <!-- elif: ${subRole} === 4 -->
+        拥有增删改媒介计划，查看自己订单广告创意，查看广告位、频道、频道分组，查看流量预估、广告位排期表、刊例表、查看自己的历史日志、查看账户设置、站内信，查看销售人员报告、广告客户报告、负责的订单广告报告、广告位报告的权限。
+        <!-- elif: ${subRole} === 3 -->
+        拥有新建修改订单，新建修改和批量操作广告，增删改创意，查看广告位频道频道分组，查看流量预估、广告位排期表、广告位刊例表、增删改创意库、增删改创意模板库、增删改自定义定向、查询自己的历史操作日志、查看账户设置、站内信，查看订单、广告位报告的权限。
+        <!-- elif: ${subRole} === 5 -->
+        拥有增删改频道、频道分组、广告位，投放代码，以及增删改创意库、增删改创意模板库、查看自己操作日志、账户设置、站内信的权限。
+        <!-- elif: ${subRole} === 2 -->
+        拥有查看广告位、频道、频道分组，查看订单、广告、创意，公司、联系人，查看自己的操作日志，查看账户设置、站内信，查看报告的权限。
+        <!-- elif: ${subRole} === 0 -->
+        所有权限。
+        <!-- elif: ${subRole} === 1 -->
+        拥有订单广告报告的权限。
+        <!-- /if -->
+    </span>
+</div>
+
+<!-- target: settingUnionField -->
+<div class="read-field">
+    <span class="read-field-name">已绑定帐号：</span>
+    <div class="read-field-value">
+        <div>
+            <span data-ui-type="Label" data-ui-id="union-name" class="modifiable-field">
+                <!-- if: ${mainUserUnionName} -->
+                ${mainUserUnionName}
+                <!-- else -->
+                未绑定
+                <!-- /if -->
+            </span>
+            <!-- if: !${mainUserUnionName} -->
+            <span data-ui-type="Label" data-ui-id="modify-union-name" class="link-like">绑定</span>
+            <!-- /if -->
+        </div>
+        <!-- if: !${mainUserUnionName} -->
+        <div data-ui-type="ActionPanel" data-ui-id="modify-union-name-region"
+            data-ui-url="/setting/bindUnion" data-ui-lazy="lazy"
+            data-ui-hidden="hidden" class="embed-form"></div>
+        <!-- /if -->
+        <p class="sub-text">绑定联盟账号后，您可以在百度广告管家中使用该账号的百度流量交易服务。</p>
+    </div>
+</div>
+
+<!-- target: settingRead -->
+<!-- import: settingSidebar -->
+<div id="content" class="read sidebar-page">
+    <h2 class="read-page-title">帐户设置</h2>
+    <!-- if: ${subRole} === 0 -->
+    <div class="read-section">
+        <h3 class="read-section-title">基本信息</h3>
+        <!-- import: settingNameField -->
+        <!-- import: settingAuthField -->
+    </div>
+        <!-- if: ${isUnionSeriveOK} -->
+        <div class="read-section">
+            <h2 class="read-section-title">百度联盟帐号</h2>
+            <!-- import: settingUnionField -->
+        </div>
+        <!-- /if -->
+    <!-- else -->
+    <div class="read-section">
+        <h3 class="read-section-title">基本信息</h3>
+        <!-- import: settingNameField -->
+        <!-- import: settingRoleField -->
+        <!-- import: settingAuthField -->
+    </div>
+    <!-- /if -->
+</div>

@@ -1,0 +1,83 @@
+.ui-togglebutton {
+    width: 68px;
+    height: 23px;
+    line-height: 23px;
+    font-size: 12px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    span {
+        border: 1px solid #838383;
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        width: 33px;
+        height: 21px;
+        text-align: center;
+        line-height: 21px;
+        // IE8下`:after`生成的元素始终会被原来的元素盖住，无论`z-index`有多大，
+        // 因此必须原来的元素设置`z-index: -1;`来避免这个问题
+        position: ~"relative\0";
+        z-index: ~"-1\0";
+    }
+
+    .ui-togglebutton-part-on {
+        background-color: #8fbb57;
+        border-radius: 4px 0 0 4px;
+        border-right: 0;
+
+        // IE7
+        *background-color: #fff;
+        *text-indent: -500px;
+    }
+
+    .ui-togglebutton-part-off {
+        background-color: #d36759;
+        border-radius: 0 4px 4px 0;
+        border-left: 0;
+    }
+
+    &:after {
+        content: ".";
+        display: block;
+        border: 1px solid #838383;
+        border-right: 0;
+        border-radius: 4px 0 0 4px;
+        position: absolute;
+        width: 33px;
+        height: 21px;
+        top: 0;
+        left: 0;
+        text-indent: -500px;
+        background-color: #fcfcfc;
+        z-index: 1;
+        transition: left .3s ease-out;
+    }
+}
+
+.ui-togglebutton-checked {
+    &:after {
+        left: 50%;
+        border-left: 0;
+        border-radius: 0 4px 4px 0;
+    }
+
+    .ui-togglebutton-part-on {
+        background-color: #8fbb57;
+        text-indent: 0;
+    }
+
+    .ui-togglebutton-part-off {
+        // IE7
+        *background-color: #fff;
+        *text-indent: -500px;
+    }
+}

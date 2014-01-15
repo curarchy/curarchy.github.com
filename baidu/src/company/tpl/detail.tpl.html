@@ -1,0 +1,17 @@
+<!-- target: companyDetail -->
+<!-- import: orderTreeDetailSidebar -->
+<div id="content" class="sidebar-page">
+    <!-- import: detailCrumb -->
+    <article id="detail-summary">
+        <p>
+            广告客户：${name}
+        </p>
+    </article>
+    <!-- if: ${canCreateOrder} -->
+    <div id="detail-action">
+        <a data-ui-type="Button" data-ui-id="create" data-ui-skin="spring-add" href="#/order/create~customer=${id}">新建订单</a>
+    </div>
+    <!-- /if -->
+    <!-- import: detailTab -->
+    <!-- import: detailListActionPanel -->
+</div>

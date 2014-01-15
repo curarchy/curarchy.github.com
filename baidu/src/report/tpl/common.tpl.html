@@ -1,0 +1,56 @@
+<!-- target: reportSidebar -->
+<aside data-ui-type="Sidebar" data-ui-id="sidebar" data-ui-fixed="fixed">
+    <div data-ui-type="Tree" data-ui-id="reportTree"
+        data-ui-datasource="@reportTree">
+    </div>
+</aside>
+
+
+<!-- target: reportHeader -->
+<header>
+    <nav data-ui-type="Crumb" data-ui-id="crumb"
+        data-ui-path="@crumbPath"></nav>
+    <form id="filter" data-ui-type="Form" data-ui-id="filter"
+        action="@searchUrl" method="GET">
+        <div data-ui-type="RangeCalendar" 
+            data-ui-id="range"  data-ui-name="range" data-ui-raw-value="@range"></div>
+    </form>
+</header>
+
+<!-- target: reportSubmenu -->
+<nav id="submenu">
+    <dl data-ui-type="ReportSubMenu" 
+        data-ui-id="submenu"
+        data-ui-active-name="@activeMenuName"></dl>
+</nav>
+
+<!-- target: reportGeneralData -->
+<div data-ui-type="DataDashboard" data-ui-datasource="@total"></div>
+
+<!-- target: reportCompareProperty -->
+<div data-ui-type="Select" 
+    data-ui-datasource="@properties" 
+    data-ui-id="left-property-select"></div>
+对比
+<div data-ui-type="Select" 
+    data-ui-datasource="@properties" 
+    data-ui-id="right-property-select"></div>
+
+<!-- target: reportSingleProperty -->
+<div data-ui-type="Select" 
+    data-ui-datasource="@properties" 
+    data-ui-id="property-select"></div>
+
+<!--target: reportLineChart -->
+<div data-ui-type="LineChart" data-ui-id="line-chart"
+    data-ui-x-series="@xSeries" data-ui-y-series="@ySeries"
+></div>
+
+<!--target: reportStackChart -->
+<div data-ui-type="StackChart" data-ui-x-series="@xSeries"
+    data-ui-y-series="@ySeries"
+></div>
+
+<!--target: reportPieChart -->
+<!--target: reportMapChart -->
+

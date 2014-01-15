@@ -1,0 +1,166 @@
+<!-- target: flashForm -->
+<!-- import: flashFormMain -->
+
+<!-- target: flashFormMain -->
+<div id="content" class="form">
+    <form data-ui-type="Form" data-ui-id="form"
+        action="/creatives" method="POST" novalidate="novalidate">
+        <section class="form-section creative-form-section">
+            <!-- if: ${inturnInfo} -->
+                <!-- import: creativeInturnField -->
+            <!-- /if -->
+            <div class="form-field form-field-name-field">
+                <label for="flash-creative-name" class="form-field-name">创意名称：</label>
+                <input id="flash-creative-name"
+                    data-ui-type="TextBox" data-ui-id="name"
+                    data-ui-required="required" data-ui-max-length="@defaultMaxLength"
+                    data-ui-value="@name" name="name" title="创意名称"
+                    data-ui-extension-count-type="WordCount" />
+            </div>
+            <!-- import: creativeFileFieldAction -->
+            <div class="form-field">
+                <span class="form-field-name">Flash背景：</span>
+                <div data-ui-type="BoxGroup" data-ui-id="wmode" data-ui-name="wmode"
+                    data-ui-box-type="radio" data-ui-value="@wmode">
+                    <ul>
+                        <li>
+                            <input type="radio" id="flash-wmode-true"
+                                name="wmode" value="0" checked="checked" />
+                            <label for="flash-wmode-true">透明</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="flash-wmode-false" 
+                                name="wmode" value="1"/>
+                            <label for="flash-wmode-false">不透明</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-field">
+                <span class="form-field-name">目标窗口：</span>
+                <div data-ui-type="BoxGroup" data-ui-id="target-window" data-ui-name="targetWindow"
+                    data-ui-box-type="radio" data-ui-value="@targetWindow">
+                    <ul>
+                        <li>
+                            <input type="radio" id="flash-target-window-blank"
+                                name="targetWindow" value="0" checked="checked" />
+                            <label for="flash-target-window-blank">新窗口</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="flash-target-window-self" 
+                                name="targetWindow" value="1"/>
+                            <label for="flash-target-window-self">原窗口</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="form-section">
+            <div data-ui-type="TogglePanel" data-ui-id="advance-config" data-ui-expanded="expanded">
+                <h3>
+                    <span class="creative-advance-config-title">更多设置<spam>
+                    <span class="creative-advance-config-title-description">（选填）</span>
+                </h3>
+                <div class="form-field">
+                    <span class="form-field-name">点击监控：</span>
+                    <div class="form-field-value">
+                        <input type="checkbox" title="允许对Flash进行点击监控"
+                            data-ui-type="CheckBox"
+                            data-ui-id="flash-div-flag"
+                            data-ui-value="1" 
+                            name="flashDivFlag"/>
+                        <aside data-ui-type="Tip" title="什么是Flash点击监控？">
+                            监测和统计 Flash 点击情况。</aside>
+                        <div data-ui-type="Panel" data-ui-id="flash-div-warpper"
+                            data-ui-hidden="true">
+                            <div class="sub-form">
+                                <span>监控方式：</span>
+                                <div class="sub-form-field-value">
+                                    <div data-ui-type="BoxGroup" data-ui-id="clickTag"
+                                        data-ui-name="clickTag"  data-ui-box-type="radio"
+                                        data-ui-value="@clickTag" data-ui-group="flash-div">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="flash-click-tag-normal"
+                                                    name="clickTag" value="0" checked="checked" />
+                                                <label for="flash-click-tag-normal">普通（Flash与鼠标的交互将失效）</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="flash-click-tag-click-tag" 
+                                                    name="clickTag" value="1"/>
+                                                <label for="flash-click-tag-click-tag">clickTag（Flash必须使用了clickTAG参数）</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub-form">
+                                <span>Flash点击链接：</label>
+                                <input data-ui-type="TextBox" data-ui-id="click-url"
+                                    data-ui-group="flash-div" data-ui-value="@clickUrl"
+                                    data-ui-required="required" data-ui-max-length="@urlLength"
+                                    name="clickUrl" title="Flash点击链接"
+                                    data-ui-extension-count-type="WordCount" />
+                                <aside data-ui-type="Tip" title="什么是Flash点击链接？">
+                                    点击Flash后跳转进入的目标页面链接。</aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <span class="form-field-name">后备图片：</span>
+                    <div class="form-field-value">
+                        <input type="checkbox" title="Flash无法展现时显示后备图片"
+                            data-ui-type="CheckBox"
+                            data-ui-id="backup-pic-flag"
+                            data-ui-value="1" 
+                            name="backupPicFlag"/>
+                        <aside data-ui-type="Tip" title="什么是Flash后备图片？">
+                                    当 Flash 无法正常播放时，将展现后备图片。</aside>
+                        <div data-ui-type="Panel" data-ui-id="flash-backup-pic-warpper"
+                            data-ui-hidden="true">
+                            <div class="sub-form">
+                                <!-- import: backupPicFieldAction -->
+                            </div>
+                            <div class="sub-form">
+                                <span>图片点击链接：</label>
+                                <input data-ui-type="TextBox" data-ui-id="backup-pic-click-url"
+                                    data-ui-group="flash-backup-pic" data-ui-value="@clickUrl"
+                                    data-ui-required="required" data-ui-max-length="@urlLength"
+                                    name="clickUrl" title="图片点击链接"
+                                    data-ui-extension-count-type="WordCount" />
+                                <aside data-ui-type="Tip" title="什么是图片点击链接？">
+                                    点击图片后跳转进入的目标页面链接。</aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-field">
+                        <label for="flash-monitor-url" class="form-field-name">监控链接：</label>
+                        <div class="form-field-value">
+                            <input id="flash-monitor-url"
+                                data-ui-type="TextBox" data-ui-id="monitor-url"
+                                data-ui-value="@monitorUrl"
+                                data-ui-max-length="@urlLength"
+                                name="monitorUrl" title="监控链接"
+                                data-ui-extension-count-type="WordCount" />
+                        </div>
+                    </div>
+                    <!-- import: creativeXMLExtFieldAction -->
+                </div>
+            </div>
+            <!-- if: ${allowContinue} -->
+            <!-- import: creativeFormSubmitSection -->
+            <!-- else -->
+            <!-- import: formSubmitSection -->
+            <!-- /if -->
+        </section>
+    </form>
+</div>
+
+<!-- target: backupPicFieldAction -->
+<div data-ui-type="PartialForm" data-ui-id="backup-pic-file"
+    data-ui-group="child-action flash-backup-pic" data-ui-name="backupPicFile"
+    data-ui-url="/tool/creative/file" data-ui-action-options="@backupPicFile">
+</div>

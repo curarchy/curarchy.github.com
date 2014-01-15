@@ -1,0 +1,26 @@
+form#login-form(method="post", action="${index_uc_login_url}")
+    .form-border-row
+        label.form-label(for="username") 用户名
+        input.input-field#username(type="text" name="entered_login" autocomplete="off")
+    .form-border-row
+        label.form-label(for="password") 密&nbsp;&nbsp;&nbsp;码
+        input.input-field#password(type="password" name="entered_password" autocomplete="off")
+    .form-captcha
+        .form-border-row
+            label.form-label(for="captcha") 验证码
+            input.input-field#captcha(type="text" name="entered_imagecode" maxLength="4" autocomplete="off")
+        .captcha-wrap
+            img#captcha-image(src="${verify_code_url}" width="80" height="28")
+            span#captcha-refresh 看不清?
+
+    //[if lt IE 8]>
+        <div class="form-row old-ie">请使用非IE6、7浏览器登陆广告管家2.0系统。</div>
+        <![endif]
+    .form-row
+        button.submit(type="submit") 登&nbsp;&nbsp;录
+    .form-row
+        p#login-error 用户名或密码错误，请确认您的用户名为内测专用
+    input(type="hidden" name="appid" value="7")
+    input(type="hidden" name="senderr" value="1")
+    input(type="hidden" name="fromu" value="${cb_login_url}")
+    input(type="hidden" name="selfu" value="${cb_index_url}")

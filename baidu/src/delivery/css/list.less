@@ -1,0 +1,58 @@
+.progess-wrapper {
+    width: 94px;
+    margin-top: -6px;
+    position: relative;
+
+    .progess-left {
+        background: #acda82;
+        height: 6px;
+        float: left;
+    }
+
+    .progess-right {
+        background: #f0f0f0;
+        height: 6px;
+    }
+
+    .progess-time {
+        position: absolute;
+        border-right: 3px solid black;
+        height: 15px;
+        margin-top: 20px;
+    }
+}
+
+#delivery-list-keyword {
+    float: right;
+}
+
+#delivery-list-select {
+    float: left;
+}
+
+#delivery-view {
+    #listStars {
+        float: left;
+        display: block;
+        width: 16px;
+        height: 36px;
+        margin-left: 13px;
+        margin-right:2px;
+    }
+    .star {
+        width: 16px;
+        height: 16px;
+        padding-top: 17px;
+    }
+    .collect-star {
+        .star;
+        background: url(../../common/img/stars.png) no-repeat 50%;
+    }
+    .collect-unstar {
+        .star;
+        background: url(../../common/img/unstars.png) no-repeat 50%;
+    }
+    .ui-table-hsort {
+        display: inline-block;
+    }
+}

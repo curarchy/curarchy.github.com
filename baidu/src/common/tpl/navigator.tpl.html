@@ -1,0 +1,38 @@
+<!-- target: navigator -->
+<ul class="nav-main" id="nav-main">
+    <!-- if: ${hasOrder} -->
+    <li class="nav-item nav-selected" id="nav-order">
+        <a href="#/order/all" hidefocus="hidefocus">订单</a>
+    </li>
+    <!-- /if -->
+    <!-- if: ${hasAdPosition} -->
+    <li class="nav-item" id="nav-slot">
+        <a href="#/slot/all" hidefocus="hidefocus">广告位</a>
+    </li>
+    <!-- /if -->
+    <!-- if: ${hasTotalReport} || ${hasAdpositionReport} || ${hasOrderReport} || ${hasDeliveryReport} || ${hasCreativeReport} -->
+    <li class="nav-item" id="nav-report">
+        <!-- if: ${hasTotalReport} -->
+        <a href="#/report/total" hidefocus="hidefocus">报告</a>
+        <!-- elif: ${hasAdpositionReport} -->  
+        <a href="#/report/slot" hidefocus="hidefocus">报告</a> 
+        <!-- elif: ${hasOrderReport} -->
+        <a href="#/report/order" hidefocus="hidefocus">报告</a> 
+        <!-- elif: ${hasDeliveryReport} -->
+        <a href="#/report/delivery" hidefocus="hidefocus">报告</a>
+        <!-- elif: ${hasCreativeReport} -->
+        <a href="#/report/creative" hidefocus="hidefocus">报告</a>   
+        <!-- /if -->
+    </li>
+    <!-- /if -->
+
+    <li class="nav-item" id="nav-setting">
+        <!-- if: ${hasManager} -->
+        <a href="#/manager/list" hidefocus="hidefocus">设置</a>
+        <!-- elif: ${hasPlugin} -->        
+        <a href="#/plugin" hidefocus="hidefocus">设置</a>        
+        <!-- else -->        
+        <a href="#/setting" hidefocus="hidefocus">设置</a>        
+        <!-- /if -->
+    </li>
+</ul>

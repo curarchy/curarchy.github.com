@@ -1,0 +1,38 @@
+<!-- target: modifyMail -->
+<!-- import: modifyMailMain -->
+
+<!-- target: modifyMailMain -->
+<form data-ui-type="Form" data-ui-id="form"
+    id="modify-email" class="form setting-form"
+    action="/users/${id}/email" method="POST" novalidate="novalidate">
+    <section class="form-section">
+        <div class="form-field">
+            <span class="form-field-name">原邮箱：</span>
+            <span class="form-field-value">${oldEmail}</span>
+        </div>
+        <div class="form-field">
+            <label for="modify-email-mail" class="form-field-name">新邮箱：</label>
+            <input data-ui-type="TextBox" data-ui-id="email"
+                data-ui-required="required"
+                data-ui-length="64"
+                data-ui-pattern="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                data-ui-title="新邮箱"
+                id="modify-email-mail" name="newEmail" />
+        </div>
+        <div class="form-field">
+            <label for="modify-email-confirm-mail" class="form-field-name">确认邮箱：</label>
+            <input data-ui-type="TextBox" data-ui-id="confirm-email"
+                data-ui-required="required"
+                data-ui-length="64"
+                data-ui-pattern="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                data-ui-compare="email"
+                data-ui-compare-message="您两次输入的邮箱不一致，请重新输入"
+                data-ui-title="确认邮箱"
+                id="modify-email-confirm-mail" name="confirmEmail" />
+        </div>
+        <p class="sub-text">
+            提交修改后，请登录您的新邮箱收取验证邮件并进行验证，修改才能生效。
+        </p>
+        <!-- import: formSubmitSection -->
+    </section>
+</form>

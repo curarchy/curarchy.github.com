@@ -1,0 +1,198 @@
+.ui-tree {
+    .ui-tree-item-content {
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+}
+
+.skin-sidebar-tree {
+    padding-top: 6px;
+    border-top: 1px solid #fff;
+
+    .empty-node {
+        &:after {
+            content: "0";
+            background-color: #f00;
+            color: #fff;
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            border-radius: 3px;
+            line-height: 12px;
+            font-size: 8px;
+            margin-left: 4px;
+        }
+    }
+
+    .ui-tree-node {
+        line-height: 24px;
+        cursor: pointer;
+
+        &.ui-tree-node-empty {
+            cursor: pointer;
+        }
+
+        .ui-tree-content-wrapper.ui-tree-content-wrapper-selected {
+            background-color: #e0e7ec;
+            border-left-color: #3a1;
+        }
+
+        .ui-tree-content-wrapper {
+            .ui-tree-node-indicator {
+                margin: 5px 0;
+                float: left;
+            }
+
+            .ui-tree-node-indicator-collapsed {
+                background-image: url(../img/folder-collapsed.png);
+            }
+
+            .ui-tree-node-indicator-expanded {
+                background-image: url(../img/folder-expanded.png);
+            }
+
+            .ui-tree-node-indicator-empty {
+                background-image: url(../img/folder-empty.png);
+            }
+
+            .ui-tree-item-content {
+                display: block;
+                overflow: hidden;
+                .ellipse-overflow();
+            }
+        }
+    }
+
+    .ui-tree-content-wrapper {
+        position: relative;
+    }
+
+    .ui-tree-node-level-2 {
+        .ui-tree-content-wrapper {
+            .ui-tree-node-indicator {
+                background-image: none;
+            }
+
+            .ui-tree-node-indicator-level-2 {
+                display: none;
+            }
+        }
+    }
+
+    // .ui-tree-node-empty {
+    //     .ui-tree-content-wrapper {
+    //         .ui-tree-node-indicator-level-1 {
+    //             display: none;
+    //         }
+    //     }
+    // }
+
+    .ui-tree-item-content {
+        a {
+            color: #000;
+            text-decoration: none;
+
+            &:hover {
+                color: #40485d;
+            }
+        }
+
+        b {
+            color: #f30;
+            font-weight: bold;
+        }
+    }
+
+    .ui-tree-content-wrapper:hover {
+        background-color: #f0f0f0;
+    }
+
+
+    .ui-tree-node[data-id="all"] {
+        .ui-tree-content-wrapper {
+            // padding-left: 0;
+        }
+
+        .ui-tree-item-content {
+            &:after {
+                content: "";
+                display: none;
+            }
+        }
+
+        .ui-tree-node-indicator {
+            display: none;
+        }
+    }
+
+    .ui-tree-node-expanded {
+        & > .ui-tree-content-wrapper > .ui-tree-item-content {
+            font-weight: bold;
+        }
+    }
+}
+
+// 打开收起按钮是扁平化的
+.skin-flat-tree {
+    .ui-tree-node .ui-tree-content-wrapper {
+        .ui-tree-node-indicator {
+            .background("../img/flat-plus-icon.png", no-repeat, 0, 1px, transparent);
+        }
+
+        .ui-tree-node-indicator-expanded {
+            .background("../img/flat-minus-icon.png", no-repeat, 0, 1px, transparent);
+        }
+    
+        // 无子节点或占位
+        .ui-tree-node-indicator-empty,
+        .ui-tree-node-indicator-previous,
+        .ui-tree-node-indicator-far-previous {
+            background-image: none;
+        }
+
+        .ui-tree-item-content {
+            span {
+                color: #666666;
+            }
+        }
+
+        &:hover {
+            background-color: #f8f9fb;
+        }
+    }
+    .ui-tree-node .ui-tree-content-wrapper-selected {
+        background: none;
+        .ui-tree-item-content {
+            span {
+                color: #999999;
+            }
+        }
+        &:hover {
+            background: #f8f9fb;
+        }
+    }
+}
+
+// Widget系统
+.ui-tree-widget-container {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    .clearfix();
+}
+.ui-tree-widget {
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    .hide-text();
+    float: left;
+    margin-right: 10px;
+    background: transparent none no-repeat;
+    cursor: pointer;
+}
+.ui-tree-widget-add {
+    background-image: url(../img/add.png);
+}
+.ui-tree-widget-manage {
+    background-image: url(../img/setting.png);
+}

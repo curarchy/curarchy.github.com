@@ -1,0 +1,15 @@
+<!-- target: accounts -->
+<span id="help">帮助</span>
+|
+<div id="user-info" data-ui-type="Panel" data-ui-id="user-info" data-ui-extension-command-type="Command"
+data-command="user-click">
+    <span data-ui-type="Label" id="username">${userName}</span>
+    <span data-ui-type="Label" id="user-arrow"></span>
+</div>
+<a id="logout" href="/api/tool/user/logout">退出</a>
+<div id="user-select">
+    <form id="user-select-form" data-ui-type="Form" data-ui-id="user-select-form" action="/api/js/users/current/accounts/" method="POST" novalidate="novalidate" data-ui-hidden="hidden">
+        <div data-ui-type="Select" data-ui-id="users" data-ui-name="users" data-ui-datasource="@users" data-ui-value="@user" data-ui-width="160"></div>
+        <div data-ui-type="Select" data-ui-id="roles" data-ui-name="roles" data-ui-width="80"></div>
+    </form>
+</div>

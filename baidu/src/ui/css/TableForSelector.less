@@ -1,0 +1,124 @@
+.ui-tableforselector {
+    .ui-tableforselector-filter-panel {
+        .clearfix();
+        padding: 10px;
+        .ui-searchbox {
+            float: right;
+        }
+    }
+    .ui-tableforselector-empty-text {
+        line-height: 17px;
+        padding-left: 10px;
+        padding-top: 5px;
+        color: #959595;
+        display: none;
+    }
+
+    .ui-tableforselector-query-result-general {
+        background: none repeat scroll 0 0 #FFFDD8;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        display: none;
+
+        .ui-tableforselector-clear-query-link {
+            text-decoration: underline;
+            color: blue;
+            cursor: pointer;
+            line-height: 30px;
+            float: right;
+        }
+    }
+
+
+    .ui-tableforselector-query-list {
+        overflow-y: auto;
+        overflow-x: hidden;
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+
+            th {
+                background-color: #FFFFFF;
+                font-weight: bold;
+                height: 25px;
+                text-align: left;
+                padding-left:9px;
+            }
+
+
+            td {
+                height: 27px;
+                vertical-align: middle;
+                padding-left: 9px;
+                .ellipsis();
+            }
+
+            tr.active {
+                background-color:#f3f8fc;
+            }
+
+            tr.disable {
+                color: #ccc;
+                cursor:default;
+            }        
+        }
+
+        .ui-tableforselector-content-table {
+            .ui-tableforselector-row-arrow {
+                background: url("../img/treeselector-arrow.png");
+                height: 13px;
+                margin-top: 5px;
+                width: 17px;
+                display: none;
+            }
+            tr {
+                cursor:pointer;
+                &:hover {
+                    background: #f8f9fb;
+                    .ui-tableforselector-row-arrow {
+                        display: block;
+                    }
+                }
+            }
+
+            .ui-tableforselector-item-selected {
+                cursor: default;
+                color: #666666;
+                &:hover {
+                    background: #fff;
+                    .ui-tableforselector-row-arrow {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 无结果状态
+.ui-tableforselector-empty {
+    .ui-tableforselector-empty-text {
+        display: block;
+    }
+
+    .ui-tableforselector-query-list {
+        display: none;
+    }
+
+    .ui-richselector-query-result-general {
+        display: none;
+    }
+}
+
+// 搜索状态
+.ui-tableforselector-queried {
+    .ui-tableforselector-query-result-general {
+        display: block;
+    }
+}
+
+
+
+

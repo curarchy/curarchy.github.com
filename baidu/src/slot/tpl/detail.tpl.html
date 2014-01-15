@@ -1,0 +1,30 @@
+<!-- target: slotDetail -->
+<!-- import: channelGroupTreeDetailSidebar -->
+<div id="content" class="sidebar-page">
+    <!-- import: detailCrumb -->
+    <article id="detail-summary">
+        <p>
+            广告位名称：${name}
+            <!-- if: ${canModify} -->
+            <a href="#/slot/update~id=${id}" class="action-link">修改</a>
+            <!-- /if -->
+            <!-- if: ${deliveryUrl} -->
+            <a id="slot-delivery-url" href="${deliveryUrl}" target="_blank">广告位所在网址</a>
+            <!-- /if -->
+        </p>
+        <p>
+            状态：${statusText} 
+            | 尺寸：${width}*${height} 
+            | 目标平台：${platformText}
+            | 售卖方式：${priceModelText}
+        </p>
+    </article>
+    <!-- if: ${canGetCode} -->
+    <div id="detail-action">
+        <span data-ui-type="Button" data-ui-id="get-code"
+            data-ui-skin="spring" data-ui-height="28">获取代码</span>
+    </div>
+    <!-- /if -->
+    <!-- import: detailTab -->
+    <!-- import: detailListActionPanel -->
+</div>

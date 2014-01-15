@@ -1,0 +1,119 @@
+<!-- target: richForm -->
+<!-- import: richFormMain -->
+
+<!-- target: richFormMain -->
+<div id="content" class="form">
+    <form data-ui-type="Form" data-ui-id="form"
+        action="/creatives" method="POST" novalidate="novalidate">
+        <section class="form-section creative-form-section">
+            <!-- if: ${inturnInfo} -->
+                <!-- import: creativeInturnField -->
+            <!-- /if -->
+            <div class="form-field form-field-name-field">
+                <label for="rich-name" class="form-field-name">创意名称：</label>
+                <input data-ui-type="TextBox" data-ui-id="rich-name"
+                    data-ui-required="required"
+                    data-ui-length="100"
+                    data-ui-value="@name"
+                    name="name" title="创意名称"
+                    data-ui-max-length="@defaultMaxLength"
+                    data-ui-extension-count-type="WordCount" />
+            </div>
+            <div class="form-field">
+                <label for="rich-code" class="form-field-name">代码：</label>
+                <div class="form-field-value">
+                    <textarea data-ui-type="TextBox"
+                            data-ui-id="rich-code"
+                            data-ui-required="required"
+                            data-ui-required-error-message="代码不能为空"
+                            data-ui-validity-label="creative-rich-code-validity"
+                            data-ui-value="@adCode" 
+                            data-ui-width="202"
+                            data-ui-height="90"
+                            data-ui-max-length="2000"
+                            name="adCode" title="代码" /></textarea>
+                    <span class="form-option-description">支持HTML/Javascript代码</span>
+                    <div data-ui-type="Validity" data-ui-id="creative-rich-code-validity"></div>
+                </div>
+            </div>
+            <div data-ui-type="TogglePanel" data-ui-id="rich-advance-config"
+                data-ui-expanded="expanded">
+                <h3>
+                    <span class="creative-advance-config-title">更多设置</span>
+                    <span class="creative-advance-config-title-description">（选填）</span>
+                </h3>
+                <div>
+                    <div class="form-field">
+                        <label for="rich-click-url" class="form-field-name">点击链接：</label>
+                        <div class="form-field-value">
+                            <input data-ui-type="TextBox" 
+                                data-ui-id="rich-click-url"
+                                data-ui-group="advance-config-group"
+                                data-ui-value="@clickUrl" 
+                                data-ui-hint="http://"
+                                data-ui-hint-type="prefix"
+                                data-ui-required="required"
+                                title="链接" />
+                            <div data-ui-type="Button"
+                                data-ui-id="rich-generate-link">生成</div>
+                        </div>
+                    </div>
+                    <div data-ui-type="Panel" 
+                        data-ui-id="rich-generate-link-wrapper"
+                        data-ui-hidden="true">
+                        <div class="form-field">
+                            <label class="form-field-name">&nbsp;</label>
+                            <div class="form-field-value">
+                                <input data-ui-type="TextBox" 
+                                    data-ui-id="rich-generate-click-url"
+                                    data-ui-value="" 
+                                    data-ui-width="305"
+                                    title="生成新链接" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="rich-upload" class="form-field-name">
+                            上传图片或Flash：
+                        </label>
+                        <div class="form-field-value">
+                            <div id="creative-form-rich-uploader">
+                                <input type="file" 
+                                    data-ui-id="creative-form-rich-uploader" data-ui-type="Uploader"
+                                    data-ui-action="/api/js/creatives/upload/media"
+                                    data-ui-file-type="auto"
+                                    data-ui-type-index="0"
+                                    data-ui-preview-container="preview"
+                                    data-ui-name="file"
+                                    title="上传图片或Flash"
+                                    data-ui-accept-error-message="只能上传gif、jpg、png格式的图片或swf格式的Flash"
+                                    accept=".gif,.jpg,.png,.swf" />
+                                <figure data-ui-type="Image" data-ui-id="preview"
+                                    data-ui-image-type="@type" class="creative-form-preview"></figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-ui-type="Panel" 
+                        data-ui-id="rich-material-url-wrapper"
+                        data-ui-hidden="true">
+                        <div class="form-field">
+                            <label class="form-field-name">生成链接</label>
+                            <div class="form-field-value">
+                                <input data-ui-type="TextBox" 
+                                    data-ui-id="rich-material-url"
+                                    data-ui-value="" 
+                                    data-ui-width="305"
+                                    title="生成链接" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- if: ${allowContinue} -->
+            <!-- import: creativeFormSubmitSection -->
+            <!-- else -->
+            <!-- import: formSubmitSection -->
+            <!-- /if -->
+        </section>
+    </form>
+</div>

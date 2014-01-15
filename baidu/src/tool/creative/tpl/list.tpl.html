@@ -1,0 +1,62 @@
+<!-- target: creativeLibraryList -->
+<!-- import: creativeLibraryListMain -->
+
+<!-- target: creativeLibraryListMain -->
+<div id="content" class="fullsize-page list">
+    <div id="action">
+        <!-- if: !${cannotCreate} -->
+            <a data-ui-type="Button" data-ui-id="create"
+               data-ui-skin="spring-add" data-ui-height="28"
+               href="#/tool/creative/create">新建创意</a>
+        <!-- /if -->
+    </div>
+
+    <section id="view">
+        <section id="order-filter-options">
+                <div id="operation">
+                    <label class="direct-form-select-all"
+                           data-ui-type="CheckBox"
+                           data-ui-id="select-all"
+                           type="checkbox" title="全选"></label>
+                    <!-- if: !${noOperation} -->
+                        <!-- import: batchRemoveButton -->
+                        <!-- import: batchRestoreButton -->
+                    <!-- /if -->
+                </div>
+            <form class="direct-form-filter" data-ui-type="Form" data-ui-id="filter"
+                  action="/creative/search" method="GET">
+                <a data-ui-type="Link" data-ui-id="star"
+                     data-ui-href="@favorFilterLink" data-ui-skin="@favorSkin"></a>
+
+                <div data-ui-type="Select" data-ui-id="status" data-ui-name="status"
+                     data-ui-datasource="@statuses" data-ui-value="@status"
+                     data-ui-extension-submit-type="AutoSubmit"></div>
+
+                <div data-ui-type="Select" data-ui-id="size"
+                     data-ui-name="size" data-ui-value="@size" data-ui-datasource="@creativeSizes"
+                     data-ui-extension-submit-type="AutoSubmit"></div>
+
+                <div data-ui-type="Select" data-ui-id="type"
+                     data-ui-name="type" data-ui-value="@type" data-ui-datasource="@creativeTypes"
+                     data-ui-extension-submit-type="AutoSubmit" data-ui-width="90"></div>
+                <!-- import: listSearchBox -->
+            </form>
+        </section>
+
+        <!-- if: ${keyword} -->
+        <section id="order-filter-options-panel" class="table-filter-options-panel" style="border:none">
+            <!-- if: ${keyword} -->
+            <!-- import: listSearchInfo -->
+            <!-- /if -->
+        </section>
+        <!-- /if -->
+
+        <!-- if: ${hasResult} -->
+            <div data-ui-type="FrameTable" data-ui-id="table"
+                 data-ui-extension-command-type="Command"
+                 data-ui-no-operation="@noOperation"
+                 data-ui-datasource="@results"></div>
+            <!-- import: detailPager -->
+        <!-- /if -->
+    </section>
+</div>

@@ -1,0 +1,11 @@
+<!-- target: orderTreeDetailSidebar -->
+<aside data-ui-type="Sidebar" data-ui-id="sidebar" data-ui-skin="detail">
+    <h3 data-active="active">订单</h3>
+    <div data-ui-type="SearchBox" data-ui-id="search"
+         data-ui-width="179" data-ui-placeholder="请输入客户或订单名称"></div>
+    <div data-role="content">
+        <div data-ui-type="LinkTree" data-ui-id="tree" data-ui-skin="sidebar"
+             data-ui-datasource="@treeDatasource" data-ui-active-node="@activeNode"
+             data-ui-widgets="@widgets"></div>
+    </div>
+</aside>

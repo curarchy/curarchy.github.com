@@ -1,0 +1,153 @@
+<!-- target: orderRead -->
+<div id="content" class="sidebar-page">
+    <!-- import: formCrumb -->
+    <!-- import: orderReadMain -->
+</div>
+
+<!-- target: orderReadMain -->
+<div class="read">
+    <section class="read-section">
+        <h3 class="read-section-title">基本信息</h3>
+        <div class="read-field">
+            <span class="read-field-name">
+                名称：
+            </span>
+            <span class="read-field-value">${name}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                广告客户：
+            </span>
+            <span class="read-field-value">${adowner.name}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                销售人员：
+            </span>
+            <span class="read-field-value">${saler.name}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                投放人员：
+            </span>
+            <span class="read-field-value">${deliverier.name}</span>
+        </div>
+    </section>
+    <section class="read-section">
+        <h3 class="read-section-title">附加信息</h3>
+
+        <div class="read-field">
+            <span class="read-field-name">
+                合同价：
+            </span>
+            <span class="read-field-value">${price}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                广告客户联系人：
+            </span>
+            <span class="read-field-value">${adownerContactor.name}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                代理机构：
+            </span>
+            <span class="read-field-value">${agent.name}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                代理机构联系人：
+            </span>
+            <span class="read-field-value">${agentContactor.name}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                其他联系人：
+            </span>
+            <span class="read-field-value">${otherContactor.name}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                外部ID：
+            </span>
+            <span class="read-field-value">${outId}</span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">
+                备注：
+            </span>
+            <span class="read-field-value">${description}</span>
+        </div>
+    </section>
+    <section id="order-slot-section-read" class="read-section">
+        <h3 class="read-section-title">广告位资源</h3>
+        <table id="slot-section-table-header">
+            <thead>
+                <tr>
+                    <td><div class="slot-section-column-name">名称</div></td>
+                    <td><div class="slot-section-column-status">状态</div></td>
+                    <td><div class="slot-section-column-size">尺寸</div></td>
+                    <td><div class="slot-section-column-price-model">售卖方式</div></td>
+                    <td><div class="slot-section-column-amount">售卖量</div></td>
+                    <td><div class="slot-section-column-discount">折扣率</div></td>
+                    <td><div class="slot-section-column-price">刊例价</div></td>
+                    <td><div class="slot-section-column-total">总价</div></td>
+                    <td><div class="slot-section-column-date">投放时间</div></td>
+                </tr>
+            </thead>
+        </table>
+        <div id="slot-section-table-body">
+            <!-- for: ${adpositions} as ${slot} -->
+            <table>
+                <tbody>
+                    <tr>
+                        <td><div class="slot-section-column-name"><span title="${slot.name}">${slot.name}</span></div></td>
+                        <td><div class="slot-section-column-status">${slot.status}</div></td>
+                        <td><div class="slot-section-column-size">${slot.size}</div></td>
+                        <td><div class="slot-section-column-price-model"></div></td>
+                        <td><div class="slot-section-column-amount"></div></td>
+                        <td><div class="slot-section-column-discount"></div></td>
+                        <td><div class="slot-section-column-price"></div></td>
+                        <td><div class="slot-section-column-total"></div></td>
+                        <td><div class="slot-section-column-date"></div></td>
+                    </tr>
+                </table>
+            </table>
+            <!-- for: ${slot.deliveries} as ${delivery} -->
+            <table>
+                <tbody>
+                    <tr>
+                        <td><div class="slot-section-column-name"><span title="${delivery.name}">${delivery.name}</span></div></td>
+                        <td><div class="slot-section-column-status"></div></td>
+                        <td><div class="slot-section-column-size"></div></td>
+                        <td><div class="slot-section-column-price-model">${delivery.priceModel}</div></td>
+                        <td><div class="slot-section-column-amount">${delivery.amount}</div></td>
+                        <td><div class="slot-section-column-discount">${delivery.discount}</div></td>
+                        <td><div class="slot-section-column-price">${delivery.price}</div></td>
+                        <td><div class="slot-section-column-total">${delivery.total}</div></td>
+                        <td>
+                            <div class="slot-section-column-date">
+                                <!-- for: ${delivery.time} as ${range} -->
+                                    <!-- if: ${range.end} -->
+                                        <span class="slot-section-date-line">${range.begin} 至 ${range.end}</span>
+                                    <!-- else -->
+                                        <span class="slot-section-date-line">${range.begin}</span>
+                                    <!-- /if -->
+                                <!-- /for -->
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </table>
+            <!-- /for -->
+            <!-- /for -->
+        </div>
+        <footer class="order-slot-summary">
+            合计：<span>${summary.price}</span>
+            总天数：<span>${summary.cpd}</span>
+            总展现量：<span>${summary.cpm}</span>
+            总点击量：<span>${summary.cpc}</span>
+        </footer>
+    </section>
+    <!-- import: readReturnSection -->
+</div>

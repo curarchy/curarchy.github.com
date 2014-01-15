@@ -1,0 +1,27 @@
+<!-- target: slotsSelector -->
+<!-- import: slotsSelectorMain -->
+<!-- target: slotsSelectorMain -->
+<div class="form">
+    <section class="slots-selector-main">
+        <div class="slots-selector-channels"
+            data-ui-type="RichSelector"
+            data-ui-datasource="@channels"
+            data-ui-id="channels" >
+        </div>
+        <div class="slots-selector-slots"
+            data-ui-type="RichSelector"
+            data-ui-id="slots"
+            data-ui-filter-items="@slotsFilter" >
+        </div>
+        <div class="slots-selector-selected-slots"
+            data-ui-type="RichSelector"
+            data-ui-id="selected-slots" >
+        </div>
+    </section>
+    <section class="slots-selector-operate">
+        <div data-ui-type="Button"
+            data-ui-skin="spring" data-ui-id="submit">保存</div>
+        <div data-ui-type="Button" data-ui-id="cancel"
+            data-ui-skin="link">取消</div>
+    </section>
+</div>

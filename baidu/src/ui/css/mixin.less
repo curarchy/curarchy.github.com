@@ -1,0 +1,136 @@
+// 背景函数
+.background (@image-url, @repeat-type:no-repeat, @s-x:0, @s-y:0, @b-color:transparent) {
+    background-image: url("@{image-url}");
+    background-repeat: @repeat-type;
+    background-position: @s-x @s-y;
+    background-color: @b-color;
+}
+
+.link-like () {
+    color: #3167cc;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ 
+// 无图标线性渐变背景
+// @direction 渐变方向
+// @from-color 起始颜色
+// @to-color 终止颜色
+// @b-color 背景色
+.linear-gradient-background (
+    @direction:top, @from-color, @to-color, @b-color:transparent
+) {
+    @top: 0% 0%, 0% 100%;
+    @left: 0% 0%, 100% 0%;
+    @bottom: 0% 100%, 0% 0%;
+    @right: 100% 0%, 0% 0%;
+
+    background: @b-color;
+
+    // Safari 4-5, Chrome 1-9
+    background: 
+        -webkit-gradient(linear, @@direction, from(@from-color), to(@to-color));
+  
+    // Safari 5.1, Chrome 10+
+    background:
+        -webkit-linear-gradient(@direction, @from-color, @to-color);
+  
+    // Firefox 3.6+
+    background:
+        -moz-linear-gradient(@direction, @from-color, @to-color);
+  
+    // IE 10
+    background:
+        -ms-linear-gradient(@direction, @from-color, @to-color);
+  
+    // Opera 11.10+
+    background:
+        -o-linear-gradient(@direction, @from-color, @to-color);
+}
+
+ 
+// 带图标线性渐变背景
+// @direction 渐变方向
+// @from-color 起始颜色
+// @to-color 终止颜色
+// @image-url 背景前的第二背景图
+// @repeat-type 重叠方式 
+// @s-x x轴偏移
+// @s-y y轴偏移 
+// @b-color 背景色
+.linear-gradient-background-with-image (
+    @direction:top, @from-color, @to-color,
+    @image-url:"", 
+    @s-x:0, @s-y:0, 
+    @b-color:transparent,
+    @repeat-type:no-repeat
+) {
+    @top: 0% 0%, 0% 100%;
+    @left: 0% 0%, 100% 0%;
+    @bottom: 0% 100%, 0% 0%;
+    @right: 100% 0%, 0% 0%;
+    background: 
+        url("@{image-url}") @repeat-type scroll @s-x @s-y @b-color;
+
+    // Safari 4-5, Chrome 1-9
+    background: 
+        url("@{image-url}") @repeat-type scroll @s-x @s-y,
+        -webkit-gradient(linear, @@direction, from(@from-color), to(@to-color));
+  
+    // Safari 5.1, Chrome 10+
+    background:
+        url("@{image-url}") @repeat-type scroll @s-x @s-y,
+        -webkit-linear-gradient(@direction, @from-color, @to-color);
+  
+    // Firefox 3.6+
+    background:
+        url("@{image-url}") @repeat-type scroll @s-x @s-y,
+        -moz-linear-gradient(@direction, @from-color, @to-color);
+  
+    // IE 10
+    background:
+        url("@{image-url}") @repeat-type scroll @s-x @s-y,
+        -ms-linear-gradient(@direction, @from-color, @to-color);
+  
+    // Opera 11.10+
+    background:
+        url("@{image-url}") @repeat-type scroll @s-x @s-y,
+        -o-linear-gradient(@direction, @from-color, @to-color);
+}
+
+// CSS3 相关
+.interactive-cursor () {
+    cursor: pointer;
+}
+
+.ellipse-overflow () {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+// 重设列表的样式
+.reset-list () {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+// 文字选择
+.user-select (@type:none) {
+    // 火狐
+    -moz-user-select: @type;
+    // webkit浏览器
+    -webkit-user-select: @type;
+    // IE10
+    -ms-user-select: @type;
+    // 早期浏览器
+    -khtml-user-select: @type;
+    user-select: @type;
+}

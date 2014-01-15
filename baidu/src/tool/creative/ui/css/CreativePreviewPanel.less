@@ -1,0 +1,116 @@
+.ui-creativepreviewpanel {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    
+	.ui-creativepreviewpanel-inner-panel {
+	    width: 850px;
+	    height: 550px;
+        margin: 0 auto;
+	}
+}
+
+.ui-creativepreviewpanel-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #333;
+    .opacity(80);
+}
+
+.ui-creativepreviewpanel-close {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 13px;
+    height: 13px;
+    _position: absolute;
+    background: transparent url(../img/preview-close.png) no-repeat;
+}
+
+.ui-creativepreviewpanel-left {
+    position: fixed;
+    top: 250px;
+    left: 40px;
+    width: 16px;
+    height: 19px;
+    background: transparent url(../img/preview-left.png) no-repeat;
+}
+
+.ui-creativepreviewpanel-right {
+    position: fixed;
+    top: 250px;
+    right: 40px;
+    width: 16px;
+    height: 19px;
+    background: transparent url(../img/preview-right.png) no-repeat;
+}
+
+.ui-creativepreviewpanel-preview-panel {
+    width: 850px;
+    height: 550px;
+    overflow: hidden; 
+}
+
+.ui-creativepreviewpanel-operations {
+    .linear-gradient-background (top, rgb(240,240,240), rgb(220,220,220), rgb(230,230,230));
+    width: 250px;
+    height: 43px;
+    margin: 0 auto;
+    margin-top: 10px;
+
+    .ui-creativepreviewpanel-opitem {
+        display: inline-block;
+        width:50px;
+        height:43px;
+        cursor: pointer;
+    }
+
+    .type-modify {
+        background: transparent url(../img/preview-modify.png) no-repeat center;
+
+        &:hover {
+            background-image: url(../img/preview-modify-hover.png);
+        }
+    }
+
+    .type-copy {
+        background: transparent url(../img/preview-copy.png) no-repeat center;
+
+        &:hover {
+            background-image: url(../img/preview-copy-hover.png);
+        }
+    }
+
+    .type-adposition {
+        background: transparent url(../img/preview-adposition.png) no-repeat center;
+
+        &:hover {
+            background-image: url(../img/preview-adposition-hover.png);
+        }
+    }
+
+    .type-report {
+        background: transparent url(../img/preview-report.png) no-repeat center;
+
+        &:hover {
+            background-image: url(../img/preview-report-hover.png);
+        }
+    }
+
+    .type-star {
+        background: transparent url(../img/preview-star.png) no-repeat center;
+
+        &:hover {
+            background-image: url(../img/preview-star-hover.png);
+        }
+    }
+
+    .type-star-favorite {
+        background-image: url(../img/preview-star-hover.png);
+    }
+}

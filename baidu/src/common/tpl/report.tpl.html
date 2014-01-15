@@ -1,0 +1,106 @@
+<!-- target: reportMenu -->
+<div data-role="content">
+    <h3><span>站点报告</span></h3>
+    <a href="#/report/total">整体报告</a>
+    <a href="#/report/adPosition">广告位报告</a>
+    <h3><span>广告报告</span></h3>
+    <a href="#/report/order">订单报告</a>
+    <a href="#/report/delivery">广告报告</a>
+    <a href="#/report/creative">创意报告</a>
+</div>
+
+<!-- target: reportHeader -->
+<header id="report-header">
+    <nav data-ui-type="Crumb" data-ui-id="crumb"
+        data-ui-path="@crumbPath"></nav>
+    <a data-ui-type="Link" data-ui-id="download" 
+        data-ui-skin="report-download" 
+        data-ui-href="@downloadUrl"
+        target="_blank"
+    ></a>
+    <div data-ui-type="RangeCalendar" 
+        data-ui-id="range"  data-ui-name="range"
+        data-ui-range="@range"
+        data-ui-param-format="YYYYMMDD" data-ui-raw-value="@time">
+    </div>
+</header>
+
+<!-- target: reportSubmenu -->
+<nav id="report-submenu">
+    <dl data-ui-type="ReportSubMenu"
+        data-ui-id="submenu" data-ui-datasource="@submenus"
+        data-ui-active-name="@activeMenuName"></dl>
+</nav>
+
+<!-- target: reportGeneralData -->
+<div data-ui-type="DataDashboard" data-ui-datasource="@total"></div>
+
+<!-- target: reportCompareProperty -->
+<div data-ui-type="Select" data-ui-datasource="@properties" 
+    data-ui-id="left-property-select" 
+    data-ui-legend-color="@chartColors.0"
+    data-ui-width="95"
+    data-ui-selected-index="@leftSelectedIndex" ></div>
+对比
+<div data-ui-type="Select" data-ui-datasource="@properties" 
+    data-ui-id="right-property-select"
+    data-ui-legend-color="@chartColors.1"
+    data-ui-width="95"
+    data-ui-selected-index="@rightSelectedIndex"></div>
+
+<!-- target: reportSingleProperty -->
+<div data-ui-type="Select" data-ui-datasource="@properties" 
+    data-ui-id="property-select"
+    data-ui-legend-color="@chartColors.0"
+    data-ui-width="95"
+    data-ui-selected-index="@selectedIndex"></div>
+
+<!--target: reportLineChart -->
+<div data-ui-type="LineChart" data-ui-id="line-chart"
+    data-ui-x-series="@xSeries" data-ui-y-series="@ySeries" 
+></div>
+
+<!--target: reportStackChart -->
+<div data-ui-type="StackChart"  data-ui-id="stack-chart"
+    data-ui-x-series="@stackXSeries" data-ui-y-series="@stackYSeries" 
+></div>
+
+<!--target: reportBarChart -->
+<div data-ui-type="BarChart"  data-ui-id="bar-chart"
+    data-ui-x-series="@xSeries" data-ui-y-series="@ySeries" 
+></div>
+
+<!--target: reportPieChart -->
+<!--target: reportMapChart -->
+
+
+<!-- target: reportSearchBox -->
+<input name="keyword" 
+    data-ui-type="SearchBox" data-ui-id="keyword"
+    data-ui-height="19"
+    data-ui-width="250"
+    data-ui-text="@keyword"
+    data-ui-placeholder="@keywordPlaceHolder" 
+    data-ui-extension-submit-type="AutoSubmit"/>
+
+<!-- target: reportSearchInfo -->
+<p>搜索文字：
+    <span class="table-search-info-keyword">${keyword}</span>
+    <a class="table-search-info-clear"
+    href="${listWithoutKeywordURL}">清空</a>
+</p>
+
+<!-- target: reportTable -->
+<div data-ui-type="Table" 
+    data-ui-id="table" data-ui-datasource="@tableData"
+    data-ui-order-by="@orderBy" data-ui-order="@order" 
+    data-ui-select="@selectMode"
+    data-ui-extension-tip-type="TableTip">
+</div>
+<!-- if: ${needPager} -->
+<footer data-ui-type="Pager" data-ui-id="pager"
+    data-ui-count="@totalCount" data-ui-page="@page" data-ui-page-size="@pageSize" 
+    data-ui-page-type="plain" data-ui-layout="alignRight">
+</footer>
+<!-- /if -->
+

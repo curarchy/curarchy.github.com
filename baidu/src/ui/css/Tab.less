@@ -1,0 +1,42 @@
+.ui-tab-horizontal {
+    .ui-tab-navigator {
+        border-bottom: 1px solid #dfdfdf;
+        height: 29px;
+        padding-left: 15px;
+        overflow: visible; // 重置
+        margin-bottom: 30px;
+        .clearfix();
+
+        .ui-tab-item {
+            float: left;
+            margin-right: 5px;
+            margin-top: 2px;
+            list-style: none;
+
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            color: #000;
+            display: block;
+            width: 95px;
+            height: 27px;
+            line-height: 27px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #dfdfdf;
+            border-radius: 2px 2px 0 0;
+            color: #656565;
+            .linear-gradient-background (top, #fbfbfb 34%, #f1f1f1 67%, #f7f7f7);
+        }
+
+        .ui-tab-item-active {
+            background: #fff;
+            border-bottom-color: #fff;
+            color: #000;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

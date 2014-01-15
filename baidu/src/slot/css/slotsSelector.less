@@ -1,0 +1,48 @@
+.slots-selector-main {
+    .clearfix();
+    .ui-richselector {
+        float: left;
+
+        // 这里的树节点用文件夹
+        .ui-tree-node .ui-tree-content-wrapper .ui-tree-node-indicator-expanded {
+            background: url("./../../ui/css/./../img/folder-expanded.png");
+        }
+        .ui-tree-node .ui-tree-content-wrapper .ui-tree-node-indicator-collapsed {
+            background: url("./../../ui/css/./../img/folder-collapsed.png");
+        }
+        .ui-tree-node .ui-tree-content-wrapper .ui-tree-node-indicator-empty {
+            background: url("./../../ui/css/./../img/folder-empty.png");
+        }
+
+        .ui-tree-node-level-2 .ui-tree-content-wrapper .ui-tree-node-indicator {
+            background-image: none;
+        }
+
+        .ui-tree-item-content .item-text b {
+            color: red;
+        }
+    }
+}
+
+.slots-selector-slots {
+    margin-right: 10px;
+    border-left: none;
+}
+
+
+.slots-selector-operate {
+    border-top: 1px solid #E8E8E8;
+    margin-top: 50px;
+    padding-left: 0;
+    padding-top: 20px;
+}
+
+.slots-selector-operate .skin-spring-button, 
+.slots-selector-operate .skin-link-button {
+    font-size: 12px;
+    height: 23px;
+    line-height: 23px;
+    margin-right: 6px;
+    padding: 0 13px;
+    width: 32px;
+}

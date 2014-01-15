@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script type="text/javascript" src="jquery/jquery-1.9.1.js"></script>
+    <script src="js/esl.js"></script>
+<script>
+    
+</script>
+</head>
+<body>
+    <div id="body"></div>
+    <script>
+        require(['connect/cometd'], function (cometd) {
+
+            function connectionEstablished() {
+                $('#body').append('<div>CometD Connection Established</div>');
+            }
+
+            function connectionBroken() {
+                $('#body').append('<div>CometD Connection Broken</div>');
+            }
+
+            function connectionClosed() {
+                $('#body').append('<div>CometD Connection Closed</div>');
+            }
+            
+            // Function that manages the connection status with the Bayeux server
+            var connected = false;
+            function metaConnect(message) {
+                if (cometd.isDisconnected()) {
+                    connected = false;
+                    connectionClosed();
+                    return;
+                }
+
+                var wasConnected = connected;
+                connected = message.successful === true;
+
+                if (!wasConnected && connected) {
+                    connectionEstablished();
+                    msginformationAdd();
+                }
+                else if (wasConnected && !connected) {
+                    connectionBroken();
+                }
+            }
+
+            // Function invoked when first contacting the server and
+            // when the server has lost the state of this client
+            function metaHandshake(handshake) {
+                if (handshake.successful === true) {
+                    cometd.batch(function() {
+                        cometd.subscribe('/hello', function(message) {
+                            $('#body').append('<div>Server Says: ' + message.data.greeting + '</div>');
+                        });
+                        // Publish on a service channel since the message is for the server only
+                        cometd.publish('/service/hello', { name: 'World' });
+                    });
+                }
+            }
+
+            // Disconnect when the page unloads
+            $(window).unload(function () {
+                cometd.disconnect(true);
+            });
+
+            var cometURL = location.protocol + "//" + location.host + "/jquery.jetty7-primer" + "/cometd";
+            cometd.configure({
+                url: cometURL,
+                logLevel: 'debug'
+            });
+
+            cometd.addListener('/meta/handshake', metaHandshake);
+            cometd.addListener('/meta/connect', metaConnect);
+
+            cometd.handshake();
+        });
+    </script>
+</body>
+</html>

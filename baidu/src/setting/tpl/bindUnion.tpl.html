@@ -1,0 +1,57 @@
+<!-- target: bindUnion -->
+<!-- import: bindUnionMain -->
+
+<!-- target: bindUnionMain -->
+<div data-ui-type="BoxGroup" data-ui-id="type" data-ui-orientation="horizontal" id="bind-union-type" data-ui-value="bind">
+    <ul>
+        <li>
+            <input type="radio" id="bind-union-type-bind" value="bind" checked="checked" />
+            <label for="bind-union-type-bind">绑定已有帐号</label>
+        </li>
+        <li>
+            <input type="radio" id="bind-union-type-create" value="create" />
+            <label for="bind-union-type-create">注册新帐号</label>
+        </li>
+    </ul>
+</div>
+<form data-ui-type="Form" data-ui-id="form"
+    id="modify-name" class="form setting-form"
+    action="/users/${user}/union" method="POST" novalidate="novalidate">
+    <section class="form-section">
+        <div class="form-field">
+            <label for="bind-union-user-name" class="form-field-name">联盟账号：</label>
+            <div class="form-field-value">
+                <input data-ui-type="TextBox" data-ui-id="user-name"
+                    data-ui-required="required"
+                    data-ui-max-length="100"
+                    data-ui-title="联盟账号"
+                    id="bind-union-user-name" name="unionUserName" />
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="bind-union-password" class="form-field-name">联盟密码：</label>
+            <div class="form-field-value">
+                <input type="password" data-ui-type="TextBox" data-ui-id="password"
+                    data-ui-required="required"
+                    data-ui-title="联盟密码"
+                    id="bind-union-password" name="unionUserPassword" />
+            </div>
+        </div>
+        <div class="form-field form-notice-field">
+            <p class="notice">绑定后不可修改，请谨慎操作。</p>
+        </div>
+        <!-- import: formSubmitSection -->
+    </section>
+</form>
+<div data-ui-type="Panel" data-ui-id="create" data-ui-hidden="hidden" id="bind-union-register-hint">
+    <p>
+        使用帐号“<strong>${name}</strong>”注册百度联盟
+        <a data-ui-type="Link" data-ui-id="register"
+            href="${unionURL}greenChannel.action?tempSessionId=${registerSessionID}" target="_blank">
+            立即注册>>
+        </a>
+    </p>
+    <div class="form-field form-submit-field">
+        <span data-ui-type="Button" data-ui-id="cancel-register" data-ui-skin="link">取消</span>
+    </div>
+</div>

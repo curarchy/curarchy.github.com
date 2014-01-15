@@ -1,0 +1,129 @@
+<!-- target: textForm -->
+<!-- import: textFormMain -->
+
+<!-- target: textFormMain -->
+<div id="content" class="form">
+    <form data-ui-type="Form" data-ui-id="form"
+        action="/creatives" method="POST" novalidate="novalidate">
+        <section class="form-section creative-form-section">
+            <div id="creative-form-text-preview-warper">
+                <h4>预览：</h4>
+                <div data-ui-type="Panel" data-ui-id="text-preview-content"
+                id="text-preview-content"></div>
+            </div>
+            <!-- if: ${inturnInfo} -->
+                <!-- import: creativeInturnField -->
+            <!-- /if -->
+            <div class="form-field form-field-name-field">
+                <label for="text-name" class="form-field-name">创意名称：</label>
+                <input data-ui-type="TextBox" data-ui-id="text-name"
+                    data-ui-required="required"
+                    data-ui-max-length="@defaultMaxLength"
+                    data-ui-value="@name"
+                    name="name" title="创意名称"
+                    data-ui-extension-count-type="WordCount" />
+            </div>
+            <!-- if: 0 -->
+            <div class="form-field">
+                <div class="form-field-name">目标广告位尺寸：</div>
+                <div class="form-field-value">
+                    <span class="form-field-value-label">宽度：${slotWidth}px</span>
+                    <span class="form-field-value-label">高度：${slotHeight}px</span>
+                </div>
+            </div>
+            <!-- /if -->
+            <div class="form-field">
+                <label for="text-words" class="form-field-name">文字内容：</label>
+                <div class="form-field-value">
+                    <div class="text-words-with-style">
+                        <div data-ui-type="TextStyle" data-ui-id="default-style"
+                            data-ui-bold="@defaultBold"
+                            data-ui-italic="@defaultItalic"
+                            data-ui-underline="@defaultUnderline"
+                            data-ui-size="@fontSize"
+                            data-ui-color="@defaultColor"
+                            id="text-words-default-style"
+                            name="defaultStyle"></div>
+                        <textarea data-ui-type="TextBox" 
+                            data-ui-id="text-words"
+                            data-ui-value="@words" 
+                            data-ui-width="202"
+                            data-ui-height="90"
+                            data-ui-required="required"
+                            data-ui-validity-label="text-words-validity"
+                            name="words" title="文字内容" /></textarea>
+                    </div>
+                    <span data-ui-type="Validity" data-ui-id="text-words-validity"></span>
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="text-words-hover-style" class="form-field-name">悬停文字设置：</label>
+                <div class="form-field-value">
+                    <div class="text-words-with-style">
+                        <div data-ui-type="TextStyle" data-ui-id="hover-style"
+                            data-ui-components="bold,italic,underline,color,blank"
+                            data-ui-bold="@hoverBold"
+                            data-ui-italic="@hoverItalic"
+                            data-ui-underline="@hoverUnderline"
+                            data-ui-color="@hoverColor"
+                            name="hoverStyle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="text-click-url" class="form-field-name">点击链接：</label>
+                <input data-ui-type="TextBox" data-ui-id="text-click-url"
+                    data-ui-required="required"
+                    data-ui-max-length="@urlLength"
+                    data-ui-value="@clickUrl"
+                    name="clickUrl" title="点击链接"
+                    data-ui-extension-count-type="WordCount" />
+            </div>
+            <div class="form-field">
+                <label for="text-target-window" class="form-field-name">目标窗口：</label>
+                <div data-ui-type="BoxGroup" data-ui-id="text-target-window" 
+                    data-ui-name="targetWindow" data-ui-box-type="radio"
+                    data-ui-value="@targetWindow">
+                    <ul>
+                        <li>
+                            <input type="radio" id="text-target-window-blank"
+                                name="targetWindow" value="0" checked="checked" />
+                            <label for="text-target-window-blank">新窗口</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="text-target-window-self" 
+                                name="targetWindow" value="1"/>
+                            <label for="text-target-window-self">原窗口</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="form-section">
+            <div data-ui-type="TogglePanel" data-ui-id="text-advance-config" data-ui-expanded="expanded">
+                <h3>
+                    <span class="creative-advance-config-title">更多设置</span>
+                    <span class="creative-advance-config-title-description">（选填）</span>
+                </h3>
+                <div>
+                    <div class="form-field">
+                        <label for="text-monitor-url" class="form-field-name">监控链接：</label>
+                        <div class="form-field-value">
+                            <input data-ui-type="TextBox" data-ui-id="text-monitor-url"
+                                data-ui-value="@monitorUrl" 
+                                data-ui-max-length="@urlLength"
+                                name="monitorUrl" title="监控链接"
+                                data-ui-extension-count-type="WordCount" />
+                        </div>
+                    </div>
+                    <!-- import: creativeXMLExtFieldAction -->
+                </div>
+            </div>
+            <!-- if: ${allowContinue} -->
+            <!-- import: creativeFormSubmitSection -->
+            <!-- else -->
+            <!-- import: formSubmitSection -->
+            <!-- /if -->
+        </section>
+    </form>
+</div>

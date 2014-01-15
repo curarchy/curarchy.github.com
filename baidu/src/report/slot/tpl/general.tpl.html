@@ -1,0 +1,41 @@
+<!-- target: slotGeneral -->
+<!-- import: slotSideBar -->
+
+<div id="content" class="report">
+    <!-- import: reportHeader -->
+    <div id="report-graph">
+        <!-- import: reportGeneralData -->
+        <section id="property-filter">
+            <!-- import: reportCompareProperty -->
+        </section>
+        <section id="chart">
+            <!-- import: reportLineChart -->
+        </section>
+        <section id="filter-options">
+            <form id="filter" data-ui-type="Form" data-ui-id="filter"
+                action="/report/slot" method="GET" style="width:100%" class="report-filter">
+                <!-- import: reportSearchBox -->
+                <div data-ui-type="Select" 
+                    data-ui-id="size" data-ui-name="size"
+                    data-ui-datasource="@sizeStatuses" data-ui-value="@size"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+                <div data-ui-type="Select" 
+                    data-ui-id="priceModel" data-ui-name="priceModel"
+                    data-ui-datasource="@priceModels" data-ui-value="@priceModel"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+            </form>
+            <div style="display:none;clear:both"></div>
+        </section>
+        <!-- if: ${keyword} -->
+        <section id="filter-result-panel" class="table-filter-options-panel" style="border:none">
+            <!-- if: ${keyword} -->
+                <!-- import: reportSearchInfo -->
+            <!-- /if -->
+        </section>
+        <!-- /if -->
+        <section id="table">
+            <!-- import: reportTable -->
+        </section>
+    </div>
+</div>
+

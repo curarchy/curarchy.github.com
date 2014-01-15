@@ -1,0 +1,98 @@
+.skin-spring-add-commandmenu,
+.skin-spring-add-tiny-commandmenu {
+    @width: 145px;
+    @padding-horizon: 26px;
+    @height: 28px;
+
+    .linear-gradient-background-with-image (
+        top, #6cbb4c, #519c30, "../img/button-white-arrow.png", -144px, center, #65b445
+    );
+    border: 1px solid #519D30;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    height: @height;
+    line-height: @height;
+    padding: 0px @padding-horizon;
+    width: @width - 2*@padding-horizon;
+    border: 1px solid #519c30;
+
+    &:hover,
+    &:focus {
+        .linear-gradient-background-with-image (
+            top, #6cbb4c, #519c30, "../img/button-white-arrow.png", -144px, center, #65b445
+        );
+        border: 1px solid #157106;
+    }
+
+    &:active,
+    &.skin-spring-add-tiny-commandmenu-active {
+        .linear-gradient-background-with-image (
+            top, #6cbb4c, #519c30, "../img/button-white-arrow.png", 0px, center, #65b445
+        );
+        border: 1px solid #157106;
+    }
+
+}
+
+.skin-spring-add-commandmenu-layer {
+    @height: 28px;
+    li {
+        height: @height;
+        line-height: @height;
+        &:hover {
+            background-color: #f8f9fc;
+        }
+    }
+
+    .ui-commandmenu-layer-selected {
+        background-color: #f8f9fc;
+    }
+}
+
+.skin-spring-add-tiny-commandmenu {
+    @height: 23px;
+
+    font-size: 12px;
+    height: @height;
+    line-height: @height;
+}
+
+
+// 日历按钮
+.skin-report-download-commandmenu {
+    .linear-gradient-background-with-image (
+        top, #ffffff, #f6f6f6, "../img/download-arrow.png", 7px, center, #ffffff);
+    border: 1px solid #d8d8d8;
+    height: 23px;
+    width: 23px;
+    line-height: 23px;
+    padding: 0;
+
+    &:hover {
+        .linear-gradient-background-with-image (
+            top, #ffffff, #f6f6f6, "../img/download-arrow.png", -68px, center, #ffffff);
+        border: 1px solid #d8d8d8;
+    }
+
+    &:active {
+        .linear-gradient-background-with-image (
+            top, #ffffff, #f6f6f6, "../img/download-arrow.png", -142px, center, #ffffff);
+        border: 1px solid #d8d8d8;
+    }
+}
+
+.skin-report-download-commandmenu-layer {
+    width: 108px !important;
+    li.ui-commandmenu-node {
+        padding: 0;
+        a {
+            display: block;
+            padding: 0 4px;
+            color: black;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    }
+}

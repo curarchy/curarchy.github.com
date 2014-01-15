@@ -1,0 +1,24 @@
+<!-- target: inlineCreateChannelAndGroup -->
+<div id="content" class="form">
+    <section class="form-section">
+        <div class="form-field">
+            <label for="name" class="form-field-name">选择类型：</label>
+            <div data-ui-type="BoxGroup" data-ui-id="type" data-ui-box-type="radio">
+                <ul>
+                    <li>
+                        <input type="radio" id="inline-create-channel" value="channel" checked="checked" />
+                        <label for="inline-create-channel">频道</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="inline-create-channel-group" value="channel-group"/>
+                        <label for="inline-create-channel-group">频道分组</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-ui-type="ActionPanel" data-ui-id="channel-form" 
+            data-ui-group="form" data-ui-url="/channel/create"></div>
+        <div data-ui-type="ActionPanel" data-ui-id="channel-group-form"
+            data-ui-group="form" data-ui-url="/channelGroup/create" data-ui-hidden="hidden"></div>
+    </section>
+</div>

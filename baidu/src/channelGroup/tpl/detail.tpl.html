@@ -1,0 +1,22 @@
+<!-- target: channelGroupDetail -->
+<!-- import: channelGroupTreeDetailSidebar -->
+<div id="content" class="sidebar-page">
+    <!-- import: detailCrumb -->
+    <article id="detail-summary">
+        <p>
+            频道分组：${name}
+            <!-- if: ${canModify} -->
+            <a href="#/channelGroup/update~id=${id}" class="action-link">修改</a>
+            <!-- /if -->
+        </p>
+        <p>
+            状态：${statusText}
+            | 广告位数：${usedAdpositionCount}
+        </p>
+    </article>
+    <div id="detail-action">
+        <!-- import: channelGroupTreeDetailCreateSlotButton -->
+    </div>
+    <!-- import: detailTab -->
+    <!-- import: detailListActionPanel -->
+</div>

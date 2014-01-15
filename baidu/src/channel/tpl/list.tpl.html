@@ -1,0 +1,45 @@
+<!-- target: channelList -->
+<!-- import: channelSidebar -->
+<div id="content" class="sidebar-page list">
+    <nav id="tabs">
+        <ul>
+            <li class="tab-item-active"><span>频道</span></li>
+            <li><a href="#/channelGroup/list">频道分组</a></li>
+        </ul>
+    </nav>
+    <div id="action">
+    <!-- if: ${canCreate} -->
+    	<a data-ui-type="Button" data-ui-id="create"
+            data-ui-skin="spring-add"
+            href="#/channel/create">新建频道
+        </a>
+    <!-- /if -->
+    </div>
+    <section id="view">
+        <footer id="meta">
+            <!-- if: ${canBatchModify} -->
+            <div id="operation">
+                <!-- import: defaultBatchButtons -->
+            </div>
+            <!-- /if -->
+            <form id="filter" data-ui-type="Form" data-ui-id="filter"
+                action="/channelGroups/search" method="GET">
+                <div data-ui-type="Select" data-ui-id="status" data-ui-name="status"
+                    data-ui-datasource="@statuses" data-ui-value="@status"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+                <!-- import: listSearchBox -->
+            </form>
+        </footer>
+        <!-- if: ${keyword} -->
+            <section id="filter-options-panel" class="table-filter-options-panel">
+                <!-- import: listSearchInfo -->
+            </section>
+        <!-- /if -->
+        <!-- if: ${hasResult} -->
+            <!-- import: detailTable -->
+            <!-- import: detailPager -->
+        <!-- else -->
+            您还没有频道
+        <!-- /if -->
+    </section>
+</div>

@@ -1,0 +1,113 @@
+.report-menu-title {
+    border-bottom: 1px solid #E8E8E8;
+    border-top: 1px solid #FFFFFF;
+    color: #67718B;
+    font-size: 14px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 15px;
+
+    a {
+        color: #67718B;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background: #f0f0f0;
+    }
+}
+
+.report-menu-title-expand {
+    border: none;
+    color: #000;    
+    &:hover {
+        background: none;
+    }
+}
+
+.report-menu-item {
+    display: block;
+    font-size: 12px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 30px;
+}
+
+a.report-menu-item {
+    text-decoration: none;
+    color: #000;
+    &:hover {
+        background: #f0f0f0;
+    }
+}
+
+.report-menu-item-active {
+    background: #dde8ec;
+    border-left: 5px solid #33ab11;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.report {
+    padding: 20px 10px;
+}
+
+#report-header {
+    .clearfix();
+    line-height: 30px;
+    .ui-crumb {
+        float: left;
+        .ui-crumb-separator {
+            line-height: 30px;
+        }
+    }
+    .ui-rangecalendar {
+        float: right;
+    }
+    .skin-report-download-link {
+        float: right;
+        margin-left: 5px;
+    }
+}
+
+#report-graph {
+    margin-top: 10px;
+    .ui-datadashboard  {
+        background: none repeat scroll 0 0 #F8F8F8;
+        border: 1px solid #EAEAEA;
+        height: 55px;
+        padding: 0 10px;
+    }
+
+    #property-filter {
+        padding: 7px 10px;
+        background: #F8F8F8;
+        border-left: 1px solid #EAEAEA;
+        border-right: 1px solid #EAEAEA;
+        border-bottom: 1px solid #f2f2f2;
+
+        .ui-select {
+            vertical-align: middle;
+        }
+        .ui-select-legend-block {
+            padding-left: 5px;
+        }
+    }
+
+    #chart {
+        border-left: 1px solid #EAEAEA;
+        border-right: 1px solid #EAEAEA;
+    }
+
+    #filter-options {
+        background: #F8F8F8;
+        border: 1px solid #EAEAEA;
+        border-bottom: none;
+        height: 25px;
+        padding: 10px 7px;
+        margin-bottom: 0;
+    }
+}
+
+

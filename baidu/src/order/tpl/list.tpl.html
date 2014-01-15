@@ -1,0 +1,41 @@
+<!-- target: orderList -->
+
+<!-- import: orderListMain -->
+
+<!-- target: orderListMain -->
+<section id="view">
+    <section id="filter-options">
+        <form id="filter" data-ui-type="Form" data-ui-id="filter"
+            action="/order/search" method="GET" style="width:100%">
+            <div id="order-list-select">
+                <div data-ui-type="Select" data-ui-id="deliveryStatus" data-ui-name="deliveryStatus"
+                    data-ui-datasource="@statusList" data-ui-value="@deliveryStatus"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+                <!-- if: ${canFilterSaler} -->
+                <div data-ui-type="Select" data-ui-id="salerId" data-ui-name="salerId"
+                    data-ui-datasource="@salerList" data-ui-value="@salerId"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+                <!-- /if -->
+            </div>
+            <div id="order-list-keyword">
+                <!-- import: listSearchBox -->
+            </div>
+        </form>
+        <div style="display:none;clear:both"></div>
+    </section>
+    
+    <!-- if: ${keyword} -->
+        <section id="slot-filter-options-panel" class="table-filter-options-panel" style="border:none">
+            <!-- if: ${keyword} -->
+                <!-- import: listSearchInfo -->
+            <!-- /if -->
+        </section>
+    <!-- /if -->
+
+    <!-- if: ${hasResult} -->
+        <!-- import: detailTable -->
+        <!-- import: detailPager -->
+    <!-- else -->
+        您还没有订单
+    <!-- /if -->
+</section>

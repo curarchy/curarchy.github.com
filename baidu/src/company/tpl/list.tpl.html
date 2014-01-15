@@ -1,0 +1,41 @@
+<!-- target: companyList -->
+<!-- import: companySidebar -->
+<div id="content" class="sidebar-page list">
+    <h3 id="title">公司</h3>
+    <!-- if: ${canCreate} -->
+    <div id="action">
+        <div data-ui-type="CommandMenu"
+            data-ui-id="create"
+            data-ui-display-text="新建公司"
+            data-ui-skin="spring-add">
+        </div>
+    </div>
+    <!-- /if -->
+    <section id="view">
+        <footer id="meta">
+            <!-- if: ${canBatchModify} -->
+            <div id="operation">
+                <!-- import: defaultBatchButtons -->
+            </div>
+            <!-- /if -->
+            <form id="filter" data-ui-type="Form" data-ui-id="filter"
+                action="/company/search" method="GET">
+                <div data-ui-type="Select" data-ui-id="status" data-ui-name="status"
+                    data-ui-datasource="@statuses" data-ui-value="@status"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+                <!-- import: listSearchBox -->
+            </form>
+        </footer>
+        <!-- if: ${keyword} -->
+            <section id="filter-options-panel" class="table-filter-options-panel">
+                <!-- import: listSearchInfo -->
+            </section>
+        <!-- /if -->
+        <!-- if: ${hasResult} -->
+            <!-- import: detailTableWithCommand -->
+            <!-- import: detailPager -->
+        <!-- else -->
+            您还没有公司
+        <!-- /if -->
+    </section>
+</div>

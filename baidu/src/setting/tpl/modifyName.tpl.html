@@ -1,0 +1,21 @@
+<!-- target: modifyName -->
+<!-- import: modifyNameMain -->
+
+<!-- target: modifyNameMain -->
+<form data-ui-type="Form" data-ui-id="form"
+    id="modify-name" class="form setting-form"
+    action="/users/${id}/accountName" method="POST" novalidate="novalidate">
+    <section class="form-section">
+        <div class="form-field">
+            <label for="modify-name-account-name" class="form-field-name">帐户名称：</label>
+            <div class="form-field-value">
+                <input data-ui-type="TextBox" data-ui-id="account-name"
+                    data-ui-required="required"
+                    data-ui-max-length="64"
+                    data-ui-title="帐户名称"
+                    id="modify-name-account-name" name="accountName" />
+            </div>
+        </div>
+        <!-- import: formSubmitSection -->
+    </section>
+</form>

@@ -1,0 +1,121 @@
+.ui-creativethumbnail {
+    .ui-creativethumbnail-line {
+        margin-top: 12px;
+    }
+
+    .ui-creativethumbnail-item {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 150px;
+        margin-right: 12px;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            .ui-creativethumbnail-wrap,
+            .ui-creativethumbnail-content {
+                border-color: #dd6666;
+            }
+
+            .ui-creativethumbnail-delete {
+                display: block;
+            }
+        }
+    }
+
+    .ui-creativethumbnail-wrap {
+        border: 2px solid transparent;
+    }
+
+    .ui-creativethumbnail-content {
+        width: 144px;
+        height: 94px;
+        line-height: 94px;
+        border: 1px solid #ddd;
+    }
+
+    .ui-creativethumbnail-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .ui-creativethumbnail-text-content,
+    .ui-creativethumbnail-cpro-content {
+        background: url(../img/thumbnail-text.png) no-repeat 50% 50%;
+    }
+
+    .ui-creativethumbnail-rich-content {
+        background: url(../img/thumbnail-rich.png) no-repeat 50% 50%;
+    }
+
+    .ui-creativethumbnail-flash-content {
+        background: url(../img/thumbnail-flash.png) no-repeat 50% 50%;
+    }
+
+    .ui-creativethumbnail-image {
+        display: none;
+        max-width: 100%;
+        max-height: 100%;
+        vertical-align: middle;
+    }
+
+    .ui-creativethumbnail-image-content {
+        font-size: 0;
+        .ui-creativethumbnail-image {
+            display: inline-block;
+        }
+    }
+
+    .ui-creativethumbnail-delete {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        color: #fff;
+        background: #dd6666;
+        font: 14px/20px 'Microsoft YaHei';
+    }
+
+    .ui-creativethumbnail-operation {
+        @fromColor: #fff;
+        @endColor: #f6f6f6;
+        display: inline-block;
+        width: 180px;
+        height: 40px;
+        margin-top: 30px;
+        line-height: 38px;
+        border-bottom: 1px solid #edeeef;
+        border-radius: 2px;
+
+        .linear-gradient-background(top, @fromColor, @endColor);
+         filter: ~'progid:DXImageTransform.Microsoft.Gradient(startColorstr=@{fromColor}, endColorstr=@{endColor}, GradientType=0)';
+    }
+
+    .ui-creativethumbnail-create {
+        float: left;
+        height: 38px;
+        width: 65px;
+        padding-left: 23px;
+        border: 1px solid #ddd;
+        border-radius: 2px 0 0 2px;
+        color: #666;
+        cursor: pointer;
+
+        &:hover {
+            @fromColor: #ededed;
+            @endColor: #fafafa;
+            .linear-gradient-background(top, @fromColor, @endColor);
+            filter: ~'progid:DXImageTransform.Microsoft.Gradient(startColorstr=@{fromColor}, endColorstr=@{endColor}, GradientType=0)';
+        }
+    }
+
+    .ui-creativethumbnail-select {
+        .ui-creativethumbnail-create();
+        border-radius: 0 2px 2px 0;
+        border-left-color: #fff;
+    }
+}

@@ -1,0 +1,43 @@
+<!-- target: channelGroupRead -->
+<!-- import: channelSidebar -->
+<div id="content" class="sidebar-page">
+    <!-- import: formCrumb -->
+    <!-- import: channelGroupReadMain -->
+</div>
+<!-- target: channelGroupReadMain -->
+<div class="read">
+    <section class="read-section">
+        <div class="read-field">
+            <span class="read-field-name">频道分组名称：
+            </span>
+            <span class="read-field-value">${name}
+            </span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">显示顺序：
+            </span>
+            <span class="read-field-value">${displayOrder}
+            </span>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">下属频道：
+            </span>
+            <div class="read-field-value">
+                <div 
+                    data-ui-type="Ellipsis"
+                    data-ui-id="channels"
+                    data-ui-max-length="2"
+                    data-ui-tail="频道"
+                    data-ui-datasource="@channels"
+                ></div>
+            </div>
+        </div>
+        <div class="read-field">
+            <span class="read-field-name">说明：
+            </span>
+            <span class="read-field-value">${description}
+            </span>
+        </div>
+    </section>
+    <!-- import: readReturnSection -->
+</div>

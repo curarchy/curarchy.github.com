@@ -1,0 +1,34 @@
+<!-- target: companyForm -->
+<!-- import: companySidebar -->
+<div id="content" class="sidebar-page">
+    <!-- import: formCrumb -->
+    <!-- import: companyFormMain -->
+</div>
+<!-- target: companyFormMain -->
+<div class="form">
+    <form data-ui-type="Form" data-ui-id="form"
+        action="/companys" method="POST" novalidate="novalidate">
+        <section class="form-section">
+            <div class="form-field">
+                <label for="company-form-name" class="form-field-name">${companyType}名称：</label>
+                <input data-ui-type="TextBox" data-ui-id="name"
+                    data-ui-required="required"
+                    data-ui-length="100"
+                    data-ui-value="@name"
+                    data-ui-max-length="100"
+                    data-ui-extension-count-type="WordCount"
+                    id="company-form-name" name="name" title="${companyType}名称" />
+            </div>
+            <div class="form-field">
+                <label for="company-form-description" class="form-field-name">说明：</label>
+                <textarea data-ui-type="TextBox" data-ui-id="description"
+                    data-ui-value="@description"
+                    data-ui-max-length="4000"
+                    data-ui-width="370"
+                    data-ui-height="180"
+                    id="company-form-description" name="description" title="说明" ></textarea>
+            </div>
+            <!-- import: formSubmitSection -->
+        </section>
+    </form>
+</div>

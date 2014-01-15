@@ -1,0 +1,97 @@
+/**
+  * ADM 2.0
+  * Copyright 2013 Baidu Inc. All rights reserved.
+  * 
+  * @file 列表形选择器
+  * @author lixiang
+  */
+.ui-listforselector {
+    overflow-y: auto;
+    overflow-x: hidden;
+    .ui-listforselector-empty-text {
+        line-height: 17px;
+        padding-left: 10px;
+        padding-top: 5px;
+        color: #959595;
+        display: none;
+    }
+
+    .ui-listforselector-query-list {
+        .ui-listforselector-item {
+            line-height: 26px;
+            padding: 0 10px;
+            cursor: pointer;
+            overflow: hidden;
+            zoom: 1;
+            .ui-listforselector-item-text {
+                color: #666666;
+                float: left;
+                width: 131px;
+                .ellipsis();
+            }
+
+            .ui-listforselector-item-action-icon {
+                float: right;
+                font-size: 0;
+                display: none;
+            }
+
+
+            &:hover {
+                background: #f8f9fb;
+                .ui-listforselector-item-action-icon {
+                    display: block;
+                }
+            }
+        }
+
+        .ui-listforselector-item-selected {
+            cursor: default;
+            background: #f7fafa;
+
+            .ui-listforselector-item-text {
+                color: #666666;
+            }
+
+            .ui-listforselector-item-action-icon {
+                display: none;
+            }
+
+            &:hover {
+                background: #f2f2f2;
+                .ui-listforselector-item-action-icon {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+
+.ui-listforselector-empty {
+    .ui-listforselector-empty-text {
+        display: block;
+    }
+
+    .ui-listforselector-query-list {
+        display: none;
+    }
+}
+
+.ui-listforselector-add {
+    .ui-listforselector-item-action-icon {
+        background: url("../img/treeselector-arrow.png");
+        height: 13px;
+        margin-top: 5px;
+        width: 17px;
+    }
+}
+
+.ui-listforselector-del {
+    .ui-listforselector-item-action-icon {
+        background: url("../img/treeselector-del.png");
+        height: 9px;
+        margin-top: 9px;
+        width: 9px;
+    }
+}

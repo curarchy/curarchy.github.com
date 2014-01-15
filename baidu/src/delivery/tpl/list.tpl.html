@@ -1,0 +1,57 @@
+<!-- target: deliveryList -->
+
+<!-- import: deliveryListMain -->
+
+<!-- target: deliveryListMain -->
+<section id="delivery-view">
+    <section id="filter-options">
+        <form id="filter" data-ui-type="Form" data-ui-id="filter"
+            action="/delivery/search" method="GET" style="width:100%">
+            <div id="delivery-list-select">
+                <div data-ui-type="Select" data-ui-id="status" data-ui-name="status"
+                    data-ui-datasource="@statuses" data-ui-value="@status"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+                <div data-ui-type="Select" data-ui-id="priceModel" data-ui-name="priceModel"
+                    data-ui-datasource="@priceModels" data-ui-value="@priceModel"
+                    data-ui-extension-submit-type="AutoSubmit"></div>
+                <div data-ui-type="Select" data-ui-id="platform" data-ui-name="platform"
+                    data-ui-datasource="@platforms" data-ui-value="@platform"
+                    data-ui-extension-submit-type="AutoSubmit" data-ui-hidden="hidden">></div>
+            </div>
+            <div id="delivery-list-keyword">
+                <!-- import: listSearchBox -->
+            </div>
+        </form>
+        
+    </section>
+    <!-- if: ${keyword} -->
+        <section id="delivery-filter-options-panel" class="table-filter-options-panel" style="border:none">
+            <!-- if: ${keyword} -->
+                <!-- import: listSearchInfo -->
+            <!-- /if -->
+        </section>
+    <!-- /if -->
+
+    <!-- if: ${canBatchModify} -->
+    <footer id="meta">
+        <div id="operation">
+            <div data-ui-type="Button" data-ui-id="pause"
+                data-ui-group="batch" data-ui-data-status="0"
+                data-ui-extension-data-type="CustomData">暂停</div>
+            <div data-ui-type="Button" data-ui-id="stop"
+                    data-ui-group="batch" data-ui-data-status="4"
+                    data-ui-extension-data-type="CustomData">终止</div>
+            <div data-ui-type="Button" data-ui-id="restore"
+                    data-ui-group="batch" data-ui-data-status="2"
+                    data-ui-extension-data-type="CustomData">恢复</div>
+        </div>
+    </footer>
+    <!-- /if -->
+
+    <!-- if: ${hasResult} -->
+        <!-- import: detailTableWithCommand -->
+        <!-- import: detailPager -->
+    <!-- else -->
+        您还没有广告
+    <!-- /if -->
+</section>
