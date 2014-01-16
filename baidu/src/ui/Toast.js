@@ -181,6 +181,7 @@
             else {
                 this.detach();
                 this.main.setAttribute('class','');
+                this.main.className = '';
                 Toast.prototype.cache = Toast.prototype.cache || [];
                 Toast.prototype.cache.push(this.main);
             }
@@ -220,7 +221,8 @@
             if(!element){
                 element = document.createElement('div');
                 element.id = 'ui-toast-collection-area';
-                element.setAttribute('class','ui-toast-collection-area')
+                element.setAttribute('class','ui-toast-collection-area');
+                element.className = 'ui-toast-collection-area';
                 document.body.appendChild(element);
             }
             return element;
