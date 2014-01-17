@@ -93,6 +93,10 @@
          * @protected
          */
         Toast.prototype.initStructure = function () {
+            helper.addPartClasses(this, this.msgType);
+            if(this.main.isStack) {
+                helper.addPartClasses(this, 'stack');
+            }
             if(!this.main.innerHTML) {
                 this.main.innerHTML = lib.format(
                     tempalte,
@@ -100,7 +104,7 @@
                         id: helper.getId(this, 'content'),
                         classes: helper.getPartClasses(this, 'content').join(' ')
                     }
-                );          
+                );
             }
         };
 
@@ -118,20 +122,6 @@
                     var container = toast.main.firstChild;
                     container.innerHTML = content;
                     toast.show();
-                }
-            },
-            {
-                name: 'msgType',
-                paint: function (toast, msgType){
-                    toast.helper.addPartClasses(msgType, toast.main);
-                }
-            },
-            {
-                name: 'isStack',
-                paint: function (toast, isStack){
-                    if(isStack){
-                        toast.helper.addPartClasses("stack", toast.main);    
-                    }
                 }
             }
         );
@@ -180,8 +170,7 @@
             //不销毁自身，脱离DOM树，加入缓存队列，复用
             else {
                 this.detach();
-                this.main.setAttribute('class','');
-                this.main.className = '';
+                this.helper.setAttribute('class', '');
                 Toast.prototype.cache = Toast.prototype.cache || [];
                 Toast.prototype.cache.push(this.main);
             }
@@ -205,7 +194,7 @@
         Toast.prototype.dispose = function () {
             if (helper.isInStage(this, 'DISPOSED')) {
                 return;
-            }            
+            }
             Control.prototype.dispose.apply(this, arguments);
             this.detach();
         };
@@ -217,12 +206,12 @@
          * @private
          */
         function getContainer (){
+            // 因为container是多个toast公用的，所以不能标记为特定id
             var element = document.getElementById('ui-toast-collection-area');
-            if(!element){
+            if(!element) {
                 element = document.createElement('div');
                 element.id = 'ui-toast-collection-area';
-                element.setAttribute('class','ui-toast-collection-area');
-                element.className = 'ui-toast-collection-area';
+                this.helper.addPartClasses('collection-area', element);
                 document.body.appendChild(element);
             }
             return element;
@@ -247,7 +236,7 @@
                     options = lib.extend({ content:content }, options);
                     var toast = new Toast(options);
                     if(options.isStack) {
-                        toast.appendTo(getContainer());
+                        toast.appendTo(getContainer.call(toast));
                     }
                     else {
                         toast.appendTo(document.body);
