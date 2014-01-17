@@ -278,6 +278,7 @@
   border: 1px solid;
   pointer-events: auto;
   border-radius: 4px;
+  font-size: 14px;
 }
 .ui-toast-content strong {
   display: inline-block;
