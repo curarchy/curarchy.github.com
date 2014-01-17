@@ -170,7 +170,7 @@
             //不销毁自身，脱离DOM树，加入缓存队列，复用
             else {
                 this.detach();
-                this.helper.setAttribute('class', '');
+                this.main.setAttribute('class', '');
                 Toast.prototype.cache = Toast.prototype.cache || [];
                 Toast.prototype.cache.push(this.main);
             }
