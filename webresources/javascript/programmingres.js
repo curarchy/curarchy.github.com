@@ -1,5 +1,11 @@
 ﻿(function() {
 	var programmingcontent = [{
+		title: "算法——排序",
+		summary: "排序",
+		time: "2014-05-01",
+		key: "IntroductionToAlgorithms/Sort/201405011",
+		tag: ["算法"]
+	},{
 		title: "跨浏览器事件绑定",
 		summary: "原生javascript跨浏览器事件绑定",
 		time: "2013-12-02",
