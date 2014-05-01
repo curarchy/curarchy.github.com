@@ -5,7 +5,6 @@
  *
  */
 function InsertionSort (array) {
-    console.info(array);
     var result = [];
     if (array instanceof Array) {
         if (array.length <= 1) {
@@ -30,6 +29,5 @@ function InsertionSort (array) {
     else {
         console.info('input data error');
     }
-    console.info(result);
     return result;
 }

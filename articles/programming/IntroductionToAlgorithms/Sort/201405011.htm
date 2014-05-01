@@ -10,6 +10,29 @@
     <p>理解：第一个元素已排序。第二个元素与第一个元素比较，参与排序。<br/>
     第一第二个元素已排序。第三个元素逐一与第二、第一个元素比较，参与排序。。。最终完成排序</p>
     <p>两次循环，时间复杂度 T(n) = O(n<sup>2</sup>)</p>
+    <div class="bs-docs-example">
+        <input type="text" id="data" value="1,2,4,6,8,3,7,5" style="margin-bottom: 0px;" />
+        <button class="btn btn-small btn-primary" type="button" id="sort">排序</button>
+    </div>
+<script type="text/javascript">
+    function processInputData(str) {
+        var strArray = str.split(',');
+        $.each(strArray, function(index, item) {
+            strArray[index] = +item;
+        });
+        return strArray;
+    }
+
+    $('#sort').on('click', function () {
+        var str = $('#data').val();
+        var prcessedData = processInputData(str);
+        var result = InsertionSort(prcessedData);
+        noty({text:result.join(','), type:"infomation", layout:"center"});
+    });
+
+
+</script>
+
 <pre class="prettyprint linenums">
 /**
  * 插入排序
@@ -18,7 +41,6 @@
  *
  */
 function InsertionSort (array) {
-    console.info(array);
     var result = [];
     if (array instanceof Array) {
         if (array.length &lt; = 1) {
@@ -43,7 +65,6 @@ function InsertionSort (array) {
     else {
         console.info('input data error');
     }
-    console.info(result);
     return result;
 }
 </pre>
