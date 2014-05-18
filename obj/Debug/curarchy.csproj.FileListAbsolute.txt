@@ -3,3 +3,7 @@ E:\GitHub\curarchy.github.com\bin\curarchy.pdb
 E:\GitHub\curarchy.github.com\obj\Debug\ResolveAssemblyReference.cache
 E:\GitHub\curarchy.github.com\obj\Debug\curarchy.dll
 E:\GitHub\curarchy.github.com\obj\Debug\curarchy.pdb
+D:\Github\website\bin\curarchy.dll
+D:\Github\website\bin\curarchy.pdb
+D:\Github\website\obj\Debug\curarchy.dll
+D:\Github\website\obj\Debug\curarchy.pdb

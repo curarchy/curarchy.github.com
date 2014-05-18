@@ -1,10 +1,16 @@
 ﻿(function() {
 	var programmingcontent = [{
-		title: "算法——排序",
-		summary: "排序",
+		title: "算法——排序——归并排序",
+		summary: "归并排序",
+		time: "2014-05-18",
+		key: "IntroductionToAlgorithms/Sort/201405181",
+		tag: ["算法","归并排序"]
+	},{
+		title: "算法——排序——插入排序",
+		summary: "插入排序",
 		time: "2014-05-01",
 		key: "IntroductionToAlgorithms/Sort/201405011",
-		tag: ["算法"]
+		tag: ["算法","插入排序"]
 	},{
 		title: "跨浏览器事件绑定",
 		summary: "原生javascript跨浏览器事件绑定",
