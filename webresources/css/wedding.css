@@ -81,29 +81,29 @@ table {
   -webkit-box-flex: 100;
 }
 .first-slide {
-    background: url(http://file.xitie.net.cn/29_video_bg.png) no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_video_bg.png) no-repeat;
     background-size: 100% 100%;
     position:relative;
 }
 .second-slide {
-    background: url(http://file.xitie.net.cn/29_video_ff.png) center no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_video_ff.png) center no-repeat;
     background-size: auto 100%;
     position:relative;
 }
 .third-slide {
-    background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_bg.jpg) repeat;
     position:relative;
 }
 .forth-slide {
-    background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_bg.jpg) repeat;
     position:relative;
 }
 .fifth-slide {
-   /*background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;*/
+   /*background:url(http://curarchy.github.io/webresources/img/weddingpic/29_bg.jpg) repeat;*/
    position:relative;
 }
 .sixth-slide {
-   background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;
+   background:url(http://curarchy.github.io/webresources/img/weddingpic/29_bg.jpg) repeat;
    position:relative;
 }
 
@@ -194,13 +194,13 @@ table {
 
 .up-btn {
     top: 4%;
-    background-image: url(http://file.xitie.net.cn/29_arrow.png);
+    background-image: url(http://curarchy.github.io/webresources/img/weddingpic/29_arrow.png);
     background-size:34px auto;
     background-position:0 0;
 }
 .down-btn {
     bottom: 4%;
-    background-image: url(http://file.xitie.net.cn/29_arrow.png);
+    background-image: url(http://curarchy.github.io/webresources/img/weddingpic/29_arrow.png);
     background-size:34px auto;
     background-position: 0 -7px
 }
@@ -212,14 +212,14 @@ table {
     position: absolute;
     right:7px;
     top: 40%;
-    background: url(http://file.xitie.net.cn/29_music_off.png) center center no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_music_off.png) center center no-repeat;
     background-size: 22px 22px;
     cursor: pointer;
     -webkit-tap-highlight-color:raba(0,0,0,0);
     z-index:9999999999 !important
 }
 .voice label.on, .voice label.on {
-    background: url(http://file.xitie.net.cn/29_music_on.png) center center no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_music_on.png) center center no-repeat;
     background-size: 22px 22px;
 }
 @-webkit-keyframes video_btnPlay {
@@ -247,7 +247,7 @@ table {
     z-index: 1;
 }
 .m-btnPlay i {
-    background-image: url("http://file.xitie.net.cn/29_qred_icon.png");
+    background-image: url("http://curarchy.github.io/webresources/img/weddingpic/29_qred_icon.png");
     background-size:55px auto;
     z-index: 1;
 
@@ -284,7 +284,7 @@ table {
     width:240px;
     height: 236px;
     margin: 40px auto 0px auto;
-    background: url(http://file.xitie.net.cn/29_tx_bor2.png) 50% 50% no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_tx_bor2.png) 50% 50% no-repeat;
     background-size: 240px auto;
     padding-top:20px;
 }
@@ -294,14 +294,14 @@ table {
     width:240px;
     height: 236px;
     margin: 0 auto;
-    background: url(http://file.xitie.net.cn/29_tx_bor.png) 50% 50% no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_tx_bor.png) 50% 50% no-repeat;
     background-size: 240px auto;
 }*/
 .wedding_tit{
     display: block;
     clear: both;
     height:36px;
-    background: url(http://file.xitie.net.cn/29_wedding.png) center no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_wedding.png) center no-repeat;
     background-size: 188px auto;
     margin:30px auto;
     -webkit-animation: fadeInLeft 1s .2s linear infinite;
@@ -344,7 +344,7 @@ table {
     height:57px;
     font-size:18px;
     color:#010101;
-    background: url(http://file.xitie.net.cn/29_splite.png) center bottom no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_splite.png) center bottom no-repeat;
     background-size: 300px auto;
     -webkit-animation: fadeInDown 1s .2s linear 2;
     -moz-animation: fadeInDown 1s .2s linear 2;
@@ -357,7 +357,7 @@ table {
     clear: both;
     height:47px;
     margin:10px auto;
-    background: url(http://file.xitie.net.cn/29_splite.png) center no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_splite.png) center no-repeat;
     background-size: 300px auto;
 }
 .wedding_title{
@@ -367,7 +367,7 @@ table {
     color:#fff;
     font-size:16px;
     margin:8% auto 20px auto;
-    background: url(http://file.xitie.net.cn/29_tit.png) center bottom no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_tit.png) center bottom no-repeat;
     background-size: 166px auto;
 }
 /*4th*/
@@ -404,11 +404,11 @@ table {
 
 }
 .ul_phone li.man i{
-    background: url(http://file.xitie.net.cn/29_tx_small.png) no-repeat 0 0;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_tx_small.png) no-repeat 0 0;
     background-size:22px auto;
 }
 .ul_phone li.woman i{
-    background: url(http://file.xitie.net.cn/29_tx_small.png) no-repeat 0 -30px;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_tx_small.png) no-repeat 0 -30px;
     background-size:22px auto;
 }
 .ul_phone li .phone_num{
@@ -443,7 +443,7 @@ table {
     line-height:30px;
     color:#fff;
     font-size:14px;
-    background: url(http://file.xitie.net.cn/29_btn.png) no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_btn.png) no-repeat;
     background-size:188px 30px;
     margin:0px auto;
     position:relative;
@@ -455,7 +455,7 @@ table {
     left:15px;
     width:22px;
     height:25px;
-    background:url(http://file.xitie.net.cn/29_map_ico.png) no-repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_map_ico.png) no-repeat;
     background-size:20px 22px;
     -webkit-animation: fadeInDown 1s .3s linear infinite;
     -moz-animation: fadeInDown 1s .3s linear infinite;
@@ -494,7 +494,7 @@ table {
 .word_area{
     clear:both;
     width:240px;
-    background:url(http://file.xitie.net.cn/29_bor_bg.png) repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_bor_bg.png) repeat;
     padding:5px;
     margin:40px auto 25px auto;
     position:relative;
@@ -510,13 +510,13 @@ table {
     height:45px;
     top:-25px;
     right:0px;
-    background:url(http://file.xitie.net.cn/29_word_ico.png) repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_word_ico.png) repeat;
     background-size:25px auto;
  }
  /*5th*/
 /* .photo_area{
     height:100%;
-    background:url(http://file.xitie.net.cn/29_photo.png) center no-repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_photo.png) center no-repeat;
     background-size:100% auto;
     position: relative;
  }*/
@@ -552,7 +552,7 @@ table {
     display:block;
     width:56px;
     height:8px;
-    background:url(http://file.xitie.net.cn/29_arrow_ph.png) no-repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_arrow_ph.png) no-repeat;
     margin:0px auto 0px auto;
 }
  /*6th*/
@@ -595,7 +595,7 @@ table {
     line-height:30px;
     color:#fff;
     font-size:14px;
-    background: url(http://file.xitie.net.cn/29_btn.png) no-repeat;
+    background: url(http://curarchy.github.io/webresources/img/weddingpic/29_btn.png) no-repeat;
     background-size:220px 30px;
     margin:0px auto;
     text-align:center;
@@ -724,7 +724,7 @@ table {
     display:block;
     width:31px;
     height:10px;
-    background:url(http://file.xitie.net.cn/29_arrow_create.png) no-repeat;
+    background:url(http://curarchy.github.io/webresources/img/weddingpic/29_arrow_create.png) no-repeat;
     background-size:31px auto;
     margin:10px auto 0px auto;
 
