@@ -1,725 +1,731 @@
-html{
-    font-size: 20px;
-    width: 100%;
-    height: 100%;
+/* 版权所有：一生一世微喜帖（http://www.xitie.net.cn）*/
+html {
+  height: 100%;
 }
-p,h1,h2,h3,h4{
-    margin: 0px;
-    padding: 0px;
-    font-weight: normal;
-    text-transform: capitalize;
+body {
+  margin: 0;
+  padding:0;
+  font-family: 'microsoft yahei',Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  position: relative;
+  height: 100%;
 }
-a{
-    color: #bdadc8;
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+-ms-box-sizing: border-box;
+box-sizing: border-box;
+}
+a {
     text-decoration: none;
-}
-em,i{
-    font-style: normal;
-}
-body{
-    margin: 0 auto;
-    padding: 0;
-    width: 640px;
-    height: 100%;
-    background: #65317e;
-    font-family: "microsoft Yahei";
-}
-ul{
-    padding: 0;
-    margin: 0;
-}
-li{
-    list-style: none;
-}
-.app{
-    width: 640px;
-    height: 100%;
-    overflow: hidden;
+    color: #666
 }
 
-.u-status{
-    position: fixed;
-    top: 30px;
-    right: 3%;
-/*  left: 50%;
-    margin-left: 230px;*/
-    display: block;
-    width: 68px;
-    height: 68px;
-    opacity: 0;
-    z-index: 3;
-    background: url(http://file.xitie.net.cn/30_wedding-con.png) no-repeat 0 -68px;
-    -webkit-animation: uright 1s ease forwards;
-}
-.u-status.up{
-    background: url(http://file.xitie.net.cn/30_wedding-con.png) no-repeat 0 0px;
-}
-.music{
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    z-index: 3;
-    margin-left: -300px;
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background: url(http://file.xitie.net.cn/30_music.png) no-repeat;
-    -webkit-animation: urotate 4s linear infinite;
-}
-.music_off{
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    z-index: 3;
-    margin-left: -300px;
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    background: url(http://file.xitie.net.cn/30_music.png) no-repeat;
+em,i {
+    font-style: normal
 }
 
-@-webkit-keyframes urotate{
-    0%{-webkit-transform:rotate(0deg);}
-    100%{-webkit-transform:rotate(360deg);}
-}
-.u-move{
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
-    z-index: 3;
-    display: block;
-    width: 32px;
-    height: 31px;
-    margin-left: -16px;
-    background: url(http://file.xitie.net.cn/30_down.png) no-repeat;
-    -webkit-animation: guideTop 1.5s infinite;
-}
-
-#silde-nav{
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    margin-left: 230px;
-    /*display: none;*/
-    z-index: 3;
-}
-
-#silde-nav span{
-    margin: 10px 0;
-    display: block;
-    width: 68px;
-    height: 68px;
-    opacity: 0;
-}
-.animate-a0{
-    -webkit-animation:ushow 0.3s 0.1s forwards;
-}
-.animate-a1{
-    -webkit-animation:ushow 0.3s 0.2s forwards;
-}
-.animate-a2{
-    -webkit-animation:ushow 0.3s 0.3s forwards;
-}
-.animate-a3{
-    -webkit-animation:ushow 0.3s 0.4s forwards;
-}
-.animate-a4{
-    -webkit-animation:ushow 0.3s 0.5s forwards;
-}
-.animate-a5{
-    -webkit-animation:ushow 0.3s 0.6s forwards;
-}
-.animate-a6{
-    -webkit-animation:ushow 0.3s 0.7s forwards;
-}
-
-#silde-nav span:nth-child(1){
-    background: url(http://file.xitie.net.cn/30_nav.png) no-repeat 0 0;
-}
-#silde-nav span:nth-child(2){
-    background: url(http://file.xitie.net.cn/30_nav.png) no-repeat 0 -80px;
-}
-#silde-nav span:nth-child(3){
-    background: url(http://file.xitie.net.cn/30_nav.png) no-repeat 0 -160px;
-}
-#silde-nav span:nth-child(4){
-    background: url(http://file.xitie.net.cn/30_nav.png) no-repeat 0 -240px;
-}
-#silde-nav span:nth-child(5){
-    background: url(http://file.xitie.net.cn/30_nav.png) no-repeat 0 -320px;
-}
-#silde-nav span:nth-child(6){
-    background: url(http://file.xitie.net.cn/30_nav.png) no-repeat 0 -400px;
-}
-#silde-nav span:nth-child(7){
-    background: url(http://file.xitie.net.cn/30_nav.png) no-repeat 0 -480px;
-}
-@-webkit-keyframes uleft{
-    0%{
-        opacity: 0;
-        -webkit-transform: scale(0) translateX(150px) perspective(200px);
-    }
-    100%{
-        opacity: 1;
-        -webkit-transform: scale(1) translateX(0px) perspective(0px);
-    }
-}
-@-webkit-keyframes ushow{
-    0%{
-        opacity: 0;
-        -webkit-transform: scale(0) perspective(200px);
-    }
-    100%{
-        opacity: 1;
-        -webkit-transform: scale(1) perspective(200px);
-    }
-}
-@-webkit-keyframes urights{
-    0%{
-        opacity: 0;
-        -webkit-transform:scale(0) translateX(-150px) perspective(200px);
-    }
-    100%{
-        opacity: 1;
-        -webkit-transform:scale(1)  translateX(0px) perspective(0px);
-    }
-}
-/*.page1{
-    background: url(http://file.xitie.net.cn/30_bg1.png) no-repeat top center;
-}*/
-
-@-webkit-keyframes uright{
-    0%{
-        -webkit-transform: translateX(100px);opacity: 0;
-    }
-    100%{
-        -webkit-transform: translateX(0px);opacity: 1;
-    }
-}
-.page1 .edge{
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    bottom: 200px;
-    width: 550px;
-    height: 378px;
-    margin-left: -275px;
-    background: url(http://file.xitie.net.cn/30_edge.png) no-repeat;
-}
-.page1 .edge .title{
-    height: 30px;
-    line-height: 30px;
-    font-size: 24px;
-    color: #5e317b;
-    margin-top: 100px;
-}
-
-.page1 .edge .title b{
-    display: inline-block;
-    float: left;
-    width: 100px;
-}
-.page1 .edge .title .man{
-    text-align: right;
-    margin-left: 145px;
-}
-.page1 .edge .title .and{
-    width: 60px;
-    height: 30px;
-    display: inline-block;
-    float: left;
-    background: url(http://file.xitie.net.cn/30_diamond.png) no-repeat;
-}
-.page1 .edge .time{
-    text-align: center;
-    margin-top: 30px;
-    font-size: 24px;
-}
-.page1 .edge .address{
-    margin-top: 10px;
-    font-size: 24px;
-    text-align: center;
-}
-.page1 .edge .u-line{
-    margin-top: 10px;
-    height: 8px;
-    background: url(http://file.xitie.net.cn/30_underline.png) no-repeat center center;
-}
-.page1 .edge .u-times{
-    margin-top: 10px;
-    text-align: center;
-    font-size: 16px;
-    color: #dc3559;
-}
-.page1 .edge .u-times em{
-    font-weight: bold;
-    font-style: normal;
-    font-size: 30px;
-    padding:  0 4px;
-}
-.page1 .root{
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    width: 640px;
-    height: 380px;
-    z-index: 1;
-    background: url(http://file.xitie.net.cn/30_root.png) no-repeat;
-}
-
-
-
-
-/* -------------------------------------------otherpage */
-.otherpage{
-    background: linear-gradient(to bottom, #8a3296, #563074);
-}
-.otherpage .root{
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    width: 640px;
-    height: 240px;
-    z-index: 1;
-    background: url(http://file.xitie.net.cn/30_root1.png) no-repeat;
-}
-.otherpage .title,.bless_page .title{
-    padding-top: 40px;
-    color: #fff;
-    text-align: center;
-}
-.otherpage .title h2,.bless_page .title h2{
-    font-size: 40px;
-    height: 30px;
-    line-height: 30px;
-}
-.otherpage .title h3,.bless_page .title h3{
-    margin-top: 10px;
-    height: 24px;
-    line-height: 24px;
-    font-size: 24px;
-}
-.bless_page{
-    background: url(http://file.xitie.net.cn/30_root1.png) bottom no-repeat;
-}
-.bless_form{
-
-}
-
-/*   ---------------------------------------------------page2 */
-.page2 .topic{
-    clear: both;
-    margin: 30px auto 0 auto;
-    /*margin: 30px 30px 0 30px;*/
-    padding: 15px;
-    width: 466px;
-    line-height: 30px;
-    border: 1px solid #fff;
-    border-radius: 2px;
-    color: #fff;
-    text-indent: 40px;
-    overflow: hidden;
-}
-.page2 .items{
-    width: 500px;
-    margin: 50px auto 0 auto;
-}
-.page2 .items .mems {
-    color: #fff;
-    font-size: 40px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-}
-
-.page2 .items .mems .and{
-    display: inline-block;
-    width: 35px;
-    height: 29px;
-    background: url(http://file.xitie.net.cn/30_diamond1.png) no-repeat center center;
-    vertical-align: middle;
-    padding: 0 5px;
-}
-.page2 .items  h4{
-    color: #dc007e;
-    font-size: 40px;
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: center;
-}
-.page2 .items  .u-lines{
-    margin: 10px auto 0 auto;
-    display: block;
-    width: 274px;
-    height: 8px;
-    background: url(http://file.xitie.net.cn/30_underline1.png) no-repeat;
-}
-.page2 .items .time{
-    margin-top: 10px;
-    font-size: 24px;
-    width: 400px;
-    line-height: 36px;
-    color: #e3ab00;
-}
-.page2 .items .time em{
-    width: 80px;
-    float: left;
-    color: #fff;
-    display: inline-block;
-}
-.page2 .items .address{
-    display: inline-block;
-    float: left;
-    margin-top: 10px;
-    font-size: 24px;
-    line-height: 36px;
-    color: #e3ab00;
-}
-.page2 .items .address em{
-    width: 80px;
-    float: left;
-    color: #fff;
-    display: inline-block;
-}
-
-.page2 .items .address span{
-    float: left;
-    width: 400px;
-    display: inline-block;
-}
-
-
-/*   ---------------------------------------------------page3 */
-.page3 .topic{
-    margin: 10px auto 0 auto;
-    padding: 15px;
-    width: 466px;
-    font-size: 1.2rem;
-    line-height: 36px;
-    color: #fff;
-}
-.page3 .map{
-    margin-top: 5px;
-    text-align: center;
-}
-.page3 .map a{
-    display: inline-block;
-    width: 220px;
-    height: 80px;
-    background: url(http://file.xitie.net.cn/30_map.png) no-repeat;
-    margin: 0;
-    padding : 0;
-}
-.page3 .ways{
-    margin: 20px auto 0 auto;
-    padding: 15px;
-    width: 466px;
-    border: 1px solid #fff;
-    border-radius: 2px;
-    color: #fff;
-    overflow: hidden;
-}
-.page3 .ways li{
-    margin-bottom: 5px;
-}
-.page3 .ways li h3{
-    padding-left: 50px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 1.1rem;
-    color: #e3ab00;
-}
-.page3 .ways li p{
-    /*height: 35px;*/
-    line-height: 35px;
-    font-size: 1.1rem;
-}
-.page3 .ways li:nth-child(1) h3{
-    background: url(http://file.xitie.net.cn/30_car.png) no-repeat center left;
-}
-.page3 .ways li:nth-child(2) h3{
-    background: url(http://file.xitie.net.cn/30_bus.png) no-repeat center left;
-}
-.page3 .ways li:nth-child(3) h3{
-    background: url(http://file.xitie.net.cn/30_mecro.png) no-repeat center left;
-}
-.page3 .calls{
-    margin-top: 15px;
-    height: 80px;
-    text-align: center;
-}
-.page3 .calls a{
-    display: inline-block;
-    width: 240px;
-    height: 80px;
-    margin: 0 5px;
-}
-.page3 .calls a.call-man{
-    background: url(http://file.xitie.net.cn/30_cman.png) no-repeat;
-}
-.page3 .calls a.call-women{
-    background: url(http://file.xitie.net.cn/30_cwomen.png) no-repeat;
-}
-
-/*---------------------------------------------------- page4 */
-
-
-.page4 form{
-    width: 500px;
-    margin: 0 auto;
-}
-
-.page4 .ui-input{
-    display: inline-block;
-    width: 500px;
-    padding:  15px;
-    background: transparent;
-    border-radius: 6px;
-    border: 1px solid #fff;
-    color: #fff;
-    margin: 10px 0;
-    font-size: 1.3rem;
-}
-.page4 .ui-textarea{
-    display: inline-block;
-    width: 500px;
-    padding: 20px 15px;
-    background: transparent;
-    border-radius: 6px;
-    color: #fff;
-    border: 1px solid #fff;
-    margin: 10px 0;
-    font-size: 1.3rem;
-}
-.join_btns a{
-    margin: 10px 0;
-    display: inline-block;
-    text-align: center;
-    width:238px;
-    height: 78px;
-    line-height: 78px;
-    border-radius: 6px;
-    font-size: 1.5rem;
-    color: #fff;
-    border: 1px solid #fff;
-}
-.join_btns a:first-child{float:left;margin: 10px 0;}
-.join_btns a:last-child{float:right;}
-.join_btns a:hover,.join_btns a.active{
-    background: #dc007e;
-    border: 1px solid #dc007e;
-}
-
-/*.page4 .dd{
-    margin: 10px 0;
-    display: inline-block;
-    text-align: center;
-    width:238px;
-    height: 78px;
-    line-height: 78px;
-    border-radius: 6px;
-    font-size: 1.5rem;
-    color: #fff;
-    float: right;
-    border: 1px solid #fff;
-}
-.page4 .cx{
-    margin: 10px 0;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    width:238px;
-    height: 78px;
-    line-height: 78px;
-    font-size: 1.5rem;
-    border: 1px solid #dc007e;
-    border-radius: 6px;
-    background: #dc007e;
-    color:#fff;
-}*/
-
-.page4 .submit{
-    clear: both;
-    width: 500px;
-    height: 90px;
-    position: relative;
-    overflow: hidden;
-}
-.page4 .submit a{
-    margin-top: 10px;
-    display: inline-block;
-    width: 500px;
-    background-color: #8b3296;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.5rem;
+img {
     border: none;
-    text-align: center;
+    vertical-align: middle
+}
+
+ol,ul,li,h2{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+}
+
+input[type=text],input[type=password],input[type=number],input[type=email],input[type=search],input[type=tel] {
+    vertical-align: middle;
+    outline: 0;
+    -webkit-appearance: none;
+    -webkit-user-select: text
+}
+
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {
+    color: #9e9e9e
+}
+
+select {
+    outline: 0;
+    -webkit-appearance: none
+}
+
+textarea {
+    font-size: 15px;
+    border: 1px solid #d7d7d7;
+    outline: 0;
+    -webkit-user-select: text
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+* {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  color:#333;
+  text-align: center;
+  -webkit-box-flex: 100;
+}
+.first-slide {
+    background: url(http://file.xitie.net.cn/29_video_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position:relative;
+}
+.second-slide {
+    background: url(http://file.xitie.net.cn/29_video_ff.png) center no-repeat;
+    background-size: auto 100%;
+    position:relative;
+}
+.third-slide {
+    background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;
+    position:relative;
+}
+.forth-slide {
+    background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;
+    position:relative;
+}
+.fifth-slide {
+   /*background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;*/
+   position:relative;
+}
+.sixth-slide {
+   background:url(http://file.xitie.net.cn/29_bg.jpg) repeat;
+   position:relative;
+}
+
+.swiper-slide .title {
+  font-style: italic;
+  font-size: 42px;
+  margin-top: 80px;
+  margin-bottom: 0;
+  line-height: 45px;
+}
+.pagination {
+  position: absolute;
+  z-index: 20;
+/*  left: 10px;
+  bottom: 10px;*/
+  right: 10px;
+  bottom: 30%;
+}
+.swiper-pagination-switch {
+/*  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;*/
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #555;
+  margin: 0 0px 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-visible-switch {
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+ }
+ /**/
+.up-btn, .down-btn {
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 34px;
+    height: 7px;
+    left: 50%;
+    margin-left: -17px;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    -ms-background-size: 100% auto;
+    background-size: 100% auto;
+    overflow: hidden;
+    text-indent: -9999px;
+    -webkit-animation: bounce 1s .2s linear infinite;
+    -moz-animation: bounce 1s .2s linear infinite;
+    -o-animation: bounce 1s .2s linear infinite;
+    -ms-animation: bounce 1s .2s linear infinite;
+    animation: bounce 1s .2s linear infinite;
+    z-index: 199;
+}
+@-webkit-keyframes bounce {
+    0% {-webkit-transform: translateY(0);}
+    50% {-webkit-transform: translateY(-10px);}
+    100% {-webkit-transform: translateY(0);}}
+@-zom-keyframes bounce {
+    0% {-zom-transform: translateY(0);}
+    50% {-zom-transform: translateY(-10px);}
+    100% {-zom-transform: translateY(0);}}
+@-ms-keyframes bounce {
+    0% {-ms-transform: translateY(0);}
+    50% {-ms-transform: translateY(-10px);}
+    100% {-ms-transform: translateY(0);}}
+@-o-keyframes bounce {
+    0% {-o-transform: translateY(0);}
+    50% {-o-transform: translateY(-10px);}
+    100% {-o-transform: translateY(0);}}
+@keyframes bounce {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
+}
+
+.up-btn {
+    top: 4%;
+    background-image: url(http://file.xitie.net.cn/29_arrow.png);
+    background-size:34px auto;
+    background-position:0 0;
+}
+.down-btn {
+    bottom: 4%;
+    background-image: url(http://file.xitie.net.cn/29_arrow.png);
+    background-size:34px auto;
+    background-position: 0 -7px
+}
+.voice label {
+    display: block;
+    width: 26px;
+    height: 26px;
+    overflow: hidden;
+    position: absolute;
+    right:7px;
+    top: 40%;
+    background: url(http://file.xitie.net.cn/29_music_off.png) center center no-repeat;
+    background-size: 22px 22px;
+    cursor: pointer;
+    -webkit-tap-highlight-color:raba(0,0,0,0);
+    z-index:9999999999 !important
+}
+.voice label.on, .voice label.on {
+    background: url(http://file.xitie.net.cn/29_music_on.png) center center no-repeat;
+    background-size: 22px 22px;
+}
+@-webkit-keyframes video_btnPlay {
+    0% {-webkit-transform: scale(0.8); opacity: 0.8;}
+    100% {-webkit-transform: scale(1.5); opacity: 0;}}
+
+/*first*/
+.video{
+  width:280px;
+  position:absolute;
+  top:30%;
+  left:50%;
+  margin-left:-140px;
+}
+
+/*second*/
+.m-btnPlay {
+    display: block;
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -27px;
     z-index: 1;
 }
-.page4 .submit input{
-    margin-top: 10px;
-    display: inline-block;
-    position: absolute;
-    width: 500px;
-    height: 80px;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    opacity: 0;
-    filter:alpha(opacity=0);
-    outline: none;
-}
-.page4 .copyright{
-    margin-top: 40px;
-    width: 100%;
-    text-align: center;
-}
+.m-btnPlay i {
+    background-image: url("http://file.xitie.net.cn/29_qred_icon.png");
+    background-size:55px auto;
+    z-index: 1;
 
-/*---------------------------------------------------- page5 */
-.page5 ul{
-    padding: 0;
-    margin-top: 40px;
 }
-.page5 ul li{
-    margin: 10px 0;
-    clear: both;
-}
-.page5 ul li .con{
-    width: 178px;
-    /*height: 48px;*/
-    padding: 10px;
-    border: 1px solid #fff;
-    border-radius: 6px;
-}
-.page5 ul li .con p{
-    font-size: 1.1rem;
-}
-.page5 ul li .con .time{
-    color: #b97e32;
-}
-.page5 ul li .con .thing{
-    color: #fff;
-}
-.page5 ul li:nth-child(odd) .con{
-    float: left;
-    margin-left: 90px;
-    background: url(http://file.xitie.net.cn/30_7.png) no-repeat 150px center;
-}
-.page5 ul li:nth-child(odd) p{
-    padding-right: 50px;
-    text-align: right;
-}
-.page5 ul li:nth-child(even) .con{
-    float: right;
-    margin-right: 90px;
-    background: url(http://file.xitie.net.cn/30_7.png) no-repeat 10px center;
-}
-.page5 ul li:nth-child(even) p{
-    padding-left: 50px;
-    text-align: left;
-}
-.page5 .vline{
-    position: absolute;
+.m-btnPlay i, .m-btnPlay div {
     display: block;
-    left: 50%;
-    margin-left: -1px;
-    top: 120px;
-    width: 2px;
-    height: 500px;
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.m-btnPlay i, .m-btnPlay div {
+    display: block;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.m-btnPlay div {
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+    -webkit-animation: video_btnPlay 1s linear infinite;
+    opacity: 0;
+}
+
+/*3rd*/
+.avatar {
+    display: block;
+    clear: both;
+    width:240px;
+    height: 236px;
+    margin: 40px auto 0px auto;
+    background: url(http://file.xitie.net.cn/29_tx_bor2.png) 50% 50% no-repeat;
+    background-size: 240px auto;
+    padding-top:20px;
+}
+/*.tx{
+    display: block;
+    clear: both;
+    width:240px;
+    height: 236px;
+    margin: 0 auto;
+    background: url(http://file.xitie.net.cn/29_tx_bor.png) 50% 50% no-repeat;
+    background-size: 240px auto;
+}*/
+.wedding_tit{
+    display: block;
+    clear: both;
+    height:36px;
+    background: url(http://file.xitie.net.cn/29_wedding.png) center no-repeat;
+    background-size: 188px auto;
+    margin:30px auto;
+    -webkit-animation: fadeInLeft 1s .2s linear infinite;
+    -moz-animation: fadeInLeft 1s .2s linear infinite;
+    -o-animation: fadeInLeft 1s .2s linear infinite;
+    -ms-animation: fadeInLeft 1s .2s linear infinite;
+    animation: fadeInLeft 1s .2s linear infinite;
+}
+@-webkit-keyframes fadeInLeft {
+    0% {-webkit-transform: translateX(5px);opacity: 0.7;}
+    50% {-webkit-transform: translateX(-5px); opacity: 1;}
+    100% {-webkit-transform: translateX(5px);opacity: 0.7;}
+}
+@-moz-keyframes fadeInLeft {
+    0% {-moz-transform: translateX(0);opacity: 0.7;}
+    50% {-moz-transform: translateX(-5px); opacity: 1;}
+    100% {-moz-transform: translateX(0);opacity: 0.7;}
+}
+
+@-o-keyframes fadeInLeft {
+    0% {-o-transform: translateX(0);opacity: 0.7;}
+    50% {-o-transform: translateX(-5px); opacity: 1;}
+    100% {-o-transform: translateX(0);opacity: 0.7;}
+}
+@-ms-keyframes fadeInLeft {
+    0% {-ms-transform: translateX(0);opacity: 0.7;}
+    50% {-ms-transform: translateX(-10px); opacity: 1;}
+    100% {-ms-transform: translateX(0);opacity: 0.7;}
+}
+
+@keyframes fadeInLeft {
+    0% {transform: translateX(5px);opacity: 0.7;}
+    50% {transform: translateX(-5px); opacity: 1;}
+    100% {transform: translateX(5px);opacity: 0.7;}
+}
+
+.newman{
+    clear: both;
+    margin:50px auto 0px auto;
+    height:57px;
+    font-size:18px;
+    color:#010101;
+    background: url(http://file.xitie.net.cn/29_splite.png) center bottom no-repeat;
+    background-size: 300px auto;
+    -webkit-animation: fadeInDown 1s .2s linear 2;
+    -moz-animation: fadeInDown 1s .2s linear 2;
+    -o-animation: fadeInDown 1s .2s linear 2;
+    -ms-animation: fadeInDown 1s .2s linear 2;
+    animation: fadeInDown 1s .2s linear 2;
+}
+.color_pink{color:#e41d6c;}
+.splite{
+    clear: both;
+    height:47px;
+    margin:10px auto;
+    background: url(http://file.xitie.net.cn/29_splite.png) center no-repeat;
+    background-size: 300px auto;
+}
+.wedding_title{
+    clear: both;
+    height:22px;
+    line-height:22px;
+    color:#fff;
+    font-size:16px;
+    margin:8% auto 20px auto;
+    background: url(http://file.xitie.net.cn/29_tit.png) center bottom no-repeat;
+    background-size: 166px auto;
+}
+/*4th*/
+.box_4th{
+    clear:both;
+    background:#fff;
+    width:280px;
+    margin:0px auto;
+    padding:20px 10px;
+    overflow:hidden;
+}
+.ul_phone ul{
+    clear:both;
+    width:260px;
+    margin:0px auto;
+    padding:0px;
+}
+.ul_phone li{
+    clear:both;
+    width:240px;
+    height:30px;
+    clear:both;
+    margin:0px auto;
+    list-style:none;
+    padding:0px;
+    text-align:left;
+}
+.ul_phone li i{
+    float:left;
+    width:22px;
+    height:30px;
+    margin:3px auto;
+    overflow:hidden;
 
 }
-/* ------------------------------------page6 */
-.page6 ul{
-    padding: 0;
-    width: 568px;
-    margin: 30px auto 0 auto;
+.ul_phone li.man i{
+    background: url(http://file.xitie.net.cn/29_tx_small.png) no-repeat 0 0;
+    background-size:22px auto;
 }
-.page6 ul li{
-    float: left;
-    width: 50%;
+.ul_phone li.woman i{
+    background: url(http://file.xitie.net.cn/29_tx_small.png) no-repeat 0 -30px;
+    background-size:22px auto;
 }
-.page6 ul li img{
-    width: 284px;
-    height: 283px;
+.ul_phone li .phone_num{
+    float:right;
+    width:210px;
+    height:30px;
+    line-height:30px;
+    border:1px #f7bbd3 solid;
+    border-radius:20px;
+    padding-left:10px;
 }
-.page6 .swiper-photo{
-    padding-top: 10px;
+.ul_phone li .phone_num a{
+    float:right;
+    height:28px;
+    line-height:28px;
+    display:inline-block;
+    color:#fff;
+    background:#e41d6c;
+    border-radius: 0px 20px 20px 0px;
+    padding:0px 10px;
+    text-align:center;
 }
-/* ------------------------------------page7 */
-.page7 .main{
-    width: 500px;
-    height: 363px;
-    margin: 30px auto 0 auto;
-    background: url(http://file.xitie.net.cn/30_vedio.png) no-repeat;
+.wedding_info{
+    clear:both;
+    text-align:center;
+    margin:20px auto;
+}
+.wedding_btn{
+    clear:both;
+    width:188px;
+    height:30px;
+    line-height:30px;
+    color:#fff;
+    font-size:14px;
+    background: url(http://file.xitie.net.cn/29_btn.png) no-repeat;
+    background-size:188px 30px;
+    margin:0px auto;
+    position:relative;
+}
+.wedding_btn a{color:#fff;}
+.wedding_btn em{
+    position:absolute;
+    top:-15px;
+    left:15px;
+    width:22px;
+    height:25px;
+    background:url(http://file.xitie.net.cn/29_map_ico.png) no-repeat;
+    background-size:20px 22px;
+    -webkit-animation: fadeInDown 1s .3s linear infinite;
+    -moz-animation: fadeInDown 1s .3s linear infinite;
+    -o-animation: fadeInDown 1s .3s linear infinite;
+    -ms-animation: fadeInDown 1s .3s linear infinite;
+    animation: fadeInDown 1s .3s linear infinite;
+}
+@-webkit-keyframes fadeInDown {
+    0% {-webkit-transform: translateY(0);opacity: 0.6;}
+    50% {-webkit-transform: translateY(-5px); opacity: 1;}
+    100% {-webkit-transform: translateY(0);opacity: 0.5;}
+}
+@-moz-keyframes fadeInDown {
+    0% {-moz-transform: translateY(0);opacity: 0.6;}
+    50% {-moz-transform: translateY(-5px); opacity: 1;}
+    100% {-moz-transform: translateY(0);opacity: 0.5;}
+}
+
+@-o-keyframes fadeInDown {
+    0% {-o-transform: translateY(0);opacity: 0.6;}
+    50% {-o-transform: translateY(-5px); opacity: 1;}
+    100% {-o-transform: translateY(0);opacity: 0.5;}
+}
+@-ms-keyframes fadeInDown {
+    0% {-ms-transform: translateY(0);opacity: 0.6;}
+    50% {-ms-transform: translateY(-5px); opacity: 1;}
+    100% {-ms-transform: translateY(0);opacity: 0.5;}
+}
+
+@keyframes fadeInDown {
+    0% {transform: translateY(0);opacity: 0.6;}
+    50% {transform: translateY(-5px); opacity: 1;}
+    100% {transform: translateY(0);opacity: 0.5;}
+}
+
+.word_area{
+    clear:both;
+    width:240px;
+    background:url(http://file.xitie.net.cn/29_bor_bg.png) repeat;
+    padding:5px;
+    margin:40px auto 25px auto;
+    position:relative;
+    text-align:left;
+}
+.word_in{
+    background:#fff;
+    padding:10px;
+}
+.word_ico{
+    position:absolute;
+    width:25px;
+    height:45px;
+    top:-25px;
+    right:0px;
+    background:url(http://file.xitie.net.cn/29_word_ico.png) repeat;
+    background-size:25px auto;
+ }
+ /*5th*/
+/* .photo_area{
+    height:100%;
+    background:url(http://file.xitie.net.cn/29_photo.png) center no-repeat;
+    background-size:100% auto;
+    position: relative;
+ }*/
+ .ph_radius{
+    width:102px;
+    height:102px;
+    border:#f78cae 1px solid;
+    border-radius:50%;
+    position:absolute;
+    bottom:170px;
+    left:50%;
+    margin-left:-51px;
+    padding:4px;
+ }
+ .radius_in{
+    display:block;
+    width:92px;
+    height:92px;
+    color:#fff;
+    font-size:12px;
+    background:#e41e6d;
+    border-radius:50%;
+    text-align:center;
+    padding:15px 0px;
+ }
+  .radius_in h2{
+    font-size:14px;
+    font-weight:normal;
+    margin:0px;
+    padding:5px 0px 10px 0px;
+}
+  .radius_in i{
+    display:block;
+    width:56px;
+    height:8px;
+    background:url(http://file.xitie.net.cn/29_arrow_ph.png) no-repeat;
+    margin:0px auto 0px auto;
+}
+ /*6th*/
+.wish_area{
+    width:220px;
+    margin:0px auto;
+    padding:0px 0px 0px 0px;
+}
+.wish_area ul{
+    clear:both;
+    margin:0px auto;
+    padding:0px;
+}
+.wish_area .ul_three li{
+    float:left;
+    padding:0px;
+    margin:0px;
+}
+.wish_area .ul_three li a{
+    display:block;
+    width:90px;
+    height:30px;
+    line-height:30px;
+    background:#fc718d;
+    color:#fff;
+}
+.ul_three li:nth-child(2){float:left;margin:0px 10px 0px 18px;}
+.ul_three li:last-child{float:right;}
+.ul_three li a:hover,.ul_three li a.active{
+    height:30px;
+    line-height:24px;
+    color:#be1357;
+    background:#fff;
+    border:3px #fc718d solid;
+}
+.wish_btn{
+    clear:both;
+    width:220px;
+    height:30px;
+    line-height:30px;
+    color:#fff;
+    font-size:14px;
+    background: url(http://file.xitie.net.cn/29_btn.png) no-repeat;
+    background-size:220px 30px;
+    margin:0px auto;
+    text-align:center;
+}
+.wish_btn a{
+    color:#fff;
+}
+.fname{
+   clear:both;
+   border:1px #cbcbcb solid;
+   background:#fff;
+   margin:10px auto;
+}
+.fname input{
+   border:0;
+   width:150px;
+   height:28px;
+}
+.fname span{
+   display:inline-block;
+   width:60px;
+   border-left:1px #cbcbcb solid;
+   float:right;
+   height:28px;
+   line-height:28px;
+   background:#ededed;
+
+}
+.fname:after,
+.wish_area ul:after{/*line-height: 0; height: 0px; clear: both; font-size: 0px;*/visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.send_wishes{clear:both;}
+.send_wishes .send_tit{
+   width:76px;
+   height:24px;
+   line-height:24px;
+   color:#fff;
+   background:#e41d6c;
+   border-radius:4px;
+   margin:10px 0px 10px 0px;
     position: relative;
 }
-.page7 .main .play{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -114px;
-    margin-left: -74px;
-    display: block;
-    width: 148px;
-    height: 148px;
-    border-radius: 100%;
-    z-index: 1;
-    background: url(http://file.xitie.net.cn/30_play.png) no-repeat;
-    -webkit-animation: uanimate 8s linear infinite;
+.send_tit:after{
+        position: absolute;
+        content: '';
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        margin-bottom: -4px;
+        margin-right: 41px;
+        border-left: 5px solid transparent;
+        border-top: 5px solid #e41d6c;
+        border-right: 5px solid transparent;
 }
-.page7 .main .play-bg{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -114px;
-    margin-left: -74px;
-    background: rgba(255, 255, 255, 0.6);
-    -webkit-animation: video_btnPlay 1s linear infinite;
-    width: 148px;
-    height: 148px;
-    border-radius: 100%;
-    opacity: 0;
-    z-index: 0;
+.wish_area textarea{
+        width:220px;
+        min-height:50px;
+        margin-bottom:10px;
 }
-@-webkit-keyframes video_btnPlay{
-    0%{-webkit-transform: scale(1); opacity: 0.8;}
-    100%{-webkit-transform: scale(2); opacity: 0;}
+.create{
+    width:90px;
+    height:90px;
+    border:#f4a9ca 1px solid;
+    border-radius:50%;
+    margin:0px auto;
+    padding:4px;
+
+ }
+/*.ph_radius a,
+.create a{
+     -webkit-transform-style:preserve-3d;
+     -webkit-animation-name:x-spin;
+     -webkit-animation-duration:2s;
+     -webkit-animation-iteration-count:infinite;
+     -webkit-animation-timing-function:linear;
+}*/
+
+ @-webkit-keyframes x-spin {
+ 0% { -webkit-transform:rotate(0deg) scale(1.0)}
+ 20% { -webkit-transform:rotate(120deg) scale(1.1); }
+ 40% { -webkit-transform:rotate(240deg) scale(1.1); }
+ 60% { -webkit-transform:rotate(360deg) scale(1.1); }
+ 100% { -webkit-transform:rotate(360deg) scale(0.9)}
 }
-.page7 .yk-viedo{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    display: block;
-    z-index: 2;
+ @-moz-keyframes x-spin {
+ 0% { -webkit-transform:rotate(0deg) scale(1.0)}
+ 20% { -webkit-transform:rotate(120deg) scale(1.1); }
+ 40% { -webkit-transform:rotate(240deg) scale(1.1); }
+ 60% { -webkit-transform:rotate(360deg) scale(1.1); }
+ 100% { -webkit-transform:rotate(360deg) scale(0.9)}
 }
-.page7 .wifi{
-    margin-top: 30px;
-    height: 20px;
-    width: 100%;
-    background: url(http://file.xitie.net.cn/30_wifi.png) no-repeat center center;
+ @-o-keyframes x-spin {
+ 0% { -webkit-transform:rotate(0deg) scale(1.0)}
+ 20% { -webkit-transform:rotate(120deg) scale(1.1); }
+ 40% { -webkit-transform:rotate(240deg) scale(1.1); }
+ 60% { -webkit-transform:rotate(360deg) scale(1.1); }
+ 100% { -webkit-transform:rotate(360deg) scale(0.9)}
+}
+ @-ms-keyframes x-spin {
+ 0% { -webkit-transform:rotate(0deg) scale(1.0)}
+ 20% { -webkit-transform:rotate(120deg) scale(1.1); }
+ 40% { -webkit-transform:rotate(240deg) scale(1.1); }
+ 60% { -webkit-transform:rotate(360deg) scale(1.1); }
+ 100% { -webkit-transform:rotate(360deg) scale(0.9)}
+}
+ keyframes x-spin {
+ 0% { -webkit-transform:rotate(0deg) scale(1.0)}
+ 20% { -webkit-transform:rotate(120deg) scale(1.1); }
+ 40% { -webkit-transform:rotate(240deg) scale(1.1); }
+ 60% { -webkit-transform:rotate(360deg) scale(1.1); }
+ 100% { -webkit-transform:rotate(360deg) scale(0.9)}
 }
 
+.create_in{
+    display:block;
+    width:80px;
+    height:80px;
+    color:#fff;
+    font-size:12px;
+    background:#e41e6d;
+    border-radius:50%;
+    text-align:center;
+    padding:25px 0px 5px 0px;
+ }
+.create i{
+    display:block;
+    width:31px;
+    height:10px;
+    background:url(http://file.xitie.net.cn/29_arrow_create.png) no-repeat;
+    background-size:31px auto;
+    margin:10px auto 0px auto;
 
-@-webkit-keyframes guideTop {
-    0% {
-        -webkit-transform: translateY(42px);
-        opacity: 0;
-    }
-    60% {
-        -webkit-transform: translateY(12px);
-        opacity: 1;
-    }
-    100% {
-        -webkit-transform: translateY(0px);
-        opacity: 0;
-    }
 }
