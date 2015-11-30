@@ -210,6 +210,9 @@ function mp3_play(){
 
 $().ready(function(){
 
+    var dateCount = Math.ceil((new Date('2015-12-27') - new Date()) / 1000 / 60 / 60 / 24);
+    $('#day_num').html(dateCount);
+
     $(document).one('touchstart', function (e) {
     var music = document.getElementById("audio");
     if (music.paused) {
@@ -312,14 +315,14 @@ mySwiper.swipeNext()
           title: '陈浩寅和许佳家的婚礼邀请',
           desc: '我们要结婚了！2015年12月27日 18点18分，诚挚邀请您光临，点击查看更多。',
           link: '',
-          imgUrl: 'http://album.xitie.net.cn/CD140887477910261J2161418711892.jpg-avatar'
+          imgUrl: 'http://curarchy.github.io/webresources/img/weddingpic/head.png'
       });
 
       //分享到朋友圈
       wx.onMenuShareTimeline({
         title: '陈浩寅和许佳家的婚礼邀请',
         link: '',
-        imgUrl: 'http://album.xitie.net.cn/CD140887477910261J2161418711892.jpg-avatar'
+        imgUrl: 'http://curarchy.github.io/webresources/img/weddingpic/head.png'
       });
 
       //分享到QQ
@@ -327,7 +330,7 @@ mySwiper.swipeNext()
         title: '陈浩寅和许佳家的婚礼邀请',
         desc: '我们要结婚了！2015年12月27日 18点18分，诚挚邀请您光临，点击查看更多。',
         link: '',
-        imgUrl: 'http://album.xitie.net.cn/CD140887477910261J2161418711892.jpg-avatar'
+        imgUrl: 'http://curarchy.github.io/webresources/img/weddingpic/head.png'
       });
 
   });
