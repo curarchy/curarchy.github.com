@@ -1,0 +1,410 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>小寅寅、小良良结婚喜帖</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/webresources/css/idangerous.swiper.css">
+    <link href="/webresources/css/wedding.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="/webresources/javascript/jQuery.js"></script>
+    <script src="/webresources/javascript/idangerous.swiper.min.js"></script>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .tx{
+            display: block;
+            clear: both;
+            width:196px;
+            height: 196px;
+            margin: 0 auto;
+            background-size: 196px auto;
+            border-radius: 50%;
+            border: 5px #e75280 solid;
+        }
+
+        .photo_area{
+            height:100%;
+            background:url(http://curarchy.github.io/webresources/img/weddingpic/1.png) center no-repeat;
+            background-size:100% auto;
+            position: relative;
+        }
+
+        .gift_link{
+            z-index: 999;
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            display: inline-block;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border:none;
+            background: #E41D6C;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-family: Helvetica,"STHeiti STXihei","Microsoft JhengHei","Microsoft YaHei",Tohoma,Arial;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-decoration: none;
+        }
+        .gift_link:visited{color: #FFFFFF;}
+        .gift_link i{
+            font-size: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+            color: #FFFFFF;
+        }
+        .animation_box{
+            position: fixed;
+            z-index: 98;
+            bottom: 20px;
+            left: 0;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background: #E41D6C;
+            color: #E41D6C;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 15px;
+            font-family: Helvetica,"STHeiti STXihei","Microsoft JhengHei","Microsoft YaHei",Tohoma,Arial;
+        }
+        @-webkit-keyframes pulse_gift {0% {-webkit-transform: scale3d(1, 1, 1);opacity: 1}100% {-webkit-transform: scale3d(1.5, 1.5, 1);opacity: 0}}
+        @keyframes pulse_gift {0% {transform: scale3d(1, 1, 1);opacity: 1}100% {transform: scale3d(1.5, 1.5, 1);opacity: 0}}
+        .pulse_gift {-webkit-animation-name: pulse_gift;animation-name: pulse_gift}
+        .infinite_gift {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+</style>
+</head>
+<body onselectstart="return true;" ondragstart="return false;" ryt13746="1">
+
+    <div class="viewport" style="position: relative;overflow: hidden;">
+        <span class="up-btn" id="up-btn" style="z-index:9999999999 !important;"></span>
+        <span class="down-btn" id="down-btn" style="z-index:9999999999 !important"></span>
+
+        <div class="voice">
+            <label id="playbox" class="on" onclick="mp3_play()">
+                <audio id="audio" autoplay="autoplay" loop="loop">
+                    <source src="http://curarchy.github.io/webresources/mp3/music1.mp3" type="audio/mpeg"></audio>
+            </label>
+        </div>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper" style="width: 573px; height: 4640px; transform: translate3d(0px, 0px, 0px); transition-duration: 0.3s;">
+
+                <div class="swiper-slide third-slide swiper-slide-visible swiper-slide-active" style="width: 573px; height: 928px;">
+                    <div class="avatar">
+                        <img class="tx" src="http://curarchy.github.io/webresources/img/weddingpic/head.png"></img>
+                </div>
+                <div class="box_3th animated rotateIn">
+                    <div class="wedding_tit"></div>
+                    <section class="newman">
+                        小寅寅
+                        <span class="color_pink">&amp;</span>
+                        小良良
+                    </section>
+                </div>
+            </div>
+
+            <div class="swiper-slide forth-slide" style="width: 573px; height: 928px;">
+                <div class="wedding_title">地图导航</div>
+                <div class="box_4th animated zoomIn">
+                    <section class="ul_phone">
+                        <ul>
+                            <li class="man"> <i></i>
+                                <div class="phone_num">
+                                    15121051323
+                                    <a href="tel:15121051323">拨打电话</a>
+                                </div>
+                            </li>
+                            <li class="woman"> <i></i>
+                                <div class="phone_num">
+                                    13611626624
+                                    <a href="tel:13611626624">拨打电话</a>
+                                </div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                    </section>
+                    <div class="wedding_info" onclick="location.reload()">
+                        谨定于2015-12-27 18:18
+                        <br>地点：上海浦东新区长柳路100号</div>
+                    <div class="wedding_btn"> <em></em>
+                        <a href="http://api.map.baidu.com/marker?location=31.230155,121.558963&title=上海浦东新区长柳路100号&content=上海浦东新区长柳路100号&output=html&src=weiba|weiweb">立即导航</a>
+                    </div>
+
+                    <div class="word_area">
+                        <div class="word_in">
+                            <span class="word_ico"></span>
+                            <div class="color_pink"> <b>想说的话</b>
+                            </div>
+                            朋友，等侬过来吃吃老酒，解解山河，劈劈情操，轧闹猛。
+                        </div>
+                    </div>
+                    <div class="wedding_btn">
+                        <a href="#">
+                            距婚礼还有：
+                            <span id="day_num"></span>
+                            天
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="swiper-slide fifth-slide" style="width: 573px; height: 928px;">
+
+                <div class="swiper-container swiper-nested-1">
+                    <div class="pagination pagination-nested-1"></div>
+                    <div class="swiper-wrapper" style="width: 3438px; height: 928px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+
+                        <div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 573px; height: 928px;">
+                            <section class="photo_area">
+                                <div class="ph_radius">
+                                    <a href="#" class="radius_in">
+                                        <h2>婚纱照</h2>
+                                        左右滑动
+                                        <i></i>
+                                    </a>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/1.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/2.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/3.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/4.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/5.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/6.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/7.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                        <div class="swiper-slide" style="height:100%;background:url(http://curarchy.github.io/webresources/img/weddingpic/8.jpg) center no-repeat;background-size:100% auto;position: relative;"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide second-slide" style="width: 573px; height: 928px;">
+                <img class="swiper-slide" src="http://curarchy.github.io/webresources/img/weddingpic/pay.jpg" style="width: 100%;margin-top:40px;"></div>
+
+            <div class="forth-slide">
+                <div class="wedding_tit">
+                    送上祝福
+                    <span class="tit_en03"></span>
+                </div>
+                <div class="box_4th">
+                    <div class="wish_area">
+                        <ul class="ul_three">
+                            <li class="th_01">
+                                <a href="javascript:;" onclick="select_join(this)" data="1" class="active">出席</a>
+                            </li>
+                            <li class="th_02">
+                                <a href="javascript:;" onclick="select_join(this)" data="0" class="">不出席</a>
+                            </li>
+                        </ul>
+                        <div class="fname">
+                            <span>姓名</span>
+                            <input type="text" name="userName" id="userName"></div>
+                        <div class="fname">
+                            <span>电话</span>
+                            <input type="text" name="telephone" id="telephone"></div>
+                        <div class="send_wishes">
+                            <textarea name="content" id="content"></textarea>
+                            <input type="hidden" name="is_join" id="is_join" value="1"></div>
+                        <div class="wish_btn">
+                            <a href="javascript:;" onclick="submit2();">提交</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="pagination pagination_parent"></div>
+    </div>
+
+    <script type="text/javascript">
+function mp3_play(){
+    if ($('#playbox').hasClass('on')){
+        $('#playbox').attr('class','');
+        $('#playbox audio').get(0).pause();
+    }else{
+        $('#playbox').attr('class','on');
+        $('#playbox audio').get(0).play();
+    }
+}
+
+$().ready(function(){
+
+    var dateCount = Math.ceil((new Date('2015-12-27') - new Date()) / 1000 / 60 / 60 / 24);
+    $('#day_num').html(dateCount);
+
+    $(document).one('touchstart', function (e) {
+    var music = document.getElementById("audio");
+    if (music.paused) {
+        music.play();
+    }
+    });
+    document.addEventListener("WeixinJSBridgeReady",function onBridgeReady() {document.getElementById("audio").play();});
+
+$("#overlay_ul").bind("click", function(evt){
+if("UL" == evt.target.nodeName){
+this.className = 'overlay_ul';
+$(this).find('li').removeClass('on');
+}
+});
+});
+function submit2(){
+var form2 = document.getElementById("form2");
+var userName = form2.userName.value;
+var telephone = form2.telephone.value;
+var content = form2.content.value;
+var is_join = form2.is_join.value;
+if(userName.length<1){
+alert("请输入姓名！");
+return;
+}
+if(telephone.length<6){
+alert("请输入电话号码！");
+return;
+}
+if(content.length>50){
+alert("内容不能大于50个字！");
+return;
+}
+if(content.length<1){
+alert("请输入祝福内容！");
+return;
+}
+var obj = {
+cid : "CD140887477910261J216",
+is_join: is_join,
+userName: userName,
+telephone: telephone,
+content: content
+}
+$.post("marry.php?do=word", obj,function(result){
+alert(result);
+form2.reset();
+$("#overlay_ul").removeClass("on");
+});
+}
+
+function select_join(obj){
+$(".ul_three li a").each(function(){
+        $(this).removeClass("active");
+});
+    $(obj).addClass("active");
+$("#is_join").val($(obj).attr("data"));
+}
+</script>
+
+    <script>
+var mySwiper = new Swiper('.swiper-container',{
+mode: 'vertical',
+mousewheelControl: true,
+})
+var swiperNested1 = new Swiper('.swiper-nested-1',{
+})
+$('#up-btn').on('click', function(e){
+e.preventDefault()
+mySwiper.swipePrev()
+})
+$('#down-btn').on('click', function(e){
+e.preventDefault()
+mySwiper.swipeNext()
+})
+</script>
+
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+  wx.config({
+    debug: false,
+    appId: 'wx10678e9b03e2a998',
+    timestamp: 1448372619,
+    nonceStr: 'nqu5jCtv6Hm8rEbO',
+    signature: '6e202d13aad54a575956b77c3a19ff9dbabf0264',
+    jsApiList: [
+      // 所有要调用的 API 都要加到这个列表中
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+    ]
+  });
+
+  wx.ready(function () {
+
+      //分享给朋友
+      wx.onMenuShareAppMessage({
+          title: '小寅寅和小良良的婚礼邀请',
+          desc: '我们要结婚了！2015年12月27日 18点18分，诚挚邀请您光临，点击查看更多。',
+          link: '',
+          imgUrl: 'http://curarchy.github.io/webresources/img/weddingpic/head.png'
+      });
+
+      //分享到朋友圈
+      wx.onMenuShareTimeline({
+        title: '小寅寅和小良良的婚礼邀请',
+        link: '',
+        imgUrl: 'http://curarchy.github.io/webresources/img/weddingpic/head.png'
+      });
+
+      //分享到QQ
+      wx.onMenuShareQQ({
+        title: '小寅寅和小良良的婚礼邀请',
+        desc: '我们要结婚了！2015年12月27日 18点18分，诚挚邀请您光临，点击查看更多。',
+        link: '',
+        imgUrl: 'http://curarchy.github.io/webresources/img/weddingpic/head.png'
+      });
+
+  });
+
+function submit2() {
+    var userName = $("#userName").val();
+    var telephone = $("#telephone").val();
+    var content = $("#content").val();
+    var is_join = $("#is_join").val();
+    if (userName.length < 1) {
+        alert("请输入姓名！");
+        return;
+    }
+    if (telephone.length < 6) {
+        alert("请输入电话号码！");
+        return;
+    }
+    if (content.length > 50) {
+        alert("内容不能大于50个字！");
+        return;
+    }
+    if (content.length < 1) {
+        alert("请输入祝福内容！");
+        return;
+    }
+    var obj = {
+        cid: "CD144747480168416Ja9F",
+        is_join: is_join,
+        userName: userName,
+        telephone: telephone,
+        content: content
+    }
+    $.post("http://app.xitie.net.cn/marry.php?do=word", obj, function(result) {
+        alert(result);
+        $("#userName").val('');
+        $("#telephone").val('');
+        $("#content").val('');
+    });
+}
+
+</script></div>
+</body>
+</html>
